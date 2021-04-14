@@ -17,10 +17,14 @@ Final Project – Connect Four Game
     Our game is based on Connect Four – grab a piece of your corresponding color (up to 3) and
     drop it down a row when it is your turn, the goal is to connect four of your pieces either
     vertically, horizontally, or diagonally, to win the game.
+    
+    
 **2.** Your game must have some sort of “playing field” – a board, where cards are displayed, etc,
     showing the current state of the game. Briefly describe what yours look like.
        Our board will consist of a “home screen” where the stats of the game will be displayed, and
        a 6x7 grid in which the players will place their pieces (as depicted below).
+       
+       
 **3.** Your game must have a consistent theme. What will it be?
     The theme will simply consist of the three piece colors (R,G,B) and a yellow board. It is a
     simple theme for a simple game.
@@ -31,12 +35,16 @@ Final Project – Connect Four Game
     **1.** These should be represented by one struct/enum class/class that you will define
        Each player will have 21 pieces at their disposal at the beginning of the game. The
        points they earn per rounds can be used as a resource to “buy” items.
+
+
 **5.** Players must be able to acquire the items from #4. How?
     The game pieces are distributed at the beginning of the game, consistently being 21 pieces
     per player. At the end of the round: If there are three players, the first to connect 4 would
     win 30pts and the remaining players will battle for 2nd and 3rd place (20pts and 10pts
     respectively) – if its a stale mate or ends in a draw, they get 15pts. From there, players can
     redeem points in the “home” for items in between matches.
+
+
 **6.** You must have at least **2** different buildings/structures/upgrades/power-ups that are related to
     one another. What are they?
     **1.** These should be represented either by one base class and one derived class or by different
@@ -44,11 +52,17 @@ Final Project – Connect Four Game
           Upgrades and Power-Ups will include: a space that will double your points at the end of
           the match if your piece is in it, the ability to remove any chip from the board, a space
           that allows you to take an extra turn if your chip lands in it.
+
+
 **7.** Your game must be multiplayer. How many players will you allow?
     Minimum of 2 players, maximum of 3.
+
+
 **8.** Your game must have well-defined begin and end states. What are they?
     Begin state: empty board
     End state: players have connected four, or the board is filled up.
+
+
 **9.** (Do you have any other features that you are hoping to incorporate?)
     - Customized colors
     - Leaderboard
