@@ -18,6 +18,12 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_p1_color_clicked();
+
+    void on_p2_color_clicked();
+
+    void on_p3_color_clicked();
+
 private:
     Ui::MainBoard *ui;
 };
