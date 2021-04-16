@@ -13,6 +13,7 @@ SOURCES += \
     mainboard.cpp
 
 HEADERS += \
+    game.h \
     mainboard.h
 
 FORMS += \

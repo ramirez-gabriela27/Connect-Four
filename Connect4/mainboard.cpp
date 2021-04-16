@@ -1,8 +1,9 @@
 #include "mainboard.h"
 #include "ui_mainboard.h"
+#include "game.h"
 #include <QColor>
 #include <QColorDialog>
-
+#include <QtDebug>
 MainBoard::MainBoard(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainBoard)
@@ -35,10 +36,33 @@ MainBoard::~MainBoard()
 }
 
 // QGridLayout
-void MainBoard::on_pushButton_clicked()
+void MainBoard::on_doneButton_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(1);
+    int playerCount = 0;
+    // create new game logic
+    if (ui->p1_comboBox->currentIndex() == 1)
+        playerCount++;
+
+    if (ui->p2_comboBox->currentIndex() == 1)
+        playerCount++;
+
+    if (ui->p3_comboBox->currentIndex() == 1)
+        playerCount++;
+
+    if (playerCount < 2) {
+        qDebug() << "Not enough Players!!!";
+    }
+    else {
+        ui->stackedWidget->setCurrentIndex(1);
+        // create Player 1 object here
+        Player p1;
+        // create Player 2 object here
+
+        // create player 3 object here
+
+    }
 }
+
 
 void MainBoard::on_p1_color_clicked()
 {
@@ -78,3 +102,4 @@ void MainBoard::on_p3_color_clicked()
     ui->p3_color->setPalette(pal);
     ui->p3_color->update();
 }
+

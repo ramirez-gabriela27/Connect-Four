@@ -24,6 +24,8 @@ private slots:
 
     void on_p3_color_clicked();
 
+    void on_doneButton_clicked();
+
 private:
     Ui::MainBoard *ui;
 };
