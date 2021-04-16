@@ -5,11 +5,15 @@
 
 #include <QColor>
 
+struct Store {
+    // put cost of items here
+};
+
 class Player {
 
 public:
-    Player(QColor color);
-    ~Player();
+    Player(QColor color) {color_ = color; points_ = 0;};
+//    ~Player();
 
     // getters and setters here
 

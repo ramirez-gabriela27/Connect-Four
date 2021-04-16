@@ -4,6 +4,8 @@
 #include <QColor>
 #include <QColorDialog>
 #include <QtDebug>
+#include <QMessageBox>
+
 MainBoard::MainBoard(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainBoard)
@@ -51,15 +53,26 @@ void MainBoard::on_doneButton_clicked()
 
     if (playerCount < 2) {
         qDebug() << "Not enough Players!!!";
+        QMessageBox msgBox;
+        msgBox.setText("Not enough Players!!!");
+        msgBox.exec();
     }
     else {
+        // player objects are created when Done button is pressed
+
         ui->stackedWidget->setCurrentIndex(1);
+
         // create Player 1 object here
-        Player p1;
+        if (ui->p1_comboBox->currentIndex() == 1)
+            Player p1(ui->p1_color->palette().color(QPalette::Button));
+
         // create Player 2 object here
+        if (ui->p2_comboBox->currentIndex() == 1)
+            Player p2(ui->p2_color->palette().color(QPalette::Button));
 
         // create player 3 object here
-
+        if (ui->p2_comboBox->currentIndex() == 1)
+           Player p3(ui->p3_color->palette().color(QPalette::Button));
     }
 }
 
