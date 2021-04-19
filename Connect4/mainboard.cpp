@@ -2,6 +2,8 @@
 #include "ui_mainboard.h"
 #include <QColor>
 #include <QColorDialog>
+#include <QtDebug>
+#include <QMessageBox>
 
 MainBoard::MainBoard(QWidget *parent)
     : QMainWindow(parent)
@@ -35,10 +37,53 @@ MainBoard::~MainBoard()
 }
 
 // QGridLayout
-void MainBoard::on_pushButton_clicked()
+void MainBoard::on_doneButton_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(1);
+    int playerCount = 0;
+    // create new game logic
+    if (ui->p1_comboBox->currentIndex() == 1)
+        playerCount++;
+
+    if (ui->p2_comboBox->currentIndex() == 1)
+        playerCount++;
+
+    if (ui->p3_comboBox->currentIndex() == 1)
+        playerCount++;
+
+    if (playerCount < 2) {
+        qDebug() << "Not enough Players!!!";
+        QMessageBox msgBox;
+        msgBox.setText("Not enough Players!!!");
+        msgBox.exec();
+    }
+    else
+    {
+        // player objects are created when Done button is pressed
+
+        ui->stackedWidget->setCurrentIndex(1);
+//        Board board;
+
+        // create Player 1 object here
+        if (ui->p1_comboBox->currentIndex() == 1) {
+            Player p1(ui->p1_color->palette().color(QPalette::Button));
+//            board.addPlayer(&p1);
+        }
+
+        // create Player 2 object here
+        if (ui->p2_comboBox->currentIndex() == 1) {
+            Player p2(ui->p2_color->palette().color(QPalette::Button));
+//            board.addPlayer(&p2);
+        }
+
+        // create player 3 object here
+        if (ui->p2_comboBox->currentIndex() == 1) {
+            Player p3(ui->p3_color->palette().color(QPalette::Button));
+//            board.addPlayer(&p3);
+        }
+//        this->setBoard(&board);
+    }
 }
+
 
 void MainBoard::on_p1_color_clicked()
 {
@@ -78,3 +123,4 @@ void MainBoard::on_p3_color_clicked()
     ui->p3_color->setPalette(pal);
     ui->p3_color->update();
 }
+
