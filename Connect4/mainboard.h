@@ -1,5 +1,6 @@
 #ifndef MAINBOARD_H
 #define MAINBOARD_H
+#include "game.h"
 
 #include <QMainWindow>
 
@@ -15,8 +16,12 @@ public:
     MainBoard(QWidget *parent = nullptr);
     ~MainBoard();
 
+    void setBoard(Board* board) {board_ = board;};
+    Board* getBoard() {return board_;};
+
 private slots:
-    void on_pushButton_clicked();
+
+    void on_doneButton_clicked();
 
     void on_p1_color_clicked();
 
@@ -24,9 +29,9 @@ private slots:
 
     void on_p3_color_clicked();
 
-    void on_doneButton_clicked();
 
 private:
     Ui::MainBoard *ui;
+    Board* board_;
 };
 #endif // MAINBOARD_H

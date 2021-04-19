@@ -1,6 +1,5 @@
 #include "mainboard.h"
 #include "ui_mainboard.h"
-#include "game.h"
 #include <QColor>
 #include <QColorDialog>
 #include <QtDebug>
@@ -57,22 +56,31 @@ void MainBoard::on_doneButton_clicked()
         msgBox.setText("Not enough Players!!!");
         msgBox.exec();
     }
-    else {
+    else
+    {
         // player objects are created when Done button is pressed
 
         ui->stackedWidget->setCurrentIndex(1);
+//        Board board;
 
         // create Player 1 object here
-        if (ui->p1_comboBox->currentIndex() == 1)
+        if (ui->p1_comboBox->currentIndex() == 1) {
             Player p1(ui->p1_color->palette().color(QPalette::Button));
+//            board.addPlayer(&p1);
+        }
 
         // create Player 2 object here
-        if (ui->p2_comboBox->currentIndex() == 1)
+        if (ui->p2_comboBox->currentIndex() == 1) {
             Player p2(ui->p2_color->palette().color(QPalette::Button));
+//            board.addPlayer(&p2);
+        }
 
         // create player 3 object here
-        if (ui->p2_comboBox->currentIndex() == 1)
-           Player p3(ui->p3_color->palette().color(QPalette::Button));
+        if (ui->p2_comboBox->currentIndex() == 1) {
+            Player p3(ui->p3_color->palette().color(QPalette::Button));
+//            board.addPlayer(&p3);
+        }
+//        this->setBoard(&board);
     }
 }
 

@@ -4,9 +4,10 @@
 #endif // GAME_H
 
 #include <QColor>
+#include <vector>
 
 struct Store {
-    // put cost of items here
+    // put item costs here
 };
 
 class Player {
@@ -23,4 +24,16 @@ private:
     int points_;
     QColor color_;
 
+};
+
+
+
+class Board {
+    // board object. Only one per game.
+public:
+    Board();
+
+    void addPlayer(Player* player) {players_.push_back(player);};
+private:
+    std::vector<Player*> players_;
 };
