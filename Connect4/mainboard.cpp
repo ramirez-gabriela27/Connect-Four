@@ -41,14 +41,20 @@ void MainBoard::on_doneButton_clicked()
 {
     int playerCount = 0;
     // create new game logic
-    if (ui->p1_comboBox->currentIndex() == 1)
+    if (ui->p1_comboBox->currentIndex() == 1){
         playerCount++;
+        qDebug() << "Adding Player 1";
+    }
 
-    if (ui->p2_comboBox->currentIndex() == 1)
+    if (ui->p2_comboBox->currentIndex() == 1){
         playerCount++;
+        qDebug() << "Adding Player 2";
+    }
 
-    if (ui->p3_comboBox->currentIndex() == 1)
+    if (ui->p3_comboBox->currentIndex() == 1){
         playerCount++;
+        qDebug() << "Adding Player 3";
+    }
 
     if (playerCount < 2) {
         qDebug() << "Not enough Players!!!";
@@ -124,3 +130,28 @@ void MainBoard::on_p3_color_clicked()
     ui->p3_color->update();
 }
 
+
+void MainBoard::on_p1_comboBox_currentIndexChanged(int index)
+{
+    if (index == 1)
+        ui->p1_name->setEnabled(true);
+    else if (index == 0)
+        ui->p1_name->setEnabled(false);
+
+}
+
+void MainBoard::on_p2_comboBox_currentIndexChanged(int index)
+{
+    if (index == 1)
+        ui->p2_name->setEnabled(true);
+    else if (index == 0)
+        ui->p2_name->setEnabled(false);
+}
+
+void MainBoard::on_p3_comboBox_currentIndexChanged(int index)
+{
+    if (index == 1)
+        ui->p3_name->setEnabled(true);
+    else if (index == 0)
+        ui->p3_name->setEnabled(false);
+}

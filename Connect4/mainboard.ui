@@ -53,15 +53,15 @@
      <widget class="QWidget" name="gridLayoutWidget">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>150</x>
         <y>140</y>
-        <width>301</width>
+        <width>331</width>
         <height>181</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
-       <item row="0" column="1">
-        <widget class="QComboBox" name="p1_comboBox">
+       <item row="2" column="2">
+        <widget class="QComboBox" name="p3_comboBox">
          <item>
           <property name="text">
            <string>Disabled</string>
@@ -82,6 +82,13 @@
         </widget>
        </item>
        <item row="1" column="1">
+        <widget class="QLineEdit" name="p2_name">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
         <widget class="QComboBox" name="p2_comboBox">
          <item>
           <property name="text">
@@ -112,8 +119,22 @@
          </property>
         </widget>
        </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="p1_name">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
        <item row="2" column="1">
-        <widget class="QComboBox" name="p3_comboBox">
+        <widget class="QLineEdit" name="p3_name">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QComboBox" name="p1_comboBox">
          <item>
           <property name="text">
            <string>Disabled</string>
@@ -131,9 +152,9 @@
      <widget class="QWidget" name="verticalLayoutWidget">
       <property name="geometry">
        <rect>
-        <x>490</x>
+        <x>500</x>
         <y>140</y>
-        <width>131</width>
+        <width>71</width>
         <height>181</height>
        </rect>
       </property>

@@ -30,6 +30,12 @@ private slots:
     void on_p3_color_clicked();
 
 
+    void on_p1_comboBox_currentIndexChanged(int index);
+
+    void on_p2_comboBox_currentIndexChanged(int index);
+
+    void on_p3_comboBox_currentIndexChanged(int index);
+
 private:
     Ui::MainBoard *ui;
     Board* board_;
