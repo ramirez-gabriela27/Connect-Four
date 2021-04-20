@@ -63,10 +63,14 @@ void MainBoard::on_doneButton_clicked()
     // validate name inputs
     for (int i : player_vec) {
         switch (i) {
-        case 1:
-        case 2:
-        case 3:
+        case 0:
             sentry += int(emit on_p1_name_editingFinished());
+            break;
+        case 1:
+            sentry += int(emit on_p2_name_editingFinished());
+            break;
+        case 2:
+            sentry += int(emit on_p3_name_editingFinished());
             break;
         }
     }
@@ -78,15 +82,23 @@ void MainBoard::on_doneButton_clicked()
         msgBox.exec();
     }
 
-    else if (++sentry != player_vec.size()) {
+    else if (sentry != player_vec.size()) {
         QMessageBox msgBox;
         msgBox.setText("Player names must be unique or not empty!");
         msgBox.exec();
         qDebug() << "Player names must be unique or not empty!";
         qDebug() << "vec size is " << int(player_vec.size());
         qDebug() << "Sentry is " << sentry;
+        qDebug() << "Invalid Player names...";
+        qDebug() << ui->p1_name->text();
+        qDebug() << ui->p2_name->text();
+        qDebug() << ui->p3_name->text();
     }
     else {
+        qDebug() << "Valid Player names...";
+        qDebug() << ui->p1_name->text();
+        qDebug() << ui->p2_name->text();
+        qDebug() << ui->p3_name->text();
 
         // player objects are created when Done button is pressed
 
