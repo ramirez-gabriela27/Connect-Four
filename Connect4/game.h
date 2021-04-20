@@ -22,6 +22,7 @@ public:
 
 private:
     int points_;
+    QString name_;
     QColor color_;
 
 };

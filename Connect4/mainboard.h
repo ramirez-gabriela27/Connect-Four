@@ -28,15 +28,26 @@ private slots:
     void on_p2_color_clicked();
 
     void on_p3_color_clicked();
+    
+    void on_p1_comboBox_currentIndexChanged(int index);
 
+    void on_p2_comboBox_currentIndexChanged(int index);
 
-    void on_pushButton_clicked();
+    void on_p3_comboBox_currentIndexChanged(int index);
 
-    void on_pushButton_2_clicked();
+    bool on_p1_name_editingFinished();
 
-    void on_pushButton_3_clicked();
+    bool on_p2_name_editingFinished();
 
-    void on_pushButton_4_clicked();
+    bool on_p3_name_editingFinished();
+
+    void on_board_endGameButton_clicked();
+
+    void on_board_shopButton_clicked();
+
+    void on_store_endGameButton_clicked();
+
+    void on_store_nextRoundButton_clicked();
 
 private:
     Ui::MainBoard *ui;
