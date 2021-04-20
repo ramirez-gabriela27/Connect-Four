@@ -48,9 +48,11 @@ public:
     QWidget *connect4board;
     QLabel *label_2;
     QPushButton *pushButton;
+    QPushButton *pushButton_3;
     QWidget *store;
     QLabel *label;
     QPushButton *pushButton_2;
+    QPushButton *pushButton_4;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -63,7 +65,7 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
-        stackedWidget->setGeometry(QRect(40, 0, 761, 541));
+        stackedWidget->setGeometry(QRect(20, 0, 761, 541));
         mainmenu = new QWidget();
         mainmenu->setObjectName(QString::fromUtf8("mainmenu"));
         MainMenu_label = new QLabel(mainmenu);
@@ -147,10 +149,13 @@ public:
 "}"));
         label_2 = new QLabel(connect4board);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(270, 60, 55, 16));
+        label_2->setGeometry(QRect(330, 60, 55, 16));
         pushButton = new QPushButton(connect4board);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(570, 460, 121, 31));
+        pushButton->setGeometry(QRect(620, 490, 121, 31));
+        pushButton_3 = new QPushButton(connect4board);
+        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+        pushButton_3->setGeometry(QRect(10, 10, 89, 25));
         stackedWidget->addWidget(connect4board);
         store = new QWidget();
         store->setObjectName(QString::fromUtf8("store"));
@@ -160,6 +165,9 @@ public:
         pushButton_2 = new QPushButton(store);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
         pushButton_2->setGeometry(QRect(590, 370, 121, 51));
+        pushButton_4 = new QPushButton(store);
+        pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
+        pushButton_4->setGeometry(QRect(10, 10, 89, 25));
         stackedWidget->addWidget(store);
         MainBoard->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainBoard);
@@ -171,6 +179,9 @@ public:
         MainBoard->setStatusBar(statusbar);
 
         retranslateUi(MainBoard);
+
+        stackedWidget->setCurrentIndex(0);
+
 
         QMetaObject::connectSlotsByName(MainBoard);
     } // setupUi
@@ -195,10 +206,12 @@ public:
         p1_color->setText(QString());
         p2_color->setText(QString());
         p3_color->setText(QString());
-        label_2->setText(QCoreApplication::translate("MainBoard", "Board", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainBoard", "ROUND OVER", nullptr));
+        label_2->setText(QCoreApplication::translate("MainBoard", "board", nullptr));
+        pushButton->setText(QCoreApplication::translate("MainBoard", "SHOP", nullptr));
+        pushButton_3->setText(QCoreApplication::translate("MainBoard", "End Game", nullptr));
         label->setText(QCoreApplication::translate("MainBoard", "Store", nullptr));
         pushButton_2->setText(QCoreApplication::translate("MainBoard", "NEXT ROUND", nullptr));
+        pushButton_4->setText(QCoreApplication::translate("MainBoard", "End Game", nullptr));
     } // retranslateUi
 
 };
