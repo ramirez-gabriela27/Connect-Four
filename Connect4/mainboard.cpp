@@ -163,3 +163,27 @@ void MainBoard::on_pushButton_2_clicked()
     ui->stackedWidget->setCurrentIndex(1);
     qDebug() << "shopping done, next round";
 }
+
+void MainBoard::on_pushButton_3_clicked()
+{
+    QMessageBox msgBox;
+    msgBox.setText("LEAVING GAME");
+    msgBox.exec();
+    qDebug() << "ENDING GAME";
+    //call game destructor
+
+    //go back to home screen
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainBoard::on_pushButton_4_clicked()
+{
+    QMessageBox msgBox;
+    msgBox.setText("LEAVING GAME");
+    msgBox.exec();
+    qDebug() << "ENDING GAME";
+    //call game destructor
+
+    //go back to home screen
+    ui->stackedWidget->setCurrentIndex(0);
+}
