@@ -45,6 +45,10 @@ private slots:
 
     void on_pushButton_4_clicked();
 
+    void on_p2_name_editingFinished();
+
+    void on_p3_name_editingFinished();
+
 private:
     Ui::MainBoard *ui;
     Board* board_;
