@@ -29,6 +29,7 @@ MainBoard::MainBoard(QWidget *parent)
     ui->p3_color->setAutoFillBackground(true);
     ui->p3_color->setPalette(pal);
     ui->p3_color->update();
+
 }
 
 MainBoard::~MainBoard()
@@ -72,18 +73,24 @@ void MainBoard::on_doneButton_clicked()
         // create Player 1 object here
         if (ui->p1_comboBox->currentIndex() == 1) {
             Player p1(ui->p1_color->palette().color(QPalette::Button));
+            // set player 1 name from ui->p1_name
+
 //            board.addPlayer(&p1);
         }
 
         // create Player 2 object here
         if (ui->p2_comboBox->currentIndex() == 1) {
             Player p2(ui->p2_color->palette().color(QPalette::Button));
+            // set player 2 name from ui->p2_name
+
 //            board.addPlayer(&p2);
         }
 
         // create player 3 object here
         if (ui->p2_comboBox->currentIndex() == 1) {
             Player p3(ui->p3_color->palette().color(QPalette::Button));
+            // set player 3 name from ui->p3_name
+
 //            board.addPlayer(&p3);
         }
 //        this->setBoard(&board);
@@ -133,10 +140,14 @@ void MainBoard::on_p3_color_clicked()
 
 void MainBoard::on_p1_comboBox_currentIndexChanged(int index)
 {
-    if (index == 1)
+    if (index == 1) {
         ui->p1_name->setEnabled(true);
-    else if (index == 0)
+        emit on_p1_name_editingFinished();
+    }
+    else if (index == 0) {
         ui->p1_name->setEnabled(false);
+        ui->doneButton->setEnabled(true);
+    }
 
 }
 
@@ -154,4 +165,14 @@ void MainBoard::on_p3_comboBox_currentIndexChanged(int index)
         ui->p3_name->setEnabled(true);
     else if (index == 0)
         ui->p3_name->setEnabled(false);
+}
+
+void MainBoard::on_p1_name_editingFinished()
+{
+    if (ui->p1_name->text() == "") {
+        qDebug() << "name cannot be empty!";
+        ui->doneButton->setEnabled(false);
+    }
+    else
+        ui->doneButton->setEnabled(true);
 }

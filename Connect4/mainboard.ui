@@ -86,6 +86,15 @@
          <property name="enabled">
           <bool>false</bool>
          </property>
+         <property name="maxLength">
+          <number>15</number>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="placeholderText">
+          <string>Player 2 Name</string>
+         </property>
         </widget>
        </item>
        <item row="1" column="2">
@@ -124,12 +133,30 @@
          <property name="enabled">
           <bool>false</bool>
          </property>
+         <property name="maxLength">
+          <number>15</number>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="placeholderText">
+          <string>Player 1 Name</string>
+         </property>
         </widget>
        </item>
        <item row="2" column="1">
         <widget class="QLineEdit" name="p3_name">
          <property name="enabled">
           <bool>false</bool>
+         </property>
+         <property name="maxLength">
+          <number>15</number>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="placeholderText">
+          <string>Player 3 Name</string>
          </property>
         </widget>
        </item>

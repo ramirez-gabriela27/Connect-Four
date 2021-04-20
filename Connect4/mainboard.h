@@ -36,6 +36,8 @@ private slots:
 
     void on_p3_comboBox_currentIndexChanged(int index);
 
+    void on_p1_name_editingFinished();
+
 private:
     Ui::MainBoard *ui;
     Board* board_;
