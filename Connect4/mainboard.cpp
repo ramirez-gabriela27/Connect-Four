@@ -2,7 +2,6 @@
 #include "ui_mainboard.h"
 #include <QColor>
 #include <QColorDialog>
-#include <QtDebug>
 #include <QMessageBox>
 
 MainBoard::MainBoard(QWidget *parent)
@@ -47,21 +46,25 @@ void MainBoard::on_doneButton_clicked()
     unsigned int sentry = 0;
     std::vector<int> player_vec;
     // create new game logic
-    if (ui->p1_comboBox->currentIndex() == 1) {
+    if (ui->p1_comboBox->currentIndex() == 1)
+    {
         player_vec.push_back(0);
     }
 
-    if (ui->p2_comboBox->currentIndex() == 1){
+    if (ui->p2_comboBox->currentIndex() == 1)
+    {
         player_vec.push_back(1);
     }
 
 
-    if (ui->p3_comboBox->currentIndex() == 1){
+    if (ui->p3_comboBox->currentIndex() == 1)
+    {
         player_vec.push_back(2);
     }
 
     // validate name inputs
-    for (int i : player_vec) {
+    for (int i : player_vec)
+    {
         switch (i) {
         case 0:
             sentry += int(emit on_p1_name_editingFinished());
@@ -75,30 +78,24 @@ void MainBoard::on_doneButton_clicked()
         }
     }
 
-    if (player_vec.size() < 2) {
+    if (player_vec.size() < 2)
+    {
         qDebug() << "Not enough Players!!!";
         QMessageBox msgBox;
         msgBox.setText("Not enough Players!!!");
         msgBox.exec();
     }
 
-    else if (sentry != player_vec.size()) {
+    else if (sentry != player_vec.size())
+    {
         QMessageBox msgBox;
         msgBox.setText("Player names must be unique or not empty!");
         msgBox.exec();
         qDebug() << "Player names must be unique or not empty!";
         qDebug() << "vec size is " << int(player_vec.size());
         qDebug() << "Sentry is " << sentry;
-//        qDebug() << "Invalid Player names...";
-//        qDebug() << ui->p1_name->text();
-//        qDebug() << ui->p2_name->text();
-//        qDebug() << ui->p3_name->text();
     }
     else {
-//        qDebug() << "Valid Player names...";
-//        qDebug() << ui->p1_name->text();
-//        qDebug() << ui->p2_name->text();
-//        qDebug() << ui->p3_name->text();
 
         // player objects are created when Done button is pressed
 
@@ -106,49 +103,52 @@ void MainBoard::on_doneButton_clicked()
                 //board and shop
         ui->stackedWidget->setCurrentIndex(1);
         qDebug() << "Starting Game... Creating Player Objects...";
-//        Board board;
+        Board* board = new Board;
 
         // create Player 1 object here
         if (ui->p1_comboBox->currentIndex() == 1) {
             Player p1(ui->p1_color->palette().color(QPalette::Button));
-            qDebug() << "Adding Player 1";
+            qDebug() << "Adding Player 1...";
 
             // set player 1 name from ui->p1_name
-
-//            board.addPlayer(&p1);
+            p1.setName(ui->p1_name->text());
+            board->addPlayer(&p1);
         }
 
         // create Player 2 object here
         if (ui->p2_comboBox->currentIndex() == 1) {
             Player p2(ui->p2_color->palette().color(QPalette::Button));
-            qDebug() << "Adding Player 2";
+            qDebug() << "Adding Player 2...";
 
             // set player 2 name from ui->p2_name
-
-//            board.addPlayer(&p2);
+            p2.setName(ui->p2_name->text());
+            board->addPlayer(&p2);
         }
 
         // create player 3 object here
-        if (ui->p2_comboBox->currentIndex() == 1) {
+        if (ui->p3_comboBox->currentIndex() == 1) {
             Player p3(ui->p3_color->palette().color(QPalette::Button));
-            qDebug() << "Adding Player 3";
+            qDebug() << "Adding Player 3...";
 
             // set player 3 name from ui->p3_name
-
-//            board.addPlayer(&p3);
+            p3.setName(ui->p3_name->text());
+            board->addPlayer(&p3);
         }
-//        this->setBoard(&board);
+        // set created board object pointer to be referenced by mainboard
+        this->setBoard(board);
         qDebug() << "Done.";
     }
 }
 
 bool MainBoard::on_p1_name_editingFinished()
 {
-    if (ui->p1_name->text() == "") {
+    if (ui->p1_name->text() == "")
+    {
         qDebug() << "name cannot be empty!";
         return false;
     }
-    else if (ui->p1_name->text() == ui->p2_name->text() || ui->p1_name->text() == ui->p3_name->text()) {
+    else if (ui->p1_name->text() == ui->p2_name->text() || ui->p1_name->text() == ui->p3_name->text())
+    {
         qDebug() << "name cannot be same as other player names";
         return false;
     }
@@ -158,11 +158,13 @@ bool MainBoard::on_p1_name_editingFinished()
 
 bool MainBoard::on_p2_name_editingFinished()
 {
-    if (ui->p2_name->text() == "") {
+    if (ui->p2_name->text() == "")
+    {
         qDebug() << "name cannot be empty!";
         return false;
     }
-    else if (ui->p2_name->text() == ui->p1_name->text() || ui->p2_name->text() == ui->p3_name->text()) {
+    else if (ui->p2_name->text() == ui->p1_name->text() || ui->p2_name->text() == ui->p3_name->text())
+    {
         qDebug() << "name cannot be same as other player names";
         return false;
     }
@@ -173,11 +175,13 @@ bool MainBoard::on_p2_name_editingFinished()
 
 bool MainBoard::on_p3_name_editingFinished()
 {
-    if (ui->p3_name->text() == "") {
+    if (ui->p3_name->text() == "")
+    {
         qDebug() << "name cannot be empty!";
         return false;
     }
-    else if (ui->p3_name->text() == ui->p2_name->text() || ui->p3_name->text() == ui->p1_name->text()) {
+    else if (ui->p3_name->text() == ui->p2_name->text() || ui->p3_name->text() == ui->p1_name->text())
+    {
         qDebug() << "name cannot be same as other player names";
         return false;
     }
@@ -228,11 +232,13 @@ void MainBoard::on_p3_color_clicked()
 
 void MainBoard::on_p1_comboBox_currentIndexChanged(int index)
 {
-    if (index == 1) {
+    if (index == 1)
+    {
         ui->p1_name->setEnabled(true);
         emit on_p1_name_editingFinished();
     }
-    else if (index == 0) {
+    else if (index == 0)
+    {
         ui->p1_name->setEnabled(false);
         ui->doneButton->setEnabled(true);
     }
@@ -240,11 +246,13 @@ void MainBoard::on_p1_comboBox_currentIndexChanged(int index)
 
 void MainBoard::on_p2_comboBox_currentIndexChanged(int index)
 {
-    if (index == 1) {
+    if (index == 1)
+    {
         ui->p2_name->setEnabled(true);
         emit on_p2_name_editingFinished();
     }
-    else if (index == 0) {
+    else if (index == 0)
+    {
         ui->p2_name->setEnabled(false);
         ui->doneButton->setEnabled(true);
     }
@@ -252,20 +260,22 @@ void MainBoard::on_p2_comboBox_currentIndexChanged(int index)
 
 void MainBoard::on_p3_comboBox_currentIndexChanged(int index)
 {
-    if (index == 1) {
+    if (index == 1)
+    {
         ui->p3_name->setEnabled(true);
         emit on_p3_name_editingFinished();
     }
-    else if (index == 0) {
+    else if (index == 0)
+    {
         ui->p3_name->setEnabled(false);
         ui->doneButton->setEnabled(true);
     }
 }
 
 
-
 ////////////////////////////////////////////////// BOARD //////////////////////////////////////////////////
 // Use QGridLayout
+
 void MainBoard::on_board_endGameButton_clicked()
 {
     QMessageBox msgBox;
@@ -274,10 +284,12 @@ void MainBoard::on_board_endGameButton_clicked()
     msgBox.setStandardButtons(QMessageBox::Yes);
     msgBox.addButton(QMessageBox::No);
     msgBox.setDefaultButton(QMessageBox::No);
-    if(msgBox.exec() == QMessageBox::Yes){
-        qDebug() << "ENDING GAME";
+    if(msgBox.exec() == QMessageBox::Yes)
+    {
+        qDebug() << "Ending current game session...";
         //go back to home screen
         ui->stackedWidget->setCurrentIndex(0);
+        delete this->getBoardRef();
     }
 }
 
@@ -285,8 +297,9 @@ void MainBoard::on_board_shopButton_clicked()
 {
     //the round is over, we shop
     ui->stackedWidget->setCurrentIndex(2);
-    qDebug() << "time to do some shopping";
+    qDebug() << "Switching to shopping screen.";
 }
+
 
 ////////////////////////////////////////////////// STORE //////////////////////////////////////////////////
 
@@ -299,10 +312,12 @@ void MainBoard::on_store_endGameButton_clicked()
     msgBox.setStandardButtons(QMessageBox::Yes);
     msgBox.addButton(QMessageBox::No);
     msgBox.setDefaultButton(QMessageBox::No);
-    if(msgBox.exec() == QMessageBox::Yes){
-        qDebug() << "ENDING GAME";
+    if(msgBox.exec() == QMessageBox::Yes)
+    {
+        qDebug() << "Ending current game session...";
         //go back to home screen
         ui->stackedWidget->setCurrentIndex(0);
+        delete this->getBoardRef();
     }
 }
 
@@ -310,7 +325,7 @@ void MainBoard::on_store_nextRoundButton_clicked()
 {
     //after shopping, next round
     ui->stackedWidget->setCurrentIndex(1);
-    qDebug() << "shopping done, next round";
+    qDebug() << "Shopping finished... Starting next round...";
 }
 
 
