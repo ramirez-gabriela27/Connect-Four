@@ -2,7 +2,7 @@
 #define GAME_H
 
 #endif // GAME_H
-
+#include <QtDebug>
 #include <QColor>
 #include <vector>
 #include <map>

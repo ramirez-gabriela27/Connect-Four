@@ -17,7 +17,7 @@ public:
     ~MainBoard();
 
     void setBoard(Board* board) {board_ = board;};
-    Board* getBoard() {return board_;};
+    Board* getBoardRef() {return board_;};
 
 private slots:
 
@@ -51,6 +51,6 @@ private slots:
 
 private:
     Ui::MainBoard *ui;
-    Board* board_;
+    Board* board_ = nullptr;
 };
 #endif // MAINBOARD_H

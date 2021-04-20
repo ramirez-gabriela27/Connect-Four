@@ -2,7 +2,6 @@
 #include "ui_mainboard.h"
 #include <QColor>
 #include <QColorDialog>
-#include <QtDebug>
 #include <QMessageBox>
 
 MainBoard::MainBoard(QWidget *parent)
@@ -104,38 +103,38 @@ void MainBoard::on_doneButton_clicked()
                 //board and shop
         ui->stackedWidget->setCurrentIndex(1);
         qDebug() << "Starting Game... Creating Player Objects...";
-        Board board;
+        Board* board = new Board;
 
         // create Player 1 object here
         if (ui->p1_comboBox->currentIndex() == 1) {
             Player p1(ui->p1_color->palette().color(QPalette::Button));
-            qDebug() << "Adding Player 1";
+            qDebug() << "Adding Player 1...";
 
             // set player 1 name from ui->p1_name
             p1.setName(ui->p1_name->text());
-            board.addPlayer(&p1);
+            board->addPlayer(&p1);
         }
 
         // create Player 2 object here
         if (ui->p2_comboBox->currentIndex() == 1) {
             Player p2(ui->p2_color->palette().color(QPalette::Button));
-            qDebug() << "Adding Player 2";
+            qDebug() << "Adding Player 2...";
 
             // set player 2 name from ui->p2_name
             p2.setName(ui->p2_name->text());
-            board.addPlayer(&p2);
+            board->addPlayer(&p2);
         }
 
         // create player 3 object here
         if (ui->p3_comboBox->currentIndex() == 1) {
             Player p3(ui->p3_color->palette().color(QPalette::Button));
-            qDebug() << "Adding Player 3";
+            qDebug() << "Adding Player 3...";
 
             // set player 3 name from ui->p3_name
             p3.setName(ui->p3_name->text());
-            board.addPlayer(&p3);
+            board->addPlayer(&p3);
         }
-        this->setBoard(&board);
+        this->setBoard(board);
         qDebug() << "Done.";
     }
 }
@@ -286,9 +285,10 @@ void MainBoard::on_board_endGameButton_clicked()
     msgBox.setDefaultButton(QMessageBox::No);
     if(msgBox.exec() == QMessageBox::Yes)
     {
-        qDebug() << "ENDING GAME";
+        qDebug() << "Ending current game session...";
         //go back to home screen
         ui->stackedWidget->setCurrentIndex(0);
+        delete this->getBoardRef();
     }
 }
 
@@ -296,7 +296,7 @@ void MainBoard::on_board_shopButton_clicked()
 {
     //the round is over, we shop
     ui->stackedWidget->setCurrentIndex(2);
-    qDebug() << "time to do some shopping";
+    qDebug() << "Switching to shopping screen.";
 }
 
 
@@ -313,9 +313,10 @@ void MainBoard::on_store_endGameButton_clicked()
     msgBox.setDefaultButton(QMessageBox::No);
     if(msgBox.exec() == QMessageBox::Yes)
     {
-        qDebug() << "ENDING GAME";
+        qDebug() << "Ending current game session...";
         //go back to home screen
         ui->stackedWidget->setCurrentIndex(0);
+        delete this->getBoardRef();
     }
 }
 
@@ -323,7 +324,7 @@ void MainBoard::on_store_nextRoundButton_clicked()
 {
     //after shopping, next round
     ui->stackedWidget->setCurrentIndex(1);
-    qDebug() << "shopping done, next round";
+    qDebug() << "Shopping finished... Starting next round...";
 }
 
 
