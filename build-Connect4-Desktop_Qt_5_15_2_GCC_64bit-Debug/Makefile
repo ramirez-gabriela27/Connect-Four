@@ -1074,49 +1074,6 @@ mainboard.o: ../Connect4/mainboard.cpp ../Connect4/mainboard.h \
 		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtGui/qicon.h \
 		ui_mainboard.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtCore/QVariant \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/QApplication \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/qapplication.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtCore/qcoreapplication.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtCore/qeventloop.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtGui/qguiapplication.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtGui/qinputmethod.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/QComboBox \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/qcombobox.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/qstyleoption.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtGui/qvalidator.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtCore/qregularexpression.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/qslider.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/qabstractslider.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/qstyle.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/qtabbar.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/qrubberband.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/qframe.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/QGridLayout \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/qgridlayout.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/qlayout.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/qboxlayout.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/QLabel \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/qlabel.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/QMenuBar \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/qmenubar.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/qmenu.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/qaction.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/qactiongroup.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/QPushButton \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/qpushbutton.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/QStackedWidget \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/qstackedwidget.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/QStatusBar \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/qstatusbar.h \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/QVBoxLayout \
-		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/QWidget \
 		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/QColorDialog \
 		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/qcolordialog.h \
 		/home/gubgub27/Qt/5.15.2/gcc_64/include/QtWidgets/qdialog.h \
