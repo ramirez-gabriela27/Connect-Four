@@ -106,7 +106,7 @@ void MainBoard::on_doneButton_clicked()
                 //board and shop
         ui->stackedWidget->setCurrentIndex(1);
         qDebug() << "Starting Game... Creating Player Objects...";
-//        Board board;
+        Board board;
 
         // create Player 1 object here
         if (ui->p1_comboBox->currentIndex() == 1) {
@@ -115,7 +115,7 @@ void MainBoard::on_doneButton_clicked()
 
             // set player 1 name from ui->p1_name
 
-//            board.addPlayer(&p1);
+            board.addPlayer(&p1);
         }
 
         // create Player 2 object here
@@ -125,7 +125,7 @@ void MainBoard::on_doneButton_clicked()
 
             // set player 2 name from ui->p2_name
 
-//            board.addPlayer(&p2);
+            board.addPlayer(&p2);
         }
 
         // create player 3 object here
@@ -135,9 +135,9 @@ void MainBoard::on_doneButton_clicked()
 
             // set player 3 name from ui->p3_name
 
-//            board.addPlayer(&p3);
+            board.addPlayer(&p3);
         }
-//        this->setBoard(&board);
+        this->setBoard(&board);
         qDebug() << "Done.";
     }
 }

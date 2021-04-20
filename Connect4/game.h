@@ -32,7 +32,7 @@ private:
 class Board {
     // board object. Only one per game.
 public:
-    Board();
+    Board(){};
 
     void addPlayer(Player* player) {players_.push_back(player);};
 private:
