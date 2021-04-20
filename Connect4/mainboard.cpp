@@ -89,16 +89,16 @@ void MainBoard::on_doneButton_clicked()
         qDebug() << "Player names must be unique or not empty!";
         qDebug() << "vec size is " << int(player_vec.size());
         qDebug() << "Sentry is " << sentry;
-        qDebug() << "Invalid Player names...";
-        qDebug() << ui->p1_name->text();
-        qDebug() << ui->p2_name->text();
-        qDebug() << ui->p3_name->text();
+//        qDebug() << "Invalid Player names...";
+//        qDebug() << ui->p1_name->text();
+//        qDebug() << ui->p2_name->text();
+//        qDebug() << ui->p3_name->text();
     }
     else {
-        qDebug() << "Valid Player names...";
-        qDebug() << ui->p1_name->text();
-        qDebug() << ui->p2_name->text();
-        qDebug() << ui->p3_name->text();
+//        qDebug() << "Valid Player names...";
+//        qDebug() << ui->p1_name->text();
+//        qDebug() << ui->p2_name->text();
+//        qDebug() << ui->p3_name->text();
 
         // player objects are created when Done button is pressed
 
