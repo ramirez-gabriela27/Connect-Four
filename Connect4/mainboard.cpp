@@ -44,24 +44,19 @@ MainBoard::~MainBoard()
 
 void MainBoard::on_doneButton_clicked()
 {
-//    int playerCount = 0;
-    int sentry = 0;
+    unsigned int sentry = 0;
     std::vector<int> player_vec;
     // create new game logic
     if (ui->p1_comboBox->currentIndex() == 1) {
-//        playerCount++;
         player_vec.push_back(0);
     }
 
-
     if (ui->p2_comboBox->currentIndex() == 1){
-//        playerCount++;
         player_vec.push_back(1);
     }
 
 
     if (ui->p3_comboBox->currentIndex() == 1){
-//        playerCount++;
         player_vec.push_back(2);
     }
 
@@ -83,9 +78,13 @@ void MainBoard::on_doneButton_clicked()
         msgBox.exec();
     }
 
-    else if (sentry != int(player_vec.size())) {
+    else if (++sentry != player_vec.size()) {
+        QMessageBox msgBox;
+        msgBox.setText("Player names must be unique or not empty!");
+        msgBox.exec();
         qDebug() << "Player names must be unique or not empty!";
         qDebug() << "vec size is " << int(player_vec.size());
+        qDebug() << "Sentry is " << sentry;
     }
     else {
 
@@ -135,16 +134,13 @@ bool MainBoard::on_p1_name_editingFinished()
 {
     if (ui->p1_name->text() == "") {
         qDebug() << "name cannot be empty!";
-//        ui->doneButton->setEnabled(false);
         return false;
     }
     else if (ui->p1_name->text() == ui->p2_name->text() || ui->p1_name->text() == ui->p3_name->text()) {
         qDebug() << "name cannot be same as other player names";
-//        ui->doneButton->setEnabled(false);
         return false;
     }
     else
-//        ui->doneButton->setEnabled(true);
         return true;
 }
 
@@ -152,16 +148,13 @@ bool MainBoard::on_p2_name_editingFinished()
 {
     if (ui->p2_name->text() == "") {
         qDebug() << "name cannot be empty!";
-//        ui->doneButton->setEnabled(false);
         return false;
     }
     else if (ui->p2_name->text() == ui->p1_name->text() || ui->p2_name->text() == ui->p3_name->text()) {
         qDebug() << "name cannot be same as other player names";
         return false;
-//        ui->doneButton->setEnabled(false);
     }
     else
-//        ui->doneButton->setEnabled(true);
         return true;
 
 }
@@ -170,16 +163,13 @@ bool MainBoard::on_p3_name_editingFinished()
 {
     if (ui->p3_name->text() == "") {
         qDebug() << "name cannot be empty!";
-//        ui->doneButton->setEnabled(false);
         return false;
     }
     else if (ui->p3_name->text() == ui->p2_name->text() || ui->p3_name->text() == ui->p1_name->text()) {
         qDebug() << "name cannot be same as other player names";
-//        ui->doneButton->setEnabled(false);
         return false;
     }
     else
-//        ui->doneButton->setEnabled(true);
         return true;
 
 }
@@ -263,7 +253,7 @@ void MainBoard::on_p3_comboBox_currentIndexChanged(int index)
 
 
 ////////////////////////////////////////////////// BOARD //////////////////////////////////////////////////
-
+// Use QGridLayout
 void MainBoard::on_board_endGameButton_clicked()
 {
     QMessageBox msgBox;
