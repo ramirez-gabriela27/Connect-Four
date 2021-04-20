@@ -190,6 +190,19 @@ rgb(85, 0, 255)
        <string>Board</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>570</x>
+        <y>460</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>ROUND OVER</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="store">
      <widget class="QLabel" name="label">
@@ -205,6 +218,19 @@ rgb(85, 0, 255)
        <string>Store</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>590</x>
+        <y>370</y>
+        <width>121</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>NEXT ROUND</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
@@ -214,7 +240,7 @@ rgb(85, 0, 255)
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
