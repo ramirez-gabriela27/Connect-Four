@@ -235,25 +235,31 @@ void MainBoard::on_pushButton_2_clicked()
 void MainBoard::on_pushButton_3_clicked()
 {
     QMessageBox msgBox;
-    msgBox.setText("ENDING GAME");
-    msgBox.exec();
-    qDebug() << "ENDING GAME";
-    //call game destructor
-
-    //go back to home screen
-    ui->stackedWidget->setCurrentIndex(0);
+    msgBox.setWindowTitle("Quitting Game");
+    msgBox.setText("Are you sure you want to exit?");
+    msgBox.setStandardButtons(QMessageBox::Yes);
+    msgBox.addButton(QMessageBox::No);
+    msgBox.setDefaultButton(QMessageBox::No);
+    if(msgBox.exec() == QMessageBox::Yes){
+        qDebug() << "ENDING GAME";
+        //go back to home screen
+        ui->stackedWidget->setCurrentIndex(0);
+    }
 }
 
 void MainBoard::on_pushButton_4_clicked()
 {
     QMessageBox msgBox;
-    msgBox.setText("LEAVING GAME");
-    msgBox.exec();
-    qDebug() << "ENDING GAME";
-    //call game destructor
-
-    //go back to home screen
-    ui->stackedWidget->setCurrentIndex(0);
+    msgBox.setWindowTitle("Quitting Game");
+    msgBox.setText("Are you sure you want to exit?");
+    msgBox.setStandardButtons(QMessageBox::Yes);
+    msgBox.addButton(QMessageBox::No);
+    msgBox.setDefaultButton(QMessageBox::No);
+    if(msgBox.exec() == QMessageBox::Yes){
+        qDebug() << "ENDING GAME";
+        //go back to home screen
+        ui->stackedWidget->setCurrentIndex(0);
+    }
 }
 
 void MainBoard::on_board_endGameButton_clicked()
