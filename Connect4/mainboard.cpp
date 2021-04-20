@@ -194,7 +194,7 @@ void MainBoard::on_p1_name_editingFinished()
     }
     else
         ui->doneButton->setEnabled(true);
-
+}
 
 void MainBoard::on_pushButton_clicked()
 {
