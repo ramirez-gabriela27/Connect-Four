@@ -35,11 +35,11 @@ private slots:
 
     void on_p3_comboBox_currentIndexChanged(int index);
 
-    void on_p1_name_editingFinished();
+    bool on_p1_name_editingFinished();
 
-    void on_p2_name_editingFinished();
+    bool on_p2_name_editingFinished();
 
-    void on_p3_name_editingFinished();
+    bool on_p3_name_editingFinished();
 
     void on_board_endGameButton_clicked();
 
