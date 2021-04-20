@@ -98,7 +98,6 @@ void MainBoard::on_doneButton_clicked()
     }
     else {
 
-
         // player objects are created when Done button is pressed
 
         //move to the game play screen -- form here access
@@ -113,7 +112,7 @@ void MainBoard::on_doneButton_clicked()
             qDebug() << "Adding Player 1";
 
             // set player 1 name from ui->p1_name
-
+            p1.setName(ui->p1_name->text());
             board.addPlayer(&p1);
         }
 
@@ -123,17 +122,17 @@ void MainBoard::on_doneButton_clicked()
             qDebug() << "Adding Player 2";
 
             // set player 2 name from ui->p2_name
-
+            p2.setName(ui->p2_name->text());
             board.addPlayer(&p2);
         }
 
         // create player 3 object here
-        if (ui->p2_comboBox->currentIndex() == 1) {
+        if (ui->p3_comboBox->currentIndex() == 1) {
             Player p3(ui->p3_color->palette().color(QPalette::Button));
             qDebug() << "Adding Player 3";
 
             // set player 3 name from ui->p3_name
-
+            p3.setName(ui->p3_name->text());
             board.addPlayer(&p3);
         }
         this->setBoard(&board);
