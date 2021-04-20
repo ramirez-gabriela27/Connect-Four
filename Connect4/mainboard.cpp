@@ -39,7 +39,9 @@ MainBoard::~MainBoard()
 }
 
 
-// QGridLayout
+////////////////////////////////////////////////// MAIN MENU //////////////////////////////////////////////////
+
+
 void MainBoard::on_doneButton_clicked()
 {
     int playerCount = 0;
@@ -201,8 +203,12 @@ void MainBoard::on_p1_name_editingFinished()
 
 void MainBoard::on_p2_name_editingFinished()
 {
-    if (ui->p1_name->text() == "") {
+    if (ui->p2_name->text() == "") {
         qDebug() << "name cannot be empty!";
+        ui->doneButton->setEnabled(false);
+    }
+    else if (ui->p2_name->text() == ui->p1_name->text() || ui->p2_name->text() == ui->p3_name->text()) {
+        qDebug() << "name cannot be same as other player names";
         ui->doneButton->setEnabled(false);
     }
     else
@@ -211,13 +217,19 @@ void MainBoard::on_p2_name_editingFinished()
 
 void MainBoard::on_p3_name_editingFinished()
 {
-    if (ui->p1_name->text() == "") {
+    if (ui->p3_name->text() == "") {
         qDebug() << "name cannot be empty!";
+        ui->doneButton->setEnabled(false);
+    }
+    else if (ui->p3_name->text() == ui->p2_name->text() || ui->p3_name->text() == ui->p1_name->text()) {
+        qDebug() << "name cannot be same as other player names";
         ui->doneButton->setEnabled(false);
     }
     else
         ui->doneButton->setEnabled(true);
 }
+
+////////////////////////////////////////////////// BOARD //////////////////////////////////////////////////
 
 void MainBoard::on_board_endGameButton_clicked()
 {
@@ -241,6 +253,9 @@ void MainBoard::on_board_shopButton_clicked()
     qDebug() << "time to do some shopping";
 }
 
+////////////////////////////////////////////////// STORE //////////////////////////////////////////////////
+
+
 void MainBoard::on_store_endGameButton_clicked()
 {
     QMessageBox msgBox;
@@ -262,3 +277,5 @@ void MainBoard::on_store_nextRoundButton_clicked()
     ui->stackedWidget->setCurrentIndex(1);
     qDebug() << "shopping done, next round";
 }
+
+
