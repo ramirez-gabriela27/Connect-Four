@@ -37,6 +37,21 @@ MainBoard::~MainBoard()
     delete ui;
 }
 
+////call to change the window if needed
+//void MainBoard::changeWindow()
+//{
+//    if(gameplay->isVisible())
+//    {
+//        gameplay->hide();
+//        this->show();
+//    }
+//    else
+//    {
+//        this->hide();
+//        gameplay->show();
+//    }
+//}
+
 // QGridLayout
 void MainBoard::on_doneButton_clicked()
 {
@@ -65,9 +80,13 @@ void MainBoard::on_doneButton_clicked()
     }
     else
     {
+
         // player objects are created when Done button is pressed
 
+        //move to the game play screen -- form here access
+                //board and shop
         ui->stackedWidget->setCurrentIndex(1);
+        qDebug() << "let's plaaayyyyy!";
 //        Board board;
 
         // create Player 1 object here
@@ -175,4 +194,42 @@ void MainBoard::on_p1_name_editingFinished()
     }
     else
         ui->doneButton->setEnabled(true);
+
+
+void MainBoard::on_pushButton_clicked()
+{
+    //the round is over, we shop
+    ui->stackedWidget->setCurrentIndex(2);
+    qDebug() << "time to do some shopping";
+}
+
+void MainBoard::on_pushButton_2_clicked()
+{
+    //after shopping, next round
+    ui->stackedWidget->setCurrentIndex(1);
+    qDebug() << "shopping done, next round";
+}
+
+void MainBoard::on_pushButton_3_clicked()
+{
+    QMessageBox msgBox;
+    msgBox.setText("LEAVING GAME");
+    msgBox.exec();
+    qDebug() << "ENDING GAME";
+    //call game destructor
+
+    //go back to home screen
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainBoard::on_pushButton_4_clicked()
+{
+    QMessageBox msgBox;
+    msgBox.setText("LEAVING GAME");
+    msgBox.exec();
+    qDebug() << "ENDING GAME";
+    //call game destructor
+
+    //go back to home screen
+    ui->stackedWidget->setCurrentIndex(0);
 }

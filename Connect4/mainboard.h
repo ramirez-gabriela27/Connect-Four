@@ -28,8 +28,7 @@ private slots:
     void on_p2_color_clicked();
 
     void on_p3_color_clicked();
-
-
+    
     void on_p1_comboBox_currentIndexChanged(int index);
 
     void on_p2_comboBox_currentIndexChanged(int index);
@@ -37,6 +36,14 @@ private slots:
     void on_p3_comboBox_currentIndexChanged(int index);
 
     void on_p1_name_editingFinished();
+
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_4_clicked();
 
 private:
     Ui::MainBoard *ui;
