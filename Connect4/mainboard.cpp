@@ -36,19 +36,40 @@ MainBoard::~MainBoard()
     delete ui;
 }
 
+////call to change the window if needed
+//void MainBoard::changeWindow()
+//{
+//    if(gameplay->isVisible())
+//    {
+//        gameplay->hide();
+//        this->show();
+//    }
+//    else
+//    {
+//        this->hide();
+//        gameplay->show();
+//    }
+//}
+
 // QGridLayout
 void MainBoard::on_doneButton_clicked()
 {
     int playerCount = 0;
     // create new game logic
-    if (ui->p1_comboBox->currentIndex() == 1)
+    if (ui->p1_comboBox->currentIndex() == 1){
         playerCount++;
+        qDebug() << "Adding Player 1";
+    }
 
-    if (ui->p2_comboBox->currentIndex() == 1)
+    if (ui->p2_comboBox->currentIndex() == 1){
         playerCount++;
+        qDebug() << "Adding Player 2";
+    }
 
-    if (ui->p3_comboBox->currentIndex() == 1)
+    if (ui->p3_comboBox->currentIndex() == 1){
         playerCount++;
+        qDebug() << "Adding Player 3";
+    }
 
     if (playerCount < 2) {
         qDebug() << "Not enough Players!!!";
@@ -58,9 +79,13 @@ void MainBoard::on_doneButton_clicked()
     }
     else
     {
+
         // player objects are created when Done button is pressed
 
+        //move to the game play screen -- form here access
+                //board and shop
         ui->stackedWidget->setCurrentIndex(1);
+        qDebug() << "let's plaaayyyyy!";
 //        Board board;
 
         // create Player 1 object here
@@ -124,3 +149,17 @@ void MainBoard::on_p3_color_clicked()
     ui->p3_color->update();
 }
 
+
+void MainBoard::on_pushButton_clicked()
+{
+    //the round is over, we shop
+    ui->stackedWidget->setCurrentIndex(2);
+    qDebug() << "time to do some shopping";
+}
+
+void MainBoard::on_pushButton_2_clicked()
+{
+    //after shopping, next round
+    ui->stackedWidget->setCurrentIndex(1);
+    qDebug() << "shopping done, next round";
+}
