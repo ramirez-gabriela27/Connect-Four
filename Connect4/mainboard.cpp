@@ -134,6 +134,7 @@ void MainBoard::on_doneButton_clicked()
             p3.setName(ui->p3_name->text());
             board->addPlayer(&p3);
         }
+        // set created board object pointer to be referenced by mainboard
         this->setBoard(board);
         qDebug() << "Done.";
     }
