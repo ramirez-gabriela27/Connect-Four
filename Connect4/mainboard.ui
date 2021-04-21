@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="mainmenu">
      <widget class="QLabel" name="MainMenu_label">
@@ -435,6 +435,12 @@ rgb(85, 0, 255)
      <height>22</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuStats">
+    <property name="title">
+     <string>Stats</string>
+    </property>
+   </widget>
+   <addaction name="menuStats"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

@@ -1,5 +1,6 @@
 #include "mainboard.h"
 #include "ui_mainboard.h"
+#include "statsdisplay.h"
 #include <QColor>
 #include <QColorDialog>
 #include <QMessageBox>
@@ -329,3 +330,12 @@ void MainBoard::on_store_nextRoundButton_clicked()
 }
 
 
+////////////////////////////////////////////////// STORE //////////////////////////////////////////////////
+
+
+void MainBoard::on_actionStats_triggered()
+{
+    statsDisplay *stat = new statsDisplay(this);
+    stat->open();
+    qDebug() << "Displaying Stats";
+}
