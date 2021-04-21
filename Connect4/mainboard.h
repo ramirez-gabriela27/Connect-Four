@@ -49,6 +49,8 @@ private slots:
 
     void on_store_nextRoundButton_clicked();
 
+    void on_actionStats_triggered();
+
 private:
     Ui::MainBoard *ui;
     Board* board_ = nullptr;

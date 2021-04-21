@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>statsDisplay</class>
+ <widget class="QDialog" name="statsDisplay">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QLabel" name="stat_label">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>0</y>
+     <width>81</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Player Stats</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>30</y>
+     <width>121</width>
+     <height>221</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="p1_stat_layout">
+    <item>
+     <widget class="QLabel" name="name_p1">
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;P1: __name__&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="pts_p1">
+      <property name="text">
+       <string>Points: ____</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="item_p1">
+      <property name="text">
+       <string>Items: ____</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="up_p1">
+      <property name="text">
+       <string>Upgrades: ____</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>30</y>
+     <width>121</width>
+     <height>221</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="p2_stat_layout">
+    <item>
+     <widget class="QLabel" name="name_p2">
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;P2: __name__&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="pts_p2">
+      <property name="text">
+       <string>Points: ____</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="item_p2">
+      <property name="text">
+       <string>Items: ____</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="up_p2">
+      <property name="text">
+       <string>Upgrades: ____</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget_3">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>30</y>
+     <width>121</width>
+     <height>221</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="p3_stat_layout">
+    <item>
+     <widget class="QLabel" name="name_p3">
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;P3: __name__&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="pts_p3">
+      <property name="text">
+       <string>Points: ____</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="item_p3">
+      <property name="text">
+       <string>Items: ____</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="up_p3">
+      <property name="text">
+       <string>Upgrades: ____</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QLabel" name="round_label">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>260</y>
+     <width>81</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Round: ___&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
