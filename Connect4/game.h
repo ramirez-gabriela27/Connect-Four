@@ -15,28 +15,50 @@
 //  std::string type_; //is it an upgrade or an item
 //  double price_; //score value that it will cost
 //};
+// Items will be updated
+enum class stock{ RemoveOpponentPiece, ExtraTurn, SwitchPiece, ExtraFivePts, DoublePts, TriplePts };
 
-enum class ShopItem{ RemoveOpponentPiece, ExtraTurn, SwitchPiece };
-enum class ShopUpgrades { ExtraFivePts, DoublePts, TriplePts };
+class Chip{
+public:
+    Chip(QColor color){ color_ = color;};
+
+    void set_x(int x){x_coord_ = x;};
+    void set_y(int y){y_coord_ = y;};
+
+private:
+    QColor color_;
+    int x_coord_;
+    int y_coord_;
+};
+
+////////////////////////////////////////////////////////////////////////////
 
 class Player {
 
 public:
     Player(QColor color) {color_ = color; points_ = 0;};
 
-    // getters and setters here
+    // setters
     void setPoints(int points) {points_ = points;};
     void setName(QString name) {name_ = name;};
+    void addItem(stock item) {player_inventory_.push_back(item);};
+
+    // getters
     QColor getColor() {return color_;};
     int getPoints() {return points_;};
     QString getName() {return name_;};
+    std::vector<stock> getInventory() {return player_inventory_;};
 
+    //functions
+    void useItem(stock item);
+    void buyItem(stock item);
 
 private:
     int points_;
     QString name_;
     QColor color_;
-    std::vector<std::string> player_inventory_;
+    std::vector<stock> player_inventory_;
+    std::vector<Chip*> pieces_;
 };
 
 ////////////////////////////////////////////////////////////////////////////
@@ -47,9 +69,12 @@ public:
     Board();
     Player* getPlayer(int i){return players_[i];};
     void addPlayer(Player* player) {players_.push_back(player);};
+    void takeTurn(); //update the bord as well
+    bool checkForWin();
+
 private:
     std::vector<Player*> players_;
     //std::vector<std::vector<Cell*>> cells_;
     // store is a map that uses item name as key, and maps to pair of item count and item cost
-    std::map<std::string,std::pair<int,int>> store_;
+    std::map<stock,std::pair<int,int>> store_;
 };
