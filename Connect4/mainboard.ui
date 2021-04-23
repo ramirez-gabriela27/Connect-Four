@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="mainmenu">
      <widget class="QLabel" name="MainMenu_label">
@@ -448,14 +448,31 @@ rgb(85, 0, 255)
      <height>26</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuStats">
+   <widget class="QMenu" name="menuLeaderboard">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="title">
-     <string>Stats</string>
+     <string>Leaderboard</string>
     </property>
    </widget>
-   <addaction name="menuStats"/>
+   <widget class="QMenu" name="menuEnd_Game">
+    <property name="title">
+     <string>End Game</string>
+    </property>
+   </widget>
+   <addaction name="menuLeaderboard"/>
+   <addaction name="menuEnd_Game"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionLeaderboard">
+   <property name="text">
+    <string>Leaderboard</string>
+   </property>
+   <property name="toolTip">
+    <string>Show Leaderboard</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="c4.qrc"/>

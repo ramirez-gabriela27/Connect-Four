@@ -30,6 +30,11 @@ MainBoard::MainBoard(QWidget *parent)
     ui->p3_color->update();
 
     ui->stackedWidget->setCurrentIndex(0);
+    // set menu items invisible
+    ui->menuLeaderboard->setTitle("");
+    ui->menuLeaderboard->setDisabled(true);
+    ui->menuEnd_Game->setTitle("");
+    ui->menuEnd_Game->setDisabled(true);
     statsDisplay *sd = new statsDisplay(this);
     this->setStatsDisplayPtr(sd);
     connect(sd, &statsDisplay::clear_show_signal, this, &MainBoard::recieve_clear_signal);
@@ -106,6 +111,11 @@ void MainBoard::on_doneButton_clicked()
         //move to the game play screen -- form here access
                 //board and shop
         ui->stackedWidget->setCurrentIndex(1);
+        // set menu items visible
+        ui->menuLeaderboard->setTitle("Leaderboard");
+        ui->menuLeaderboard->setDisabled(false);
+        ui->menuEnd_Game->setTitle("End Game");
+        ui->menuEnd_Game->setDisabled(false);
         qDebug() << "Starting Game... Creating Player Objects...";
         Board* board = new Board;
 
@@ -297,6 +307,11 @@ void MainBoard::on_board_endGameButton_clicked()
         qDebug() << "Ending current game session...";
         //go back to home screen
         ui->stackedWidget->setCurrentIndex(0);
+        // set menu items invisible
+        ui->menuLeaderboard->setTitle("");
+        ui->menuLeaderboard->setDisabled(true);
+        ui->menuEnd_Game->setTitle("");
+        ui->menuEnd_Game->setDisabled(true);
         delete this->getBoardRef();
     }
 }
@@ -305,6 +320,11 @@ void MainBoard::on_board_shopButton_clicked()
 {
     //the round is over, we shop
     ui->stackedWidget->setCurrentIndex(2);
+    // set menu items invisible
+    ui->menuLeaderboard->setTitle("");
+    ui->menuLeaderboard->setDisabled(true);
+    ui->menuEnd_Game->setTitle("");
+    ui->menuEnd_Game->setDisabled(true);
     qDebug() << "Switching to shopping screen.";
     //enable buttons again -- will be enabled when we move from player to player shopping
     ui->buy_item->setEnabled(true);
@@ -329,6 +349,11 @@ void MainBoard::on_store_endGameButton_clicked()
         qDebug() << "Ending current game session...";
         //go back to home screen
         ui->stackedWidget->setCurrentIndex(0);
+        // set menu items invisible
+        ui->menuLeaderboard->setTitle("");
+        ui->menuLeaderboard->setDisabled(true);
+        ui->menuEnd_Game->setTitle("");
+        ui->menuEnd_Game->setDisabled(true);
         delete this->getBoardRef();
     }
 }
@@ -337,6 +362,11 @@ void MainBoard::on_store_nextRoundButton_clicked()
 {
     //after shopping, next round
     ui->stackedWidget->setCurrentIndex(1);
+    // set menu items visible
+    ui->menuLeaderboard->setTitle("Leaderboard");
+    ui->menuLeaderboard->setDisabled(false);
+    ui->menuEnd_Game->setTitle("End Game");
+    ui->menuEnd_Game->setDisabled(false);
     qDebug() << "Shopping finished... Starting next round...";
 }
 
@@ -382,3 +412,12 @@ void MainBoard::recieve_clear_signal() {
 }
 
 
+
+void MainBoard::on_actionLeaderboard_triggered()
+{
+    // open leaderboard window
+    if (this->getStatsDisplayShow() == false) {
+        this->getStatsDisplayPtr()->show();
+        this->setStatsDisplayShow(true);
+    }
+}

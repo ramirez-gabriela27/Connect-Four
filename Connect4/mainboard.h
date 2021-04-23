@@ -56,6 +56,8 @@ private slots:
 
     void on_LeaderboardButton_clicked();
 
+    void on_actionLeaderboard_triggered();
+
 public slots:
     void recieve_clear_signal();
 
