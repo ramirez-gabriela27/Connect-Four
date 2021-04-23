@@ -18,13 +18,13 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>0</y>
+      <y>10</y>
       <width>761</width>
       <height>541</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="mainmenu">
      <widget class="QLabel" name="MainMenu_label">
@@ -303,22 +303,22 @@ rgb(85, 0, 255)
       <property name="geometry">
        <rect>
         <x>320</x>
-        <y>90</y>
-        <width>55</width>
-        <height>16</height>
+        <y>30</y>
+        <width>151</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">
-       <string>Store</string>
+       <string>Welcome to the Shop</string>
       </property>
      </widget>
      <widget class="QPushButton" name="store_nextRoundButton">
       <property name="geometry">
        <rect>
-        <x>590</x>
-        <y>370</y>
-        <width>121</width>
-        <height>51</height>
+        <x>630</x>
+        <y>490</y>
+        <width>111</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="text">
@@ -338,6 +338,91 @@ rgb(85, 0, 255)
        <string>End Game</string>
       </property>
      </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>70</y>
+        <width>761</width>
+        <height>80</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="p3_pts">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;P1: ____ pts [shopping]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="p2_pts">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;P2: ____ pts&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="p1_pts">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;P3: ____ pts&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>160</y>
+        <width>341</width>
+        <height>321</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="Upgrade_Layout">
+       <item>
+        <widget class="QLabel" name="upgrade_label">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;UPGRADES&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="buy_upgrade">
+         <property name="text">
+          <string>Buy!</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>160</y>
+        <width>341</width>
+        <height>321</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="Design_Layout">
+       <item>
+        <widget class="QLabel" name="item_label">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;ITEMS&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="buy_item">
+         <property name="text">
+          <string>Buy!</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </widget>
   </widget>
@@ -347,9 +432,15 @@ rgb(85, 0, 255)
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuStats">
+    <property name="title">
+     <string>Stats</string>
+    </property>
+   </widget>
+   <addaction name="menuStats"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

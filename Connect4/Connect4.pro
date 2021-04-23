@@ -11,14 +11,17 @@ CONFIG += c++11
 SOURCES += \
     game.cpp \
     main.cpp \
-    mainboard.cpp
+    mainboard.cpp \
+    statsdisplay.cpp
 
 HEADERS += \
     game.h \
-    mainboard.h
+    mainboard.h \
+    statsdisplay.h
 
 FORMS += \
-    mainboard.ui
+    mainboard.ui \
+    statsdisplay.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
