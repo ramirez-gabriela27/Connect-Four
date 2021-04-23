@@ -59,6 +59,10 @@ private slots:
 public slots:
     void recieve_clear_signal();
 
+    void on_buy_upgrade_clicked();
+
+    void on_buy_item_clicked();
+
 private:
     Ui::MainBoard *ui;
     Board* board_ = nullptr;

@@ -306,6 +306,9 @@ void MainBoard::on_board_shopButton_clicked()
     //the round is over, we shop
     ui->stackedWidget->setCurrentIndex(2);
     qDebug() << "Switching to shopping screen.";
+    //enable buttons again -- will be enabled when we move from player to player shopping
+    ui->buy_item->setEnabled(true);
+    ui->buy_upgrade->setEnabled(true);
 }
 
 
@@ -337,6 +340,30 @@ void MainBoard::on_store_nextRoundButton_clicked()
     qDebug() << "Shopping finished... Starting next round...";
 }
 
+void MainBoard::on_buy_upgrade_clicked()
+{
+    //get the name/cost of the upgrade
+    qDebug() << "Upgrade Purchased";
+    QMessageBox msgBox;
+    msgBox.setText("Upgrade ____ purchase for ___ pts [Player _]");
+    msgBox.exec();
+    //disable further purchases for thisplayer
+    ui->buy_item->setEnabled(false);
+    ui->buy_upgrade->setEnabled(false);
+}
+
+void MainBoard::on_buy_item_clicked()
+{
+    //get the name/cost of the item
+    qDebug() << "Item Purchased";
+    QMessageBox msgBox;
+    msgBox.setText("Item ____ purchase for ___ pts [Player _]");
+    msgBox.exec();
+    //disable further purchases for thisplayer
+    ui->buy_item->setEnabled(false);
+    ui->buy_upgrade->setEnabled(false);
+}
+  
 
 ////////////////////////////////////////////////// LEADERBOARD //////////////////////////////////////////////////
 
@@ -351,4 +378,7 @@ void MainBoard::on_LeaderboardButton_clicked()
 
 void MainBoard::recieve_clear_signal() {
     this->setStatsDisplayShow(false);
+
 }
+
+
