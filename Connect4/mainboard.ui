@@ -270,7 +270,7 @@ rgb(85, 0, 255)
        <string>SHOP</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label">
+     <widget class="QLabel" name="playerTurnLabel">
       <property name="geometry">
        <rect>
         <x>320</x>
@@ -296,6 +296,19 @@ rgb(85, 0, 255)
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_2"/>
+     </widget>
+     <widget class="QPushButton" name="LeaderboardButton">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>20</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Leaderboard</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="store">
@@ -432,7 +445,7 @@ rgb(85, 0, 255)
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuStats">

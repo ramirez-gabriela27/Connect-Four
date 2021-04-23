@@ -2,6 +2,7 @@
 #define STATSDISPLAY_H
 
 #include <QDialog>
+#include <QCloseEvent>
 
 namespace Ui {
 class statsDisplay;
@@ -14,6 +15,14 @@ class statsDisplay : public QDialog
 public:
     explicit statsDisplay(QWidget *parent = nullptr);
     ~statsDisplay();
+    void closeEvent(QCloseEvent *) override;
+
+signals:
+    void clear_show_signal();
+
+private slots:
+
+    void on_statsDisplay_destroyed();
 
 private:
     Ui::statsDisplay *ui;
