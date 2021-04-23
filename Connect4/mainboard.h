@@ -1,7 +1,7 @@
 #ifndef MAINBOARD_H
 #define MAINBOARD_H
 #include "game.h"
-
+#include "statsdisplay.h"
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -19,6 +19,11 @@ public:
     void setBoard(Board* board) {board_ = board;};
     Board* getBoardRef() {return board_;};
 
+    void setStatsDisplayPtr(statsDisplay* sd) {sd_ = sd;};
+    statsDisplay* getStatsDisplayPtr() {return sd_;};
+
+    void setStatsDisplayShow(bool s) {show_ = s;};
+    bool getStatsDisplayShow() {return show_;};
 private slots:
 
     void on_doneButton_clicked();
@@ -49,7 +54,10 @@ private slots:
 
     void on_store_nextRoundButton_clicked();
 
-    void on_actionStats_triggered();
+    void on_LeaderboardButton_clicked();
+
+public slots:
+    void recieve_clear_signal();
 
     void on_buy_upgrade_clicked();
 
@@ -58,5 +66,7 @@ private slots:
 private:
     Ui::MainBoard *ui;
     Board* board_ = nullptr;
+    statsDisplay* sd_ = nullptr;
+    bool show_ = false;
 };
 #endif // MAINBOARD_H

@@ -1,6 +1,5 @@
 #include "mainboard.h"
 #include "ui_mainboard.h"
-#include "statsdisplay.h"
 #include <QColor>
 #include <QColorDialog>
 #include <QMessageBox>
@@ -31,6 +30,10 @@ MainBoard::MainBoard(QWidget *parent)
     ui->p3_color->update();
 
     ui->stackedWidget->setCurrentIndex(0);
+    statsDisplay *sd = new statsDisplay(this);
+    this->setStatsDisplayPtr(sd);
+    connect(sd, &statsDisplay::clear_show_signal, this, &MainBoard::recieve_clear_signal);
+
 }
 
 MainBoard::~MainBoard()
@@ -137,6 +140,10 @@ void MainBoard::on_doneButton_clicked()
         }
         // set created board object pointer to be referenced by mainboard
         this->setBoard(board);
+
+        // Set text to Player 1 or player 2's turn
+        ui->playerTurnLabel->setText("hi");
+
         qDebug() << "Done.";
     }
 }
@@ -305,6 +312,7 @@ void MainBoard::on_board_shopButton_clicked()
 }
 
 
+
 ////////////////////////////////////////////////// STORE //////////////////////////////////////////////////
 
 
@@ -332,18 +340,6 @@ void MainBoard::on_store_nextRoundButton_clicked()
     qDebug() << "Shopping finished... Starting next round...";
 }
 
-
-////////////////////////////////////////////////// STORE //////////////////////////////////////////////////
-
-
-void MainBoard::on_actionStats_triggered()
-{
-    statsDisplay *stat = new statsDisplay(this);
-    stat->open();
-    qDebug() << "Displaying Stats";
-
-}
-
 void MainBoard::on_buy_upgrade_clicked()
 {
     //get the name/cost of the upgrade
@@ -367,3 +363,22 @@ void MainBoard::on_buy_item_clicked()
     ui->buy_item->setEnabled(false);
     ui->buy_upgrade->setEnabled(false);
 }
+  
+
+////////////////////////////////////////////////// LEADERBOARD //////////////////////////////////////////////////
+
+void MainBoard::on_LeaderboardButton_clicked()
+{
+    // open leaderboard window
+    if (this->getStatsDisplayShow() == false) {
+        this->getStatsDisplayPtr()->show();
+        this->setStatsDisplayShow(true);
+    }
+}
+
+void MainBoard::recieve_clear_signal() {
+    this->setStatsDisplayShow(false);
+
+}
+
+
