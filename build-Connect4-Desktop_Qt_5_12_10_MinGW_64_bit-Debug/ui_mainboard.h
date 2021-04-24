@@ -31,8 +31,7 @@ QT_BEGIN_NAMESPACE
 class Ui_MainBoard
 {
 public:
-    QAction *actionLeaderboard_2;
-    QAction *actionEnd_Game;
+    QAction *actionLeaderboard;
     QWidget *centralwidget;
     QStackedWidget *stackedWidget;
     QWidget *mainmenu;
@@ -55,11 +54,11 @@ public:
     QPushButton *p2_color;
     QPushButton *p3_color;
     QWidget *connect4board;
-    QLabel *board_label;
     QPushButton *board_shopButton;
-    QLabel *playerTurnLabel;
     QWidget *gridLayoutWidget_2;
     QGridLayout *gridLayout_2;
+    QLabel *board_label;
+    QLabel *playerTurnLabel;
     QWidget *store;
     QLabel *store_label;
     QPushButton *store_nextRoundButton;
@@ -86,11 +85,9 @@ public:
     {
         if (MainBoard->objectName().isEmpty())
             MainBoard->setObjectName(QString::fromUtf8("MainBoard"));
-        MainBoard->resize(800, 600);
-        actionLeaderboard_2 = new QAction(MainBoard);
-        actionLeaderboard_2->setObjectName(QString::fromUtf8("actionLeaderboard_2"));
-        actionEnd_Game = new QAction(MainBoard);
-        actionEnd_Game->setObjectName(QString::fromUtf8("actionEnd_Game"));
+        MainBoard->resize(800, 616);
+        actionLeaderboard = new QAction(MainBoard);
+        actionLeaderboard->setObjectName(QString::fromUtf8("actionLeaderboard"));
         centralwidget = new QWidget(MainBoard);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         stackedWidget = new QStackedWidget(centralwidget);
@@ -201,24 +198,38 @@ public:
         connect4board->setStyleSheet(QString::fromUtf8("QWidget {\n"
 "rgb(85, 0, 255)\n"
 "}"));
-        board_label = new QLabel(connect4board);
-        board_label->setObjectName(QString::fromUtf8("board_label"));
-        board_label->setGeometry(QRect(-6, 0, 761, 541));
-        board_label->setPixmap(QPixmap(QString::fromUtf8(":/new/images/c4-1.png")));
         board_shopButton = new QPushButton(connect4board);
         board_shopButton->setObjectName(QString::fromUtf8("board_shopButton"));
-        board_shopButton->setGeometry(QRect(700, 20, 41, 31));
-        playerTurnLabel = new QLabel(connect4board);
-        playerTurnLabel->setObjectName(QString::fromUtf8("playerTurnLabel"));
-        playerTurnLabel->setGeometry(QRect(320, 10, 91, 20));
-        playerTurnLabel->setAutoFillBackground(true);
+        board_shopButton->setGeometry(QRect(620, 0, 121, 31));
         gridLayoutWidget_2 = new QWidget(connect4board);
         gridLayoutWidget_2->setObjectName(QString::fromUtf8("gridLayoutWidget_2"));
-        gridLayoutWidget_2->setGeometry(QRect(-1, 59, 761, 481));
+        gridLayoutWidget_2->setGeometry(QRect(-10, -10, 765, 571));
         gridLayout_2 = new QGridLayout(gridLayoutWidget_2);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         gridLayout_2->setContentsMargins(0, 0, 0, 0);
+        board_label = new QLabel(gridLayoutWidget_2);
+        board_label->setObjectName(QString::fromUtf8("board_label"));
+        board_label->setFrameShape(QFrame::Box);
+        board_label->setPixmap(QPixmap(QString::fromUtf8(":/new/images/c4-1.png")));
+        board_label->setAlignment(Qt::AlignCenter);
+        board_label->setWordWrap(false);
+
+        gridLayout_2->addWidget(board_label, 0, 0, 1, 1);
+
+        playerTurnLabel = new QLabel(connect4board);
+        playerTurnLabel->setObjectName(QString::fromUtf8("playerTurnLabel"));
+        playerTurnLabel->setGeometry(QRect(0, -10, 761, 41));
+        QFont font;
+        font.setFamily(QString::fromUtf8("Segoe UI Emoji"));
+        font.setPointSize(14);
+        playerTurnLabel->setFont(font);
+        playerTurnLabel->setAutoFillBackground(true);
+        playerTurnLabel->setStyleSheet(QString::fromUtf8("QLabel { background-color : light gray; color : black; }"));
+        playerTurnLabel->setAlignment(Qt::AlignCenter);
         stackedWidget->addWidget(connect4board);
+        gridLayoutWidget_2->raise();
+        playerTurnLabel->raise();
+        board_shopButton->raise();
         store = new QWidget();
         store->setObjectName(QString::fromUtf8("store"));
         store_label = new QLabel(store);
@@ -300,8 +311,6 @@ public:
 
         menubar->addAction(menuLeaderboard->menuAction());
         menubar->addAction(menuEnd_Game->menuAction());
-        menuLeaderboard->addAction(actionLeaderboard_2);
-        menuEnd_Game->addAction(actionEnd_Game);
 
         retranslateUi(MainBoard);
 
@@ -314,8 +323,10 @@ public:
     void retranslateUi(QMainWindow *MainBoard)
     {
         MainBoard->setWindowTitle(QApplication::translate("MainBoard", "MainBoard", nullptr));
-        actionLeaderboard_2->setText(QApplication::translate("MainBoard", "Leaderboard", nullptr));
-        actionEnd_Game->setText(QApplication::translate("MainBoard", "End Game", nullptr));
+        actionLeaderboard->setText(QApplication::translate("MainBoard", "Leaderboard", nullptr));
+#ifndef QT_NO_TOOLTIP
+        actionLeaderboard->setToolTip(QApplication::translate("MainBoard", "Show Leaderboard", nullptr));
+#endif // QT_NO_TOOLTIP
         MainMenu_label->setText(QApplication::translate("MainBoard", "Main Menu", nullptr));
         doneButton->setText(QApplication::translate("MainBoard", "Done", nullptr));
         p3_comboBox->setItemText(0, QApplication::translate("MainBoard", "Disabled", nullptr));
@@ -336,8 +347,8 @@ public:
         p1_color->setText(QString());
         p2_color->setText(QString());
         p3_color->setText(QString());
-        board_label->setText(QString());
         board_shopButton->setText(QApplication::translate("MainBoard", "SHOP", nullptr));
+        board_label->setText(QString());
         playerTurnLabel->setText(QApplication::translate("MainBoard", "x Player's turn", nullptr));
         store_label->setText(QApplication::translate("MainBoard", "Welcome to the Shop", nullptr));
         store_nextRoundButton->setText(QApplication::translate("MainBoard", "NEXT ROUND", nullptr));
