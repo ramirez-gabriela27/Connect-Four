@@ -421,3 +421,34 @@ void MainBoard::on_actionLeaderboard_triggered()
         this->setStatsDisplayShow(true);
     }
 }
+
+void MainBoard::on_actionLeaderboard_2_triggered()
+{
+    // open leaderboard window
+    if (this->getStatsDisplayShow() == false) {
+        this->getStatsDisplayPtr()->show();
+        this->setStatsDisplayShow(true);
+    }
+}
+
+void MainBoard::on_actionEnd_Game_triggered()
+{
+    QMessageBox msgBox;
+    msgBox.setWindowTitle("Quitting Game");
+    msgBox.setText("Are you sure you want to exit?");
+    msgBox.setStandardButtons(QMessageBox::Yes);
+    msgBox.addButton(QMessageBox::No);
+    msgBox.setDefaultButton(QMessageBox::No);
+    if(msgBox.exec() == QMessageBox::Yes)
+    {
+        qDebug() << "Ending current game session...";
+        //go back to home screen
+        ui->stackedWidget->setCurrentIndex(0);
+        // set menu items invisible
+        ui->menuLeaderboard->setTitle("");
+        ui->menuLeaderboard->setDisabled(true);
+        ui->menuEnd_Game->setTitle("");
+        ui->menuEnd_Game->setDisabled(true);
+        delete this->getBoardRef();
+    }
+}

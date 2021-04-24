@@ -231,8 +231,8 @@ rgb(85, 0, 255)
      <widget class="QLabel" name="board_label">
       <property name="geometry">
        <rect>
-        <x>-6</x>
-        <y>0</y>
+        <x>0</x>
+        <y>10</y>
         <width>761</width>
         <height>541</height>
        </rect>
@@ -244,46 +244,17 @@ rgb(85, 0, 255)
        <pixmap resource="c4.qrc">:/new/images/c4-1.png</pixmap>
       </property>
      </widget>
-     <widget class="QPushButton" name="board_endGameButton">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>89</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>End Game</string>
-      </property>
-     </widget>
      <widget class="QPushButton" name="board_shopButton">
       <property name="geometry">
        <rect>
-        <x>610</x>
+        <x>700</x>
         <y>20</y>
-        <width>121</width>
+        <width>41</width>
         <height>31</height>
        </rect>
       </property>
       <property name="text">
        <string>SHOP</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="playerTurnLabel">
-      <property name="geometry">
-       <rect>
-        <x>320</x>
-        <y>10</y>
-        <width>91</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="autoFillBackground">
-       <bool>true</bool>
-      </property>
-      <property name="text">
-       <string>x Player's turn</string>
       </property>
      </widget>
      <widget class="QWidget" name="gridLayoutWidget_2">
@@ -296,19 +267,6 @@ rgb(85, 0, 255)
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_2"/>
-     </widget>
-     <widget class="QPushButton" name="LeaderboardButton">
-      <property name="geometry">
-       <rect>
-        <x>480</x>
-        <y>20</y>
-        <width>111</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Leaderboard</string>
-      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="store">
@@ -438,6 +396,25 @@ rgb(85, 0, 255)
      </widget>
     </widget>
    </widget>
+   <widget class="QLabel" name="playerTurnLabel">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>0</y>
+      <width>761</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
+    <property name="text">
+     <string>x Player's turn</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -455,22 +432,26 @@ rgb(85, 0, 255)
     <property name="title">
      <string>Leaderboard</string>
     </property>
+    <addaction name="actionLeaderboard_2"/>
    </widget>
    <widget class="QMenu" name="menuEnd_Game">
     <property name="title">
      <string>End Game</string>
     </property>
+    <addaction name="actionEnd_Game"/>
    </widget>
    <addaction name="menuLeaderboard"/>
    <addaction name="menuEnd_Game"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionLeaderboard">
+  <action name="actionLeaderboard_2">
    <property name="text">
     <string>Leaderboard</string>
    </property>
-   <property name="toolTip">
-    <string>Show Leaderboard</string>
+  </action>
+  <action name="actionEnd_Game">
+   <property name="text">
+    <string>End Game</string>
    </property>
   </action>
  </widget>

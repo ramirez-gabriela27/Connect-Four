@@ -31,7 +31,8 @@ QT_BEGIN_NAMESPACE
 class Ui_MainBoard
 {
 public:
-    QAction *actionLeaderboard;
+    QAction *actionLeaderboard_2;
+    QAction *actionEnd_Game;
     QWidget *centralwidget;
     QStackedWidget *stackedWidget;
     QWidget *mainmenu;
@@ -55,12 +56,10 @@ public:
     QPushButton *p3_color;
     QWidget *connect4board;
     QLabel *board_label;
-    QPushButton *board_endGameButton;
     QPushButton *board_shopButton;
     QLabel *playerTurnLabel;
     QWidget *gridLayoutWidget_2;
     QGridLayout *gridLayout_2;
-    QPushButton *LeaderboardButton;
     QWidget *store;
     QLabel *store_label;
     QPushButton *store_nextRoundButton;
@@ -88,8 +87,10 @@ public:
         if (MainBoard->objectName().isEmpty())
             MainBoard->setObjectName(QString::fromUtf8("MainBoard"));
         MainBoard->resize(800, 600);
-        actionLeaderboard = new QAction(MainBoard);
-        actionLeaderboard->setObjectName(QString::fromUtf8("actionLeaderboard"));
+        actionLeaderboard_2 = new QAction(MainBoard);
+        actionLeaderboard_2->setObjectName(QString::fromUtf8("actionLeaderboard_2"));
+        actionEnd_Game = new QAction(MainBoard);
+        actionEnd_Game->setObjectName(QString::fromUtf8("actionEnd_Game"));
         centralwidget = new QWidget(MainBoard);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         stackedWidget = new QStackedWidget(centralwidget);
@@ -204,12 +205,9 @@ public:
         board_label->setObjectName(QString::fromUtf8("board_label"));
         board_label->setGeometry(QRect(-6, 0, 761, 541));
         board_label->setPixmap(QPixmap(QString::fromUtf8(":/new/images/c4-1.png")));
-        board_endGameButton = new QPushButton(connect4board);
-        board_endGameButton->setObjectName(QString::fromUtf8("board_endGameButton"));
-        board_endGameButton->setGeometry(QRect(10, 10, 89, 25));
         board_shopButton = new QPushButton(connect4board);
         board_shopButton->setObjectName(QString::fromUtf8("board_shopButton"));
-        board_shopButton->setGeometry(QRect(610, 20, 121, 31));
+        board_shopButton->setGeometry(QRect(700, 20, 41, 31));
         playerTurnLabel = new QLabel(connect4board);
         playerTurnLabel->setObjectName(QString::fromUtf8("playerTurnLabel"));
         playerTurnLabel->setGeometry(QRect(320, 10, 91, 20));
@@ -220,9 +218,6 @@ public:
         gridLayout_2 = new QGridLayout(gridLayoutWidget_2);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         gridLayout_2->setContentsMargins(0, 0, 0, 0);
-        LeaderboardButton = new QPushButton(connect4board);
-        LeaderboardButton->setObjectName(QString::fromUtf8("LeaderboardButton"));
-        LeaderboardButton->setGeometry(QRect(480, 20, 111, 31));
         stackedWidget->addWidget(connect4board);
         store = new QWidget();
         store->setObjectName(QString::fromUtf8("store"));
@@ -305,6 +300,8 @@ public:
 
         menubar->addAction(menuLeaderboard->menuAction());
         menubar->addAction(menuEnd_Game->menuAction());
+        menuLeaderboard->addAction(actionLeaderboard_2);
+        menuEnd_Game->addAction(actionEnd_Game);
 
         retranslateUi(MainBoard);
 
@@ -317,10 +314,8 @@ public:
     void retranslateUi(QMainWindow *MainBoard)
     {
         MainBoard->setWindowTitle(QApplication::translate("MainBoard", "MainBoard", nullptr));
-        actionLeaderboard->setText(QApplication::translate("MainBoard", "Leaderboard", nullptr));
-#ifndef QT_NO_TOOLTIP
-        actionLeaderboard->setToolTip(QApplication::translate("MainBoard", "Show Leaderboard", nullptr));
-#endif // QT_NO_TOOLTIP
+        actionLeaderboard_2->setText(QApplication::translate("MainBoard", "Leaderboard", nullptr));
+        actionEnd_Game->setText(QApplication::translate("MainBoard", "End Game", nullptr));
         MainMenu_label->setText(QApplication::translate("MainBoard", "Main Menu", nullptr));
         doneButton->setText(QApplication::translate("MainBoard", "Done", nullptr));
         p3_comboBox->setItemText(0, QApplication::translate("MainBoard", "Disabled", nullptr));
@@ -342,10 +337,8 @@ public:
         p2_color->setText(QString());
         p3_color->setText(QString());
         board_label->setText(QString());
-        board_endGameButton->setText(QApplication::translate("MainBoard", "End Game", nullptr));
         board_shopButton->setText(QApplication::translate("MainBoard", "SHOP", nullptr));
         playerTurnLabel->setText(QApplication::translate("MainBoard", "x Player's turn", nullptr));
-        LeaderboardButton->setText(QApplication::translate("MainBoard", "Leaderboard", nullptr));
         store_label->setText(QApplication::translate("MainBoard", "Welcome to the Shop", nullptr));
         store_nextRoundButton->setText(QApplication::translate("MainBoard", "NEXT ROUND", nullptr));
         store_endGameButton->setText(QApplication::translate("MainBoard", "End Game", nullptr));

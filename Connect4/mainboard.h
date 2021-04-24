@@ -58,6 +58,10 @@ private slots:
 
     void on_actionLeaderboard_triggered();
 
+    void on_actionLeaderboard_2_triggered();
+
+    void on_actionEnd_Game_triggered();
+
 public slots:
     void recieve_clear_signal();
 
