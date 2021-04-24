@@ -46,6 +46,12 @@ private slots:
 
     bool on_p3_name_editingFinished();
 
+    bool on_p1_color_editingFinished();
+
+    bool on_p2_color_editingFinished();
+
+    bool on_p3_color_editingFinished();
+
     void on_board_endGameButton_clicked();
 
     void on_board_shopButton_clicked();
@@ -55,6 +61,10 @@ private slots:
     void on_store_nextRoundButton_clicked();
 
     void on_LeaderboardButton_clicked();
+
+    void on_actionLeaderboard_triggered();
+
+    void on_actionEnd_Game_triggered();
 
 public slots:
     void recieve_clear_signal();

@@ -70,7 +70,8 @@ public:
     Player* getPlayer(int i){return players_[i];};
     void addPlayer(Player* player) {players_.push_back(player);};
     void takeTurn(); //update the bord as well
-    bool checkForWin();
+    bool checkWinner();
+    void payoutPlayers();
 
 private:
     std::vector<Player*> players_;

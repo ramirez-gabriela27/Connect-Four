@@ -7,8 +7,20 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>594</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>594</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>594</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainBoard</string>
@@ -18,7 +30,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>10</y>
+      <y>0</y>
       <width>761</width>
       <height>541</height>
      </rect>
@@ -32,12 +44,12 @@
        <rect>
         <x>290</x>
         <y>30</y>
-        <width>81</width>
-        <height>16</height>
+        <width>191</width>
+        <height>20</height>
        </rect>
       </property>
       <property name="text">
-       <string>Main Menu</string>
+       <string>Main Menu (Insert Image Here)</string>
       </property>
      </widget>
      <widget class="QPushButton" name="doneButton">
@@ -45,46 +57,25 @@
        <rect>
         <x>300</x>
         <y>390</y>
-        <width>93</width>
-        <height>28</height>
+        <width>151</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">
-       <string>Done</string>
+       <string>Start Game</string>
       </property>
      </widget>
      <widget class="QWidget" name="gridLayoutWidget">
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>140</y>
-        <width>331</width>
-        <height>181</height>
+        <y>120</y>
+        <width>361</width>
+        <height>211</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
-       <item row="2" column="2">
-        <widget class="QComboBox" name="p3_comboBox">
-         <item>
-          <property name="text">
-           <string>Disabled</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Enabled</string>
-          </property>
-         </item>
-        </widget>
-       </item>
        <item row="1" column="0">
-        <widget class="QLabel" name="p2_label">
-         <property name="text">
-          <string>Player 2</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
         <widget class="QLineEdit" name="p2_name">
          <property name="enabled">
           <bool>false</bool>
@@ -100,38 +91,7 @@
          </property>
         </widget>
        </item>
-       <item row="1" column="2">
-        <widget class="QComboBox" name="p2_comboBox">
-         <item>
-          <property name="text">
-           <string>Disabled</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Enabled</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="p3_label">
-         <property name="text">
-          <string>Player 3</string>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="0">
-        <widget class="QLabel" name="p1_label">
-         <property name="text">
-          <string>Player 1</string>
-         </property>
-         <property name="textFormat">
-          <enum>Qt::AutoText</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
         <widget class="QLineEdit" name="p1_name">
          <property name="enabled">
           <bool>false</bool>
@@ -147,7 +107,35 @@
          </property>
         </widget>
        </item>
-       <item row="2" column="1">
+       <item row="0" column="1">
+        <widget class="QComboBox" name="p1_comboBox">
+         <item>
+          <property name="text">
+           <string>Disabled</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Enabled</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QComboBox" name="p2_comboBox">
+         <item>
+          <property name="text">
+           <string>Disabled</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Enabled</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="2" column="0">
         <widget class="QLineEdit" name="p3_name">
          <property name="enabled">
           <bool>false</bool>
@@ -163,8 +151,8 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="2">
-        <widget class="QComboBox" name="p1_comboBox">
+       <item row="2" column="1">
+        <widget class="QComboBox" name="p3_comboBox">
          <item>
           <property name="text">
            <string>Disabled</string>
@@ -182,10 +170,10 @@
      <widget class="QWidget" name="verticalLayoutWidget">
       <property name="geometry">
        <rect>
-        <x>500</x>
-        <y>140</y>
-        <width>71</width>
-        <height>181</height>
+        <x>530</x>
+        <y>120</y>
+        <width>81</width>
+        <height>211</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -228,40 +216,11 @@
 rgb(85, 0, 255)
 }</string>
      </property>
-     <widget class="QLabel" name="board_label">
-      <property name="geometry">
-       <rect>
-        <x>-6</x>
-        <y>0</y>
-        <width>761</width>
-        <height>541</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap resource="c4.qrc">:/new/images/c4-1.png</pixmap>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="board_endGameButton">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>89</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>End Game</string>
-      </property>
-     </widget>
      <widget class="QPushButton" name="board_shopButton">
       <property name="geometry">
        <rect>
-        <x>610</x>
-        <y>20</y>
+        <x>620</x>
+        <y>0</y>
         <width>121</width>
         <height>31</height>
        </rect>
@@ -270,46 +229,68 @@ rgb(85, 0, 255)
        <string>SHOP</string>
       </property>
      </widget>
+     <widget class="QWidget" name="gridLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>-10</x>
+        <y>-10</y>
+        <width>765</width>
+        <height>571</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="QLabel" name="board_label">
+         <property name="frameShape">
+          <enum>QFrame::Box</enum>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="c4.qrc">:/new/images/c4-1.png</pixmap>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
      <widget class="QLabel" name="playerTurnLabel">
       <property name="geometry">
        <rect>
-        <x>320</x>
-        <y>10</y>
-        <width>91</width>
-        <height>20</height>
+        <x>0</x>
+        <y>0</y>
+        <width>761</width>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI Emoji</family>
+        <pointsize>14</pointsize>
+       </font>
       </property>
       <property name="autoFillBackground">
        <bool>true</bool>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel { background-color : light gray; color : black; }</string>
+      </property>
       <property name="text">
        <string>x Player's turn</string>
       </property>
-     </widget>
-     <widget class="QWidget" name="gridLayoutWidget_2">
-      <property name="geometry">
-       <rect>
-        <x>-1</x>
-        <y>59</y>
-        <width>761</width>
-        <height>481</height>
-       </rect>
-      </property>
-      <layout class="QGridLayout" name="gridLayout_2"/>
-     </widget>
-     <widget class="QPushButton" name="LeaderboardButton">
-      <property name="geometry">
-       <rect>
-        <x>480</x>
-        <y>20</y>
-        <width>111</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Leaderboard</string>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
+     <zorder>gridLayoutWidget_2</zorder>
+     <zorder>playerTurnLabel</zorder>
+     <zorder>board_shopButton</zorder>
     </widget>
     <widget class="QWidget" name="store">
      <widget class="QLabel" name="store_label">
@@ -448,14 +429,34 @@ rgb(85, 0, 255)
      <height>26</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuStats">
-    <property name="title">
-     <string>Stats</string>
+   <widget class="QMenu" name="menuLeaderboard">
+    <property name="enabled">
+     <bool>true</bool>
     </property>
+    <property name="title">
+     <string>Leaderboard</string>
+    </property>
+    <addaction name="actionLeaderboard"/>
    </widget>
-   <addaction name="menuStats"/>
+   <widget class="QMenu" name="menuEnd_Game">
+    <property name="title">
+     <string>End Game</string>
+    </property>
+    <addaction name="actionEnd_Game"/>
+   </widget>
+   <addaction name="menuLeaderboard"/>
+   <addaction name="menuEnd_Game"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionLeaderboard">
+   <property name="text">
+    <string>Leaderboard</string>
+   </property>
+  </action>
+  <action name="actionEnd_Game">
+   <property name="text">
+    <string>End Game</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="c4.qrc"/>

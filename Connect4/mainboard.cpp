@@ -30,6 +30,11 @@ MainBoard::MainBoard(QWidget *parent)
     ui->p3_color->update();
 
     ui->stackedWidget->setCurrentIndex(0);
+    // set menu items invisible
+    ui->menuLeaderboard->setTitle("");
+    ui->menuLeaderboard->setDisabled(true);
+    ui->menuEnd_Game->setTitle("");
+    ui->menuEnd_Game->setDisabled(true);
     statsDisplay *sd = new statsDisplay(this);
     this->setStatsDisplayPtr(sd);
     connect(sd, &statsDisplay::clear_show_signal, this, &MainBoard::recieve_clear_signal);
@@ -47,7 +52,8 @@ MainBoard::~MainBoard()
 
 void MainBoard::on_doneButton_clicked()
 {
-    unsigned int sentry = 0;
+    unsigned int name_sentry = 0;
+    unsigned int color_sentry = 0;
     std::vector<int> player_vec;
     // create new game logic
     if (ui->p1_comboBox->currentIndex() == 1)
@@ -67,17 +73,25 @@ void MainBoard::on_doneButton_clicked()
     }
 
     // validate name inputs
+    // emitted functions return bool if name for player is valid or not
+    // converted to int and added to sentries
     for (int i : player_vec)
     {
         switch (i) {
+        // case player 1 enabled
         case 0:
-            sentry += int(emit on_p1_name_editingFinished());
+            name_sentry += int(emit on_p1_name_editingFinished());
+            color_sentry += int(emit on_p1_color_editingFinished());
             break;
+        // case player 2 enabled
         case 1:
-            sentry += int(emit on_p2_name_editingFinished());
+            name_sentry += int(emit on_p2_name_editingFinished());
+            color_sentry += int(emit on_p2_color_editingFinished());
             break;
+        // case player 3 enabled
         case 2:
-            sentry += int(emit on_p3_name_editingFinished());
+            name_sentry += int(emit on_p3_name_editingFinished());
+            color_sentry += int(emit on_p3_color_editingFinished());
             break;
         }
     }
@@ -90,15 +104,27 @@ void MainBoard::on_doneButton_clicked()
         msgBox.exec();
     }
 
-    else if (sentry != player_vec.size())
+    // if number of valid names != number of players
+    else if (name_sentry != player_vec.size())
     {
         QMessageBox msgBox;
         msgBox.setText("Player names must be unique or not empty!");
         msgBox.exec();
         qDebug() << "Player names must be unique or not empty!";
         qDebug() << "vec size is " << int(player_vec.size());
-        qDebug() << "Sentry is " << sentry;
+        qDebug() << "Sentry is " << name_sentry;
     }
+
+    else if (color_sentry != player_vec.size()) {
+        // if any 2 players have the same color
+        QMessageBox msgBox;
+        msgBox.setText("Players must have unique colors!");
+        msgBox.exec();
+        qDebug() << "Players must have unique colors!";
+        qDebug() << "vec size is " << int(player_vec.size());
+        qDebug() << "Sentry is " << color_sentry;
+    }
+
     else {
 
         // player objects are created when Done button is pressed
@@ -106,6 +132,11 @@ void MainBoard::on_doneButton_clicked()
         //move to the game play screen -- form here access
                 //board and shop
         ui->stackedWidget->setCurrentIndex(1);
+        // set menu items visible
+        ui->menuLeaderboard->setTitle("Leaderboard");
+        ui->menuLeaderboard->setDisabled(false);
+        ui->menuEnd_Game->setTitle("End Game");
+        ui->menuEnd_Game->setDisabled(false);
         qDebug() << "Starting Game... Creating Player Objects...";
         Board* board = new Board;
 
@@ -146,6 +177,34 @@ void MainBoard::on_doneButton_clicked()
 
         qDebug() << "Done.";
     }
+}
+
+bool MainBoard::on_p1_color_editingFinished() {
+    qDebug() << "Player 1 color is " << ui->p1_color->palette().color(QPalette::Button);
+    if (ui->p1_color->palette().color(QPalette::Button) == ui->p2_color->palette().color(QPalette::Button) || ui->p1_color->palette().color(QPalette::Button) == ui->p3_color->palette().color(QPalette::Button)) {
+        qDebug() << "player 1 has same color as p2 or p3";
+        return false;
+    }
+    else
+        return true;
+}
+
+bool MainBoard::on_p2_color_editingFinished() {
+    if (ui->p2_color->palette().color(QPalette::Button) == ui->p1_color->palette().color(QPalette::Button) || ui->p2_color->palette().color(QPalette::Button) == ui->p3_color->palette().color(QPalette::Button)) {
+        qDebug() << "player 2 has same color as p1 or p3";
+        return false;
+    }
+    else
+        return true;
+}
+
+bool MainBoard::on_p3_color_editingFinished() {
+    if (ui->p3_color->palette().color(QPalette::Button) == ui->p2_color->palette().color(QPalette::Button) || ui->p3_color->palette().color(QPalette::Button) == ui->p1_color->palette().color(QPalette::Button)) {
+        qDebug() << "player 3 has same color as p2 or p1";
+        return false;
+    }
+    else
+        return true;
 }
 
 bool MainBoard::on_p1_name_editingFinished()
@@ -297,6 +356,11 @@ void MainBoard::on_board_endGameButton_clicked()
         qDebug() << "Ending current game session...";
         //go back to home screen
         ui->stackedWidget->setCurrentIndex(0);
+        // set menu items invisible
+        ui->menuLeaderboard->setTitle("");
+        ui->menuLeaderboard->setDisabled(true);
+        ui->menuEnd_Game->setTitle("");
+        ui->menuEnd_Game->setDisabled(true);
         delete this->getBoardRef();
     }
 }
@@ -305,6 +369,11 @@ void MainBoard::on_board_shopButton_clicked()
 {
     //the round is over, we shop
     ui->stackedWidget->setCurrentIndex(2);
+    // set menu items invisible
+    ui->menuLeaderboard->setTitle("");
+    ui->menuLeaderboard->setDisabled(true);
+    ui->menuEnd_Game->setTitle("");
+    ui->menuEnd_Game->setDisabled(true);
     qDebug() << "Switching to shopping screen.";
     //enable buttons again -- will be enabled when we move from player to player shopping
     ui->buy_item->setEnabled(true);
@@ -329,6 +398,11 @@ void MainBoard::on_store_endGameButton_clicked()
         qDebug() << "Ending current game session...";
         //go back to home screen
         ui->stackedWidget->setCurrentIndex(0);
+        // set menu items invisible
+        ui->menuLeaderboard->setTitle("");
+        ui->menuLeaderboard->setDisabled(true);
+        ui->menuEnd_Game->setTitle("");
+        ui->menuEnd_Game->setDisabled(true);
         delete this->getBoardRef();
     }
 }
@@ -337,6 +411,11 @@ void MainBoard::on_store_nextRoundButton_clicked()
 {
     //after shopping, next round
     ui->stackedWidget->setCurrentIndex(1);
+    // set menu items visible
+    ui->menuLeaderboard->setTitle("Leaderboard");
+    ui->menuLeaderboard->setDisabled(false);
+    ui->menuEnd_Game->setTitle("End Game");
+    ui->menuEnd_Game->setDisabled(false);
     qDebug() << "Shopping finished... Starting next round...";
 }
 
@@ -382,3 +461,34 @@ void MainBoard::recieve_clear_signal() {
 }
 
 
+
+void MainBoard::on_actionLeaderboard_triggered()
+{
+    // open leaderboard window
+    if (this->getStatsDisplayShow() == false) {
+        this->getStatsDisplayPtr()->show();
+        this->setStatsDisplayShow(true);
+    }
+}
+
+void MainBoard::on_actionEnd_Game_triggered()
+{
+    QMessageBox msgBox;
+    msgBox.setWindowTitle("Quitting Game");
+    msgBox.setText("Are you sure you want to exit?");
+    msgBox.setStandardButtons(QMessageBox::Yes);
+    msgBox.addButton(QMessageBox::No);
+    msgBox.setDefaultButton(QMessageBox::No);
+    if(msgBox.exec() == QMessageBox::Yes)
+    {
+        qDebug() << "Ending current game session...";
+        //go back to home screen
+        ui->stackedWidget->setCurrentIndex(0);
+        // set menu items invisible
+        ui->menuLeaderboard->setTitle("");
+        ui->menuLeaderboard->setDisabled(true);
+        ui->menuEnd_Game->setTitle("");
+        ui->menuEnd_Game->setDisabled(true);
+        delete this->getBoardRef();
+    }
+}
