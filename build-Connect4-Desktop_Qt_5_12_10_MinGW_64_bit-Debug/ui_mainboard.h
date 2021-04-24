@@ -40,15 +40,12 @@ public:
     QPushButton *doneButton;
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
-    QComboBox *p3_comboBox;
     QLineEdit *p2_name;
-    QComboBox *p2_comboBox;
-    QLabel *p1_label;
     QLineEdit *p1_name;
-    QLineEdit *p3_name;
     QComboBox *p1_comboBox;
-    QLabel *p2_label;
-    QLabel *p3_label;
+    QComboBox *p2_comboBox;
+    QLineEdit *p3_name;
+    QComboBox *p3_comboBox;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout;
     QPushButton *p1_color;
@@ -101,7 +98,7 @@ public:
         mainmenu->setObjectName(QString::fromUtf8("mainmenu"));
         MainMenu_label = new QLabel(mainmenu);
         MainMenu_label->setObjectName(QString::fromUtf8("MainMenu_label"));
-        MainMenu_label->setGeometry(QRect(330, 30, 81, 16));
+        MainMenu_label->setGeometry(QRect(290, 30, 191, 20));
         doneButton = new QPushButton(mainmenu);
         doneButton->setObjectName(QString::fromUtf8("doneButton"));
         doneButton->setGeometry(QRect(300, 390, 151, 41));
@@ -111,37 +108,13 @@ public:
         gridLayout = new QGridLayout(gridLayoutWidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
-        p3_comboBox = new QComboBox(gridLayoutWidget);
-        p3_comboBox->addItem(QString());
-        p3_comboBox->addItem(QString());
-        p3_comboBox->setObjectName(QString::fromUtf8("p3_comboBox"));
-
-        gridLayout->addWidget(p3_comboBox, 2, 2, 1, 1);
-
         p2_name = new QLineEdit(gridLayoutWidget);
         p2_name->setObjectName(QString::fromUtf8("p2_name"));
         p2_name->setEnabled(false);
         p2_name->setMaxLength(15);
         p2_name->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(p2_name, 1, 1, 1, 1);
-
-        p2_comboBox = new QComboBox(gridLayoutWidget);
-        p2_comboBox->addItem(QString());
-        p2_comboBox->addItem(QString());
-        p2_comboBox->setObjectName(QString::fromUtf8("p2_comboBox"));
-
-        gridLayout->addWidget(p2_comboBox, 1, 2, 1, 1);
-
-        p1_label = new QLabel(gridLayoutWidget);
-        p1_label->setObjectName(QString::fromUtf8("p1_label"));
-        QFont font;
-        font.setFamily(QString::fromUtf8("8514oem"));
-        font.setPointSize(12);
-        p1_label->setFont(font);
-        p1_label->setTextFormat(Qt::AutoText);
-
-        gridLayout->addWidget(p1_label, 0, 0, 1, 1);
+        gridLayout->addWidget(p2_name, 1, 0, 1, 1);
 
         p1_name = new QLineEdit(gridLayoutWidget);
         p1_name->setObjectName(QString::fromUtf8("p1_name"));
@@ -149,7 +122,21 @@ public:
         p1_name->setMaxLength(15);
         p1_name->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(p1_name, 0, 1, 1, 1);
+        gridLayout->addWidget(p1_name, 0, 0, 1, 1);
+
+        p1_comboBox = new QComboBox(gridLayoutWidget);
+        p1_comboBox->addItem(QString());
+        p1_comboBox->addItem(QString());
+        p1_comboBox->setObjectName(QString::fromUtf8("p1_comboBox"));
+
+        gridLayout->addWidget(p1_comboBox, 0, 1, 1, 1);
+
+        p2_comboBox = new QComboBox(gridLayoutWidget);
+        p2_comboBox->addItem(QString());
+        p2_comboBox->addItem(QString());
+        p2_comboBox->setObjectName(QString::fromUtf8("p2_comboBox"));
+
+        gridLayout->addWidget(p2_comboBox, 1, 1, 1, 1);
 
         p3_name = new QLineEdit(gridLayoutWidget);
         p3_name->setObjectName(QString::fromUtf8("p3_name"));
@@ -157,28 +144,14 @@ public:
         p3_name->setMaxLength(15);
         p3_name->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(p3_name, 2, 1, 1, 1);
+        gridLayout->addWidget(p3_name, 2, 0, 1, 1);
 
-        p1_comboBox = new QComboBox(gridLayoutWidget);
-        p1_comboBox->addItem(QString());
-        p1_comboBox->addItem(QString());
-        p1_comboBox->setObjectName(QString::fromUtf8("p1_comboBox"));
+        p3_comboBox = new QComboBox(gridLayoutWidget);
+        p3_comboBox->addItem(QString());
+        p3_comboBox->addItem(QString());
+        p3_comboBox->setObjectName(QString::fromUtf8("p3_comboBox"));
 
-        gridLayout->addWidget(p1_comboBox, 0, 2, 1, 1);
-
-        p2_label = new QLabel(gridLayoutWidget);
-        p2_label->setObjectName(QString::fromUtf8("p2_label"));
-        p2_label->setFont(font);
-        p2_label->setTextFormat(Qt::AutoText);
-
-        gridLayout->addWidget(p2_label, 1, 0, 1, 1);
-
-        p3_label = new QLabel(gridLayoutWidget);
-        p3_label->setObjectName(QString::fromUtf8("p3_label"));
-        p3_label->setFont(font);
-        p3_label->setTextFormat(Qt::AutoText);
-
-        gridLayout->addWidget(p3_label, 2, 0, 1, 1);
+        gridLayout->addWidget(p3_comboBox, 2, 1, 1, 1);
 
         verticalLayoutWidget = new QWidget(mainmenu);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
@@ -231,10 +204,10 @@ public:
         playerTurnLabel = new QLabel(connect4board);
         playerTurnLabel->setObjectName(QString::fromUtf8("playerTurnLabel"));
         playerTurnLabel->setGeometry(QRect(0, -10, 761, 41));
-        QFont font1;
-        font1.setFamily(QString::fromUtf8("Segoe UI Emoji"));
-        font1.setPointSize(14);
-        playerTurnLabel->setFont(font1);
+        QFont font;
+        font.setFamily(QString::fromUtf8("Segoe UI Emoji"));
+        font.setPointSize(14);
+        playerTurnLabel->setFont(font);
         playerTurnLabel->setAutoFillBackground(true);
         playerTurnLabel->setStyleSheet(QString::fromUtf8("QLabel { background-color : light gray; color : black; }"));
         playerTurnLabel->setAlignment(Qt::AlignCenter);
@@ -339,23 +312,20 @@ public:
         MainBoard->setWindowTitle(QApplication::translate("MainBoard", "MainBoard", nullptr));
         actionLeaderboard->setText(QApplication::translate("MainBoard", "Leaderboard", nullptr));
         actionEnd_Game->setText(QApplication::translate("MainBoard", "End Game", nullptr));
-        MainMenu_label->setText(QApplication::translate("MainBoard", "Main Menu", nullptr));
+        MainMenu_label->setText(QApplication::translate("MainBoard", "Main Menu (Insert Image Here)", nullptr));
         doneButton->setText(QApplication::translate("MainBoard", "Start Game", nullptr));
-        p3_comboBox->setItemText(0, QApplication::translate("MainBoard", "Disabled", nullptr));
-        p3_comboBox->setItemText(1, QApplication::translate("MainBoard", "Enabled", nullptr));
-
         p2_name->setPlaceholderText(QApplication::translate("MainBoard", "Player 2 Name", nullptr));
-        p2_comboBox->setItemText(0, QApplication::translate("MainBoard", "Disabled", nullptr));
-        p2_comboBox->setItemText(1, QApplication::translate("MainBoard", "Enabled", nullptr));
-
-        p1_label->setText(QApplication::translate("MainBoard", "Player 1", nullptr));
         p1_name->setPlaceholderText(QApplication::translate("MainBoard", "Player 1 Name", nullptr));
-        p3_name->setPlaceholderText(QApplication::translate("MainBoard", "Player 3 Name", nullptr));
         p1_comboBox->setItemText(0, QApplication::translate("MainBoard", "Disabled", nullptr));
         p1_comboBox->setItemText(1, QApplication::translate("MainBoard", "Enabled", nullptr));
 
-        p2_label->setText(QApplication::translate("MainBoard", "Player 2", nullptr));
-        p3_label->setText(QApplication::translate("MainBoard", "Player 3", nullptr));
+        p2_comboBox->setItemText(0, QApplication::translate("MainBoard", "Disabled", nullptr));
+        p2_comboBox->setItemText(1, QApplication::translate("MainBoard", "Enabled", nullptr));
+
+        p3_name->setPlaceholderText(QApplication::translate("MainBoard", "Player 3 Name", nullptr));
+        p3_comboBox->setItemText(0, QApplication::translate("MainBoard", "Disabled", nullptr));
+        p3_comboBox->setItemText(1, QApplication::translate("MainBoard", "Enabled", nullptr));
+
         p1_color->setText(QString());
         p2_color->setText(QString());
         p3_color->setText(QString());
