@@ -7,13 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>616</height>
+    <height>594</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>800</width>
-    <height>616</height>
+    <height>594</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>594</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -30,7 +36,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="mainmenu">
      <widget class="QLabel" name="MainMenu_label">
@@ -258,7 +264,7 @@ rgb(85, 0, 255)
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>-10</y>
+        <y>0</y>
         <width>761</width>
         <height>41</height>
        </rect>
@@ -441,7 +447,6 @@ rgb(85, 0, 255)
    <addaction name="menuLeaderboard"/>
    <addaction name="menuEnd_Game"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <action name="actionLeaderboard">
    <property name="text">
     <string>Leaderboard</string>

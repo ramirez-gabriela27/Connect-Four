@@ -22,7 +22,6 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStackedWidget>
-#include <QtWidgets/QStatusBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -77,14 +76,14 @@ public:
     QMenuBar *menubar;
     QMenu *menuLeaderboard;
     QMenu *menuEnd_Game;
-    QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainBoard)
     {
         if (MainBoard->objectName().isEmpty())
             MainBoard->setObjectName(QString::fromUtf8("MainBoard"));
-        MainBoard->resize(800, 616);
-        MainBoard->setMinimumSize(QSize(800, 616));
+        MainBoard->resize(800, 594);
+        MainBoard->setMinimumSize(QSize(800, 594));
+        MainBoard->setMaximumSize(QSize(800, 594));
         actionLeaderboard = new QAction(MainBoard);
         actionLeaderboard->setObjectName(QString::fromUtf8("actionLeaderboard"));
         actionEnd_Game = new QAction(MainBoard);
@@ -203,7 +202,7 @@ public:
 
         playerTurnLabel = new QLabel(connect4board);
         playerTurnLabel->setObjectName(QString::fromUtf8("playerTurnLabel"));
-        playerTurnLabel->setGeometry(QRect(0, -10, 761, 41));
+        playerTurnLabel->setGeometry(QRect(0, 0, 761, 41));
         QFont font;
         font.setFamily(QString::fromUtf8("Segoe UI Emoji"));
         font.setPointSize(14);
@@ -290,9 +289,6 @@ public:
         menuEnd_Game = new QMenu(menubar);
         menuEnd_Game->setObjectName(QString::fromUtf8("menuEnd_Game"));
         MainBoard->setMenuBar(menubar);
-        statusbar = new QStatusBar(MainBoard);
-        statusbar->setObjectName(QString::fromUtf8("statusbar"));
-        MainBoard->setStatusBar(statusbar);
 
         menubar->addAction(menuLeaderboard->menuAction());
         menubar->addAction(menuEnd_Game->menuAction());
@@ -301,7 +297,7 @@ public:
 
         retranslateUi(MainBoard);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainBoard);
