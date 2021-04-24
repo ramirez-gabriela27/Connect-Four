@@ -180,7 +180,8 @@ void MainBoard::on_doneButton_clicked()
 }
 
 bool MainBoard::on_p1_color_editingFinished() {
-    if (ui->p1_color == ui->p2_color || ui->p1_color == ui->p3_color) {
+    qDebug() << "Player 1 color is " << ui->p1_color->palette().color(QPalette::Button);
+    if (ui->p1_color->palette().color(QPalette::Button) == ui->p2_color->palette().color(QPalette::Button) || ui->p1_color->palette().color(QPalette::Button) == ui->p3_color->palette().color(QPalette::Button)) {
         qDebug() << "player 1 has same color as p2 or p3";
         return false;
     }
@@ -189,7 +190,7 @@ bool MainBoard::on_p1_color_editingFinished() {
 }
 
 bool MainBoard::on_p2_color_editingFinished() {
-    if (ui->p2_color == ui->p1_color || ui->p2_color == ui->p3_color) {
+    if (ui->p2_color->palette().color(QPalette::Button) == ui->p1_color->palette().color(QPalette::Button) || ui->p2_color->palette().color(QPalette::Button) == ui->p3_color->palette().color(QPalette::Button)) {
         qDebug() << "player 2 has same color as p1 or p3";
         return false;
     }
@@ -198,7 +199,7 @@ bool MainBoard::on_p2_color_editingFinished() {
 }
 
 bool MainBoard::on_p3_color_editingFinished() {
-    if (ui->p3_color == ui->p2_color || ui->p3_color == ui->p1_color) {
+    if (ui->p3_color->palette().color(QPalette::Button) == ui->p2_color->palette().color(QPalette::Button) || ui->p3_color->palette().color(QPalette::Button) == ui->p1_color->palette().color(QPalette::Button)) {
         qDebug() << "player 3 has same color as p2 or p1";
         return false;
     }
