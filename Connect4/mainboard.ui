@@ -10,6 +10,12 @@
     <height>616</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>616</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>MainBoard</string>
   </property>
@@ -18,19 +24,19 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>10</y>
+      <y>0</y>
       <width>761</width>
       <height>541</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="mainmenu">
      <widget class="QLabel" name="MainMenu_label">
       <property name="geometry">
        <rect>
-        <x>290</x>
+        <x>330</x>
         <y>30</y>
         <width>81</width>
         <height>16</height>
@@ -45,21 +51,21 @@
        <rect>
         <x>300</x>
         <y>390</y>
-        <width>93</width>
-        <height>28</height>
+        <width>151</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">
-       <string>Done</string>
+       <string>Start Game</string>
       </property>
      </widget>
      <widget class="QWidget" name="gridLayoutWidget">
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>140</y>
-        <width>331</width>
-        <height>181</height>
+        <y>120</y>
+        <width>361</width>
+        <height>211</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
@@ -75,13 +81,6 @@
            <string>Enabled</string>
           </property>
          </item>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="p2_label">
-         <property name="text">
-          <string>Player 2</string>
-         </property>
         </widget>
        </item>
        <item row="1" column="1">
@@ -114,15 +113,14 @@
          </item>
         </widget>
        </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="p3_label">
-         <property name="text">
-          <string>Player 3</string>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="0">
         <widget class="QLabel" name="p1_label">
+         <property name="font">
+          <font>
+           <family>8514oem</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
          <property name="text">
           <string>Player 1</string>
          </property>
@@ -177,15 +175,47 @@
          </item>
         </widget>
        </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="p2_label">
+         <property name="font">
+          <font>
+           <family>8514oem</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Player 2</string>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::AutoText</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="p3_label">
+         <property name="font">
+          <font>
+           <family>8514oem</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Player 3</string>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::AutoText</enum>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="verticalLayoutWidget">
       <property name="geometry">
        <rect>
-        <x>500</x>
-        <y>140</y>
-        <width>71</width>
-        <height>181</height>
+        <x>530</x>
+        <y>120</y>
+        <width>81</width>
+        <height>211</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">

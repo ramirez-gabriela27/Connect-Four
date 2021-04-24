@@ -41,14 +41,14 @@ public:
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
     QComboBox *p3_comboBox;
-    QLabel *p2_label;
     QLineEdit *p2_name;
     QComboBox *p2_comboBox;
-    QLabel *p3_label;
     QLabel *p1_label;
     QLineEdit *p1_name;
     QLineEdit *p3_name;
     QComboBox *p1_comboBox;
+    QLabel *p2_label;
+    QLabel *p3_label;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout;
     QPushButton *p1_color;
@@ -87,6 +87,7 @@ public:
         if (MainBoard->objectName().isEmpty())
             MainBoard->setObjectName(QString::fromUtf8("MainBoard"));
         MainBoard->resize(800, 616);
+        MainBoard->setMinimumSize(QSize(800, 616));
         actionLeaderboard = new QAction(MainBoard);
         actionLeaderboard->setObjectName(QString::fromUtf8("actionLeaderboard"));
         actionEnd_Game = new QAction(MainBoard);
@@ -95,18 +96,18 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
-        stackedWidget->setGeometry(QRect(20, 10, 761, 541));
+        stackedWidget->setGeometry(QRect(20, 0, 761, 541));
         mainmenu = new QWidget();
         mainmenu->setObjectName(QString::fromUtf8("mainmenu"));
         MainMenu_label = new QLabel(mainmenu);
         MainMenu_label->setObjectName(QString::fromUtf8("MainMenu_label"));
-        MainMenu_label->setGeometry(QRect(290, 30, 81, 16));
+        MainMenu_label->setGeometry(QRect(330, 30, 81, 16));
         doneButton = new QPushButton(mainmenu);
         doneButton->setObjectName(QString::fromUtf8("doneButton"));
-        doneButton->setGeometry(QRect(300, 390, 93, 28));
+        doneButton->setGeometry(QRect(300, 390, 151, 41));
         gridLayoutWidget = new QWidget(mainmenu);
         gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(150, 140, 331, 181));
+        gridLayoutWidget->setGeometry(QRect(150, 120, 361, 211));
         gridLayout = new QGridLayout(gridLayoutWidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
@@ -116,11 +117,6 @@ public:
         p3_comboBox->setObjectName(QString::fromUtf8("p3_comboBox"));
 
         gridLayout->addWidget(p3_comboBox, 2, 2, 1, 1);
-
-        p2_label = new QLabel(gridLayoutWidget);
-        p2_label->setObjectName(QString::fromUtf8("p2_label"));
-
-        gridLayout->addWidget(p2_label, 1, 0, 1, 1);
 
         p2_name = new QLineEdit(gridLayoutWidget);
         p2_name->setObjectName(QString::fromUtf8("p2_name"));
@@ -137,13 +133,12 @@ public:
 
         gridLayout->addWidget(p2_comboBox, 1, 2, 1, 1);
 
-        p3_label = new QLabel(gridLayoutWidget);
-        p3_label->setObjectName(QString::fromUtf8("p3_label"));
-
-        gridLayout->addWidget(p3_label, 2, 0, 1, 1);
-
         p1_label = new QLabel(gridLayoutWidget);
         p1_label->setObjectName(QString::fromUtf8("p1_label"));
+        QFont font;
+        font.setFamily(QString::fromUtf8("8514oem"));
+        font.setPointSize(12);
+        p1_label->setFont(font);
         p1_label->setTextFormat(Qt::AutoText);
 
         gridLayout->addWidget(p1_label, 0, 0, 1, 1);
@@ -171,9 +166,23 @@ public:
 
         gridLayout->addWidget(p1_comboBox, 0, 2, 1, 1);
 
+        p2_label = new QLabel(gridLayoutWidget);
+        p2_label->setObjectName(QString::fromUtf8("p2_label"));
+        p2_label->setFont(font);
+        p2_label->setTextFormat(Qt::AutoText);
+
+        gridLayout->addWidget(p2_label, 1, 0, 1, 1);
+
+        p3_label = new QLabel(gridLayoutWidget);
+        p3_label->setObjectName(QString::fromUtf8("p3_label"));
+        p3_label->setFont(font);
+        p3_label->setTextFormat(Qt::AutoText);
+
+        gridLayout->addWidget(p3_label, 2, 0, 1, 1);
+
         verticalLayoutWidget = new QWidget(mainmenu);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(500, 140, 71, 181));
+        verticalLayoutWidget->setGeometry(QRect(530, 120, 81, 211));
         verticalLayout = new QVBoxLayout(verticalLayoutWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -222,10 +231,10 @@ public:
         playerTurnLabel = new QLabel(connect4board);
         playerTurnLabel->setObjectName(QString::fromUtf8("playerTurnLabel"));
         playerTurnLabel->setGeometry(QRect(0, -10, 761, 41));
-        QFont font;
-        font.setFamily(QString::fromUtf8("Segoe UI Emoji"));
-        font.setPointSize(14);
-        playerTurnLabel->setFont(font);
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("Segoe UI Emoji"));
+        font1.setPointSize(14);
+        playerTurnLabel->setFont(font1);
         playerTurnLabel->setAutoFillBackground(true);
         playerTurnLabel->setStyleSheet(QString::fromUtf8("QLabel { background-color : light gray; color : black; }"));
         playerTurnLabel->setAlignment(Qt::AlignCenter);
@@ -319,7 +328,7 @@ public:
 
         retranslateUi(MainBoard);
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainBoard);
@@ -331,22 +340,22 @@ public:
         actionLeaderboard->setText(QApplication::translate("MainBoard", "Leaderboard", nullptr));
         actionEnd_Game->setText(QApplication::translate("MainBoard", "End Game", nullptr));
         MainMenu_label->setText(QApplication::translate("MainBoard", "Main Menu", nullptr));
-        doneButton->setText(QApplication::translate("MainBoard", "Done", nullptr));
+        doneButton->setText(QApplication::translate("MainBoard", "Start Game", nullptr));
         p3_comboBox->setItemText(0, QApplication::translate("MainBoard", "Disabled", nullptr));
         p3_comboBox->setItemText(1, QApplication::translate("MainBoard", "Enabled", nullptr));
 
-        p2_label->setText(QApplication::translate("MainBoard", "Player 2", nullptr));
         p2_name->setPlaceholderText(QApplication::translate("MainBoard", "Player 2 Name", nullptr));
         p2_comboBox->setItemText(0, QApplication::translate("MainBoard", "Disabled", nullptr));
         p2_comboBox->setItemText(1, QApplication::translate("MainBoard", "Enabled", nullptr));
 
-        p3_label->setText(QApplication::translate("MainBoard", "Player 3", nullptr));
         p1_label->setText(QApplication::translate("MainBoard", "Player 1", nullptr));
         p1_name->setPlaceholderText(QApplication::translate("MainBoard", "Player 1 Name", nullptr));
         p3_name->setPlaceholderText(QApplication::translate("MainBoard", "Player 3 Name", nullptr));
         p1_comboBox->setItemText(0, QApplication::translate("MainBoard", "Disabled", nullptr));
         p1_comboBox->setItemText(1, QApplication::translate("MainBoard", "Enabled", nullptr));
 
+        p2_label->setText(QApplication::translate("MainBoard", "Player 2", nullptr));
+        p3_label->setText(QApplication::translate("MainBoard", "Player 3", nullptr));
         p1_color->setText(QString());
         p2_color->setText(QString());
         p3_color->setText(QString());
