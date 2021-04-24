@@ -448,11 +448,13 @@ rgb(85, 0, 255)
     <property name="title">
      <string>Leaderboard</string>
     </property>
+    <addaction name="actionLeaderboard"/>
    </widget>
    <widget class="QMenu" name="menuEnd_Game">
     <property name="title">
      <string>End Game</string>
     </property>
+    <addaction name="actionEnd_Game"/>
    </widget>
    <addaction name="menuLeaderboard"/>
    <addaction name="menuEnd_Game"/>
@@ -462,8 +464,10 @@ rgb(85, 0, 255)
    <property name="text">
     <string>Leaderboard</string>
    </property>
-   <property name="toolTip">
-    <string>Show Leaderboard</string>
+  </action>
+  <action name="actionEnd_Game">
+   <property name="text">
+    <string>End Game</string>
    </property>
   </action>
  </widget>

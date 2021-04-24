@@ -32,6 +32,7 @@ class Ui_MainBoard
 {
 public:
     QAction *actionLeaderboard;
+    QAction *actionEnd_Game;
     QWidget *centralwidget;
     QStackedWidget *stackedWidget;
     QWidget *mainmenu;
@@ -88,6 +89,8 @@ public:
         MainBoard->resize(800, 616);
         actionLeaderboard = new QAction(MainBoard);
         actionLeaderboard->setObjectName(QString::fromUtf8("actionLeaderboard"));
+        actionEnd_Game = new QAction(MainBoard);
+        actionEnd_Game->setObjectName(QString::fromUtf8("actionEnd_Game"));
         centralwidget = new QWidget(MainBoard);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         stackedWidget = new QStackedWidget(centralwidget);
@@ -311,6 +314,8 @@ public:
 
         menubar->addAction(menuLeaderboard->menuAction());
         menubar->addAction(menuEnd_Game->menuAction());
+        menuLeaderboard->addAction(actionLeaderboard);
+        menuEnd_Game->addAction(actionEnd_Game);
 
         retranslateUi(MainBoard);
 
@@ -324,9 +329,7 @@ public:
     {
         MainBoard->setWindowTitle(QApplication::translate("MainBoard", "MainBoard", nullptr));
         actionLeaderboard->setText(QApplication::translate("MainBoard", "Leaderboard", nullptr));
-#ifndef QT_NO_TOOLTIP
-        actionLeaderboard->setToolTip(QApplication::translate("MainBoard", "Show Leaderboard", nullptr));
-#endif // QT_NO_TOOLTIP
+        actionEnd_Game->setText(QApplication::translate("MainBoard", "End Game", nullptr));
         MainMenu_label->setText(QApplication::translate("MainBoard", "Main Menu", nullptr));
         doneButton->setText(QApplication::translate("MainBoard", "Done", nullptr));
         p3_comboBox->setItemText(0, QApplication::translate("MainBoard", "Disabled", nullptr));

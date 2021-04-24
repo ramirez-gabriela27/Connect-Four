@@ -52,7 +52,8 @@ MainBoard::~MainBoard()
 
 void MainBoard::on_doneButton_clicked()
 {
-    unsigned int sentry = 0;
+    unsigned int name_sentry = 0;
+    unsigned int color_sentry = 0;
     std::vector<int> player_vec;
     // create new game logic
     if (ui->p1_comboBox->currentIndex() == 1)
@@ -72,17 +73,25 @@ void MainBoard::on_doneButton_clicked()
     }
 
     // validate name inputs
+    // emitted functions return bool if name for player is valid or not
+    // converted to int and added to sentries
     for (int i : player_vec)
     {
         switch (i) {
+        // case player 1 enabled
         case 0:
-            sentry += int(emit on_p1_name_editingFinished());
+            name_sentry += int(emit on_p1_name_editingFinished());
+            color_sentry += int(emit on_p1_color_editingFinished());
             break;
+        // case player 2 enabled
         case 1:
-            sentry += int(emit on_p2_name_editingFinished());
+            name_sentry += int(emit on_p2_name_editingFinished());
+            color_sentry += int(emit on_p2_color_editingFinished());
             break;
+        // case player 3 enabled
         case 2:
-            sentry += int(emit on_p3_name_editingFinished());
+            name_sentry += int(emit on_p3_name_editingFinished());
+            color_sentry += int(emit on_p3_color_editingFinished());
             break;
         }
     }
@@ -95,15 +104,27 @@ void MainBoard::on_doneButton_clicked()
         msgBox.exec();
     }
 
-    else if (sentry != player_vec.size())
+    // if number of valid names != number of players
+    else if (name_sentry != player_vec.size())
     {
         QMessageBox msgBox;
         msgBox.setText("Player names must be unique or not empty!");
         msgBox.exec();
         qDebug() << "Player names must be unique or not empty!";
         qDebug() << "vec size is " << int(player_vec.size());
-        qDebug() << "Sentry is " << sentry;
+        qDebug() << "Sentry is " << name_sentry;
     }
+
+    else if (color_sentry != player_vec.size()) {
+        // if any 2 players have the same color
+        QMessageBox msgBox;
+        msgBox.setText("Players must have unique colors!");
+        msgBox.exec();
+        qDebug() << "Players must have unique colors!";
+        qDebug() << "vec size is " << int(player_vec.size());
+        qDebug() << "Sentry is " << color_sentry;
+    }
+
     else {
 
         // player objects are created when Done button is pressed
@@ -156,6 +177,33 @@ void MainBoard::on_doneButton_clicked()
 
         qDebug() << "Done.";
     }
+}
+
+bool MainBoard::on_p1_color_editingFinished() {
+    if (ui->p1_color == ui->p2_color || ui->p1_color == ui->p3_color) {
+        qDebug() << "player 1 has same color as p2 or p3";
+        return false;
+    }
+    else
+        return true;
+}
+
+bool MainBoard::on_p2_color_editingFinished() {
+    if (ui->p2_color == ui->p1_color || ui->p2_color == ui->p3_color) {
+        qDebug() << "player 2 has same color as p1 or p3";
+        return false;
+    }
+    else
+        return true;
+}
+
+bool MainBoard::on_p3_color_editingFinished() {
+    if (ui->p3_color == ui->p2_color || ui->p3_color == ui->p1_color) {
+        qDebug() << "player 3 has same color as p2 or p1";
+        return false;
+    }
+    else
+        return true;
 }
 
 bool MainBoard::on_p1_name_editingFinished()
@@ -414,15 +462,6 @@ void MainBoard::recieve_clear_signal() {
 
 
 void MainBoard::on_actionLeaderboard_triggered()
-{
-    // open leaderboard window
-    if (this->getStatsDisplayShow() == false) {
-        this->getStatsDisplayPtr()->show();
-        this->setStatsDisplayShow(true);
-    }
-}
-
-void MainBoard::on_actionLeaderboard_2_triggered()
 {
     // open leaderboard window
     if (this->getStatsDisplayShow() == false) {
