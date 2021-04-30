@@ -4,6 +4,8 @@
 #include <QColorDialog>
 #include <QMessageBox>
 
+#define ROUNDS 6
+
 MainBoard::MainBoard(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainBoard)
@@ -173,7 +175,10 @@ void MainBoard::on_doneButton_clicked()
         this->setBoard(board);
 
         // Set text to Player 1 or player 2's turn
-        ui->playerTurnLabel->setText("hi");
+        // Start with player 1 name
+        QString turn = "\'s turn";
+        turn.prepend("p1");//p1->getName();
+        ui->playerTurnLabel->setText(turn);
 
         qDebug() << "Done.";
     }
