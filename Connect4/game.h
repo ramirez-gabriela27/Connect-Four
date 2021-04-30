@@ -10,12 +10,6 @@
 #define BOARD_WIDTH 7
 #define BOARD_HEIGHT 6
 
-//struct shopItem {
-//  std::string name_;
-//  std::string type_; //is it an upgrade or an item
-//  double price_; //score value that it will cost
-//};
-// Items will be updated
 enum class stock{ RemoveOpponentPiece, ExtraTurn, SwitchPiece, ExtraFivePts, DoublePts, TriplePts };
 
 class Chip{
@@ -24,6 +18,11 @@ public:
 
     void set_x(int x){x_coord_ = x;};
     void set_y(int y){y_coord_ = y;};
+
+    int get_x(){return x_coord_;};
+    int get_y(){return y_coord_;};
+
+    QColor get_color(){return color_;};
 
 private:
     QColor color_;
@@ -36,7 +35,7 @@ private:
 class Player {
 
 public:
-    Player(QColor color) {color_ = color; points_ = 0;};
+    Player(QColor color) {color_ = color; points_ = 0; chip_count_ = 21;};
 
     // setters
     void setPoints(int points) {points_ = points;};
@@ -48,6 +47,7 @@ public:
     int getPoints() {return points_;};
     QString getName() {return name_;};
     std::vector<stock> getInventory() {return player_inventory_;};
+    int getChipCount() {return chip_count_;};
 
     //functions
     void useItem(stock item);
@@ -57,8 +57,8 @@ private:
     int points_;
     QString name_;
     QColor color_;
+    int chip_count_;
     std::vector<stock> player_inventory_;
-    std::vector<Chip*> pieces_;
 };
 
 ////////////////////////////////////////////////////////////////////////////
@@ -69,13 +69,14 @@ public:
     Board();
     Player* getPlayer(int i){return players_[i];};
     void addPlayer(Player* player) {players_.push_back(player);};
-    void takeTurn(); //update the bord as well
-    bool checkWinner();
+    void takeTurn(Player* player); //update the bord as well
+    bool checkWinner(Chip *c);
     void payoutPlayers();
 
 private:
+    //board is a grid of cells, 2d vactor
+    std::vector<std::vector<Chip*>> chips_;
     std::vector<Player*> players_;
-    //std::vector<std::vector<Cell*>> cells_;
     // store is a map that uses item name as key, and maps to pair of item count and item cost
     std::map<stock,std::pair<int,int>> store_;
 };
