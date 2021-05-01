@@ -20,6 +20,10 @@ void statsDisplay::on_statsDisplay_destroyed()
     qDebug() << "Destroyed!";
 }
 
+void statsDisplay::get_rounds(int rounds){
+    ui->round_label->setText(QString::number(rounds));
+}
+
 void statsDisplay::closeEvent (QCloseEvent *event)
 {
     event->accept();

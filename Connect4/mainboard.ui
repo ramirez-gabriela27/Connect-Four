@@ -293,19 +293,6 @@ rgb(85, 0, 255)
      <zorder>board_shopButton</zorder>
     </widget>
     <widget class="QWidget" name="store">
-     <widget class="QLabel" name="store_label">
-      <property name="geometry">
-       <rect>
-        <x>320</x>
-        <y>30</y>
-        <width>151</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Welcome to the Shop</string>
-      </property>
-     </widget>
      <widget class="QPushButton" name="store_nextRoundButton">
       <property name="geometry">
        <rect>
@@ -317,19 +304,6 @@ rgb(85, 0, 255)
       </property>
       <property name="text">
        <string>NEXT ROUND</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="store_endGameButton">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>89</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>End Game</string>
       </property>
      </widget>
      <widget class="QWidget" name="horizontalLayoutWidget">
@@ -417,6 +391,25 @@ rgb(85, 0, 255)
        </item>
       </layout>
      </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>-1</x>
+        <y>10</y>
+        <width>761</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QLabel" name="store_label">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Welcome to the Shop!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </widget>
   </widget>
@@ -426,7 +419,7 @@ rgb(85, 0, 255)
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuLeaderboard">

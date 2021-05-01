@@ -22,7 +22,7 @@ void Board::takeTurn(Player* player){ //update the bord as well
         msgBox.setText("You're out of chips!");
         msgBox.exec();
     }else{//if they have chips still, create one and drip it into the grid in the location they chose
-        //QColor c = player->getChipCount();
+        //QColor c = player->getcolor();
 
         //player clicks on location on grid displayed (above they column they want to drop in)
 

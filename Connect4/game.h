@@ -35,7 +35,7 @@ private:
 class Player {
 
 public:
-    Player(QColor color) {color_ = color; points_ = 0; chip_count_ = 21;};
+    Player(QColor color) {color_ = color; points_ = 0; chip_count_ = 21; rounds_won_ =0;};
 
     // setters
     void setPoints(int points) {points_ = points;};
@@ -52,12 +52,14 @@ public:
     //functions
     void useItem(stock item);
     void buyItem(stock item);
+    void roundWon(){rounds_won_++;};
 
 private:
     int points_;
     QString name_;
     QColor color_;
     int chip_count_;
+    int rounds_won_;
     std::vector<stock> player_inventory_;
 };
 
@@ -68,6 +70,7 @@ class Board {
 public:
     Board();
     Player* getPlayer(int i){return players_[i];};
+    int getNumPlayers(){return players_.size();};
     void addPlayer(Player* player) {players_.push_back(player);};
     void takeTurn(Player* player); //update the bord as well
     bool checkWinner(Chip *c);

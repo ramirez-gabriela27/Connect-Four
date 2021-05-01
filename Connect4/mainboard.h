@@ -24,6 +24,13 @@ public:
 
     void setStatsDisplayShow(bool s) {show_ = s;};
     bool getStatsDisplayShow() {return show_;};
+
+    void playGame();
+
+signals:
+
+    void send_rounds(int rounds_);
+
 private slots:
 
     void on_doneButton_clicked();
@@ -74,6 +81,7 @@ public slots:
     void on_buy_item_clicked();
 
 private:
+    int rounds_;
     Ui::MainBoard *ui;
     Board* board_ = nullptr;
     statsDisplay* sd_ = nullptr;
