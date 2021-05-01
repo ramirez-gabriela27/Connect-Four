@@ -142,40 +142,45 @@ void MainBoard::on_doneButton_clicked()
 
         // create Player 1 object here
         if (ui->p1_comboBox->currentIndex() == 1) {
-            Player p1(ui->p1_color->palette().color(QPalette::Button));
+            Player* p1 = new Player(ui->p1_color->palette().color(QPalette::Button));
             qDebug() << "Adding Player 1...";
 
             // set player 1 name from ui->p1_name
-            p1.setName(ui->p1_name->text());
-            board->addPlayer(&p1);
+            p1->setName(ui->p1_name->text());
+            board->addPlayer(p1);
+
         }
 
         // create Player 2 object here
         if (ui->p2_comboBox->currentIndex() == 1) {
-            Player p2(ui->p2_color->palette().color(QPalette::Button));
+            Player* p2 = new Player(ui->p2_color->palette().color(QPalette::Button));
             qDebug() << "Adding Player 2...";
 
             // set player 2 name from ui->p2_name
-            p2.setName(ui->p2_name->text());
-            board->addPlayer(&p2);
+            p2->setName(ui->p2_name->text());
+
+            board->addPlayer(p2);
+
         }
 
         // create player 3 object here
         if (ui->p3_comboBox->currentIndex() == 1) {
-            Player p3(ui->p3_color->palette().color(QPalette::Button));
+            Player* p3 = new Player(ui->p3_color->palette().color(QPalette::Button));
             qDebug() << "Adding Player 3...";
 
             // set player 3 name from ui->p3_name
-            p3.setName(ui->p3_name->text());
-            board->addPlayer(&p3);
+            p3->setName(ui->p3_name->text());
+
+            board->addPlayer(p3);
+
         }
         // set created board object pointer to be referenced by mainboard
         this->setBoard(board);
 
-        // Set text to Player 1 or player 2's turn
-        // Start with player 1 name
-        QString turn = "\'s turn";
-        turn.prepend("p1");//p1->getName();
+        // first person in vector's turn
+
+        QString turn = board->getPlayer(0)->getName()+"'s turn";
+
         ui->playerTurnLabel->setText(turn);
 
         qDebug() << "Done.";
@@ -349,9 +354,6 @@ void MainBoard::playGame(){
     emit send_rounds(rounds_);
 
     for(int i = 0; i<rounds_; i++){
-        //update rounds label
-        //
-
         // each player will take their turn
         for(int j=0; j<board_->getNumPlayers(); j++){
             Player *curr_p = this->board_->getPlayer(j);
