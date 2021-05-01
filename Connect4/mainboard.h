@@ -67,8 +67,6 @@ private slots:
 
     void on_store_nextRoundButton_clicked();
 
-    void on_LeaderboardButton_clicked();
-
     void on_actionLeaderboard_triggered();
 
     void on_actionEnd_Game_triggered();

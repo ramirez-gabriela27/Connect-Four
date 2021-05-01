@@ -21,7 +21,10 @@ void statsDisplay::on_statsDisplay_destroyed()
 }
 
 void statsDisplay::get_rounds(int rounds){
-    ui->round_label->setText(QString::number(rounds));
+    qDebug() << "Updating rounds!";
+    QString str = "Rounds: " + QString(rounds);
+    ui->round_label->setText(str);
+    update();
 }
 
 void statsDisplay::closeEvent (QCloseEvent *event)

@@ -20,11 +20,13 @@ public:
 signals:
     void clear_show_signal();
 
+public slots:
+
+    void get_rounds(int rounds);
+
 private slots:
 
     void on_statsDisplay_destroyed();
-
-    void get_rounds(int rounds);
 
 private:
     Ui::statsDisplay *ui;
