@@ -12,7 +12,8 @@ MainBoard::MainBoard(QWidget *parent)
     this->setWindowTitle("Connect Four");
     QGraphicsView * view = ui->grid_view;
     scene = new QGraphicsScene;
-    ui->grid_view->setBackgroundBrush(QBrush(Qt::red, Qt::SolidPattern));
+//    view->setScene(scene);
+//    ui->grid_view->setBackgroundBrush(QBrush(Qt::red, Qt::SolidPattern));
     ui->grid_view->setScene(scene);
 
     QPalette pal = ui->p1_color->palette();

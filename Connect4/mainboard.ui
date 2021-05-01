@@ -298,22 +298,13 @@ rgb(85, 0, 255)
      <widget class="QGraphicsView" name="grid_view">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>40</y>
-        <width>761</width>
-        <height>501</height>
+        <x>40</x>
+        <y>110</y>
+        <width>681</width>
+        <height>421</height>
        </rect>
       </property>
       <property name="backgroundBrush">
-       <brush brushstyle="NoBrush">
-        <color alpha="255">
-         <red>0</red>
-         <green>0</green>
-         <blue>0</blue>
-        </color>
-       </brush>
-      </property>
-      <property name="foregroundBrush">
        <brush brushstyle="NoBrush">
         <color alpha="255">
          <red>0</red>
