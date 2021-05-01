@@ -29,18 +29,11 @@ bool Board::boardFull(){
     return true;
 }
 
-void Board::takeTurn(Player* player){ //update the bord as well
-    if(player->getChipCount() <= 0){//if player has no chips, they can't play
-        QMessageBox msgBox;
-        msgBox.setText("You're out of chips!");
-        msgBox.exec();
-    }else{//if they have chips still, create one and drip it into the grid in the location they chose
-        //QColor c = player->getcolor();
+void Board::drop_chip(int column){ //update the bord as well
+    qDebug() << "Dropping chip on column "  << column++ << " for player " << get_curr_player()->getName();
+    //drop the chip with whatever current color is
+    //update current player stats
 
-        //player clicks on location on grid displayed (above they column they want to drop in)
-
-        //the chip is now updated from the background color to the color they want
-    }
 }
 
 //check Horizontal win
