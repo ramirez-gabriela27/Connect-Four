@@ -72,16 +72,19 @@ public:
     Player* getPlayer(int i){return players_[i];};
     int getNumPlayers(){return players_.size();};
     void addPlayer(Player* player) {players_.push_back(player);};
-    void takeTurn(Player* player); //update the bord as well
+    void drop_chip(int column); //update the bord as well
     bool checkWinner(Chip *c);
     void payoutPlayers();
     bool boardFull();
     std::vector<std::vector<Chip*>> getBoard(){return chips_;};
     void set_curr_color(QColor c){curr_color_ = c;};
     QColor get_curr_color(){return curr_color_;};
+    void set_curr_player(Player* p){curr_player_ = p;};
+    Player* get_curr_player(){return curr_player_;};
 
 private:
     QColor curr_color_;
+    Player* curr_player_;
     //board is a grid of cells, 2d vactor
     std::vector<std::vector<Chip*>> chips_;
     std::vector<Player*> players_;

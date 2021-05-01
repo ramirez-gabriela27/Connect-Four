@@ -215,6 +215,7 @@ void MainBoard::on_doneButton_clicked()
 
         ui->playerTurnLabel->setText(turn);
         board_->set_curr_color(board->getPlayer(0)->getColor());
+        board_->set_curr_player(board->getPlayer(0));
 
 //        qDebug() << "Done.";
 //        if (board->boardFull())
@@ -404,6 +405,8 @@ void MainBoard::on_column_1_released()
 {
     qDebug() << "column 1 released";
     ui->column_1->setStyleSheet("background-color: transparent");
+    //drop chip on this column
+    this->board_->drop_chip(0);
     ui->column_1->update();
 }
 
@@ -419,6 +422,8 @@ void MainBoard::on_column_2_released()
 {
     qDebug() << "column 2 released";
     ui->column_2->setStyleSheet("background-color: transparent");
+    //drop chip on this column
+    this->board_->drop_chip(1);
     ui->column_2->update();
 }
 
@@ -434,6 +439,8 @@ void MainBoard::on_column_3_released()
 {
     qDebug() << "column 3 released";
     ui->column_3->setStyleSheet("background-color: transparent");
+    //drop chip on this column
+    this->board_->drop_chip(2);
     ui->column_3->update();
 }
 
@@ -449,6 +456,8 @@ void MainBoard::on_column_4_released()
 {
     qDebug() << "column 4 released";
     ui->column_4->setStyleSheet("background-color: transparent");
+    //drop chip on this column
+    this->board_->drop_chip(3);
     ui->column_4->update();
 }
 
@@ -464,6 +473,8 @@ void MainBoard::on_column_5_released()
 {
     qDebug() << "column 5 released";
     ui->column_5->setStyleSheet("background-color: transparent");
+    //drop chip on this column
+    this->board_->drop_chip(4);
     ui->column_5->update();
 }
 
@@ -479,6 +490,8 @@ void MainBoard::on_column_6_released()
 {
     qDebug() << "column 6 released";
     ui->column_6->setStyleSheet("background-color: transparent");
+    //drop chip on this column
+    this->board_->drop_chip(5);
     ui->column_6->update();
 }
 
@@ -494,6 +507,8 @@ void MainBoard::on_column_7_released()
 {
     qDebug() << "column 7 released";
     ui->column_7->setStyleSheet("background-color: transparent");
+    //drop chip on this column
+    this->board_->drop_chip(6);
     ui->column_7->update();
 }
 
@@ -509,6 +524,7 @@ void MainBoard::playGame(){
         while(out == false){
             for(int j=0; j<board_->getNumPlayers(); j++){
                 Player *curr_p = this->board_->getPlayer(j);
+                board_->set_curr_player(curr_p);
 
                 //update turn label
                 QString turn = curr_p->getName()+"'s turn";
@@ -516,7 +532,9 @@ void MainBoard::playGame(){
 
                 board_->set_curr_color(curr_p->getColor());
 
-//                this->board_->takeTurn(curr_p); //player j will take their turn
+
+                //wait on signal from one of the column buttons
+
                 qDebug() << "Turn taken";
                 //then we will check if they are winning
                 Chip curr_chip(curr_p->getColor());
