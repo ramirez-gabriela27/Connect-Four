@@ -47,6 +47,7 @@ MainBoard::MainBoard(QWidget *parent)
     connect(this, &MainBoard::send_p1_name, sd, &statsDisplay::recieve_p1_name);
     connect(this, &MainBoard::send_p2_name, sd, &statsDisplay::recieve_p2_name);
     connect(this, &MainBoard::send_p3_name, sd, &statsDisplay::recieve_p3_name);
+    connect(this, &MainBoard::clear_leaderboard, sd, &statsDisplay::clear_leaderboard);
 }
 
 MainBoard::~MainBoard()
@@ -471,27 +472,27 @@ void MainBoard::playGame(){
 ////////////////////////////////////////////////// BOARD //////////////////////////////////////////////////
 // Use QGridLayout
 
-void MainBoard::on_board_endGameButton_clicked()
-{
-    QMessageBox msgBox;
-    msgBox.setWindowTitle("Quitting Game");
-    msgBox.setText("Are you sure you want to exit?");
-    msgBox.setStandardButtons(QMessageBox::Yes);
-    msgBox.addButton(QMessageBox::No);
-    msgBox.setDefaultButton(QMessageBox::No);
-    if(msgBox.exec() == QMessageBox::Yes)
-    {
-        qDebug() << "Ending current game session...";
-        //go back to home screen
-        ui->stackedWidget->setCurrentIndex(0);
-        // set menu items invisible
-        ui->menuLeaderboard->setTitle("");
-        ui->menuLeaderboard->setDisabled(true);
-        ui->menuEnd_Game->setTitle("");
-        ui->menuEnd_Game->setDisabled(true);
-        delete this->getBoardRef();
-    }
-}
+//void MainBoard::on_board_endGameButton_clicked()
+//{
+//    QMessageBox msgBox;
+//    msgBox.setWindowTitle("Quitting Game");
+//    msgBox.setText("Are you sure you want to exit?");
+//    msgBox.setStandardButtons(QMessageBox::Yes);
+//    msgBox.addButton(QMessageBox::No);
+//    msgBox.setDefaultButton(QMessageBox::No);
+//    if(msgBox.exec() == QMessageBox::Yes)
+//    {
+//        qDebug() << "Ending current game session...";
+//        //go back to home screen
+//        ui->stackedWidget->setCurrentIndex(0);
+//        // set menu items invisible
+//        ui->menuLeaderboard->setTitle("");
+//        ui->menuLeaderboard->setDisabled(true);
+//        ui->menuEnd_Game->setTitle("");
+//        ui->menuEnd_Game->setDisabled(true);
+//        delete this->getBoardRef();
+//    }
+//}
 
 void MainBoard::on_board_shopButton_clicked()
 {
@@ -513,27 +514,27 @@ void MainBoard::on_board_shopButton_clicked()
 ////////////////////////////////////////////////// STORE //////////////////////////////////////////////////
 
 
-void MainBoard::on_store_endGameButton_clicked()
-{
-    QMessageBox msgBox;
-    msgBox.setWindowTitle("Quitting Game");
-    msgBox.setText("Are you sure you want to exit?");
-    msgBox.setStandardButtons(QMessageBox::Yes);
-    msgBox.addButton(QMessageBox::No);
-    msgBox.setDefaultButton(QMessageBox::No);
-    if(msgBox.exec() == QMessageBox::Yes)
-    {
-        qDebug() << "Ending current game session...";
-        //go back to home screen
-        ui->stackedWidget->setCurrentIndex(0);
-        // set menu items invisible
-        ui->menuLeaderboard->setTitle("");
-        ui->menuLeaderboard->setDisabled(true);
-        ui->menuEnd_Game->setTitle("");
-        ui->menuEnd_Game->setDisabled(true);
-        delete this->getBoardRef();
-    }
-}
+//void MainBoard::on_store_endGameButton_clicked()
+//{
+//    QMessageBox msgBox;
+//    msgBox.setWindowTitle("Quitting Game");
+//    msgBox.setText("Are you sure you want to exit?");
+//    msgBox.setStandardButtons(QMessageBox::Yes);
+//    msgBox.addButton(QMessageBox::No);
+//    msgBox.setDefaultButton(QMessageBox::No);
+//    if(msgBox.exec() == QMessageBox::Yes)
+//    {
+//        qDebug() << "Ending current game session...";
+//        //go back to home screen
+//        ui->stackedWidget->setCurrentIndex(0);
+//        // set menu items invisible
+//        ui->menuLeaderboard->setTitle("");
+//        ui->menuLeaderboard->setDisabled(true);
+//        ui->menuEnd_Game->setTitle("");
+//        ui->menuEnd_Game->setDisabled(true);
+//        delete this->getBoardRef();
+//    }
+//}
 
 void MainBoard::on_store_nextRoundButton_clicked()
 {
@@ -608,4 +609,7 @@ void MainBoard::on_actionEnd_Game_triggered()
         ui->menuEnd_Game->setDisabled(true);
         delete this->getBoardRef();
     }
+    // clear leaderboard
+
+    emit clear_leaderboard();
 }

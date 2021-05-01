@@ -38,6 +38,8 @@ signals:
     void send_p2_name(QString name);
     void send_p3_name(QString name);
 
+    void clear_leaderboard();
+
 private slots:
 
     void on_doneButton_clicked();
@@ -66,11 +68,7 @@ private slots:
 
     bool on_p3_color_editingFinished();
 
-    void on_board_endGameButton_clicked();
-
     void on_board_shopButton_clicked();
-
-    void on_store_endGameButton_clicked();
 
     void on_store_nextRoundButton_clicked();
 

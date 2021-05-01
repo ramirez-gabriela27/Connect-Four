@@ -30,6 +30,8 @@ public slots:
 
     void get_rounds(int rounds);
 
+    void clear_leaderboard();
+
 private slots:
 
     void on_statsDisplay_destroyed();
