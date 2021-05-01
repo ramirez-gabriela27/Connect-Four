@@ -31,6 +31,10 @@ signals:
 
     void send_rounds(int rounds_);
 
+    void send_p1_name(QString name);
+    void send_p2_name(QString name);
+    void send_p3_name(QString name);
+
 private slots:
 
     void on_doneButton_clicked();

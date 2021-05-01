@@ -19,9 +19,13 @@ Board::Board() {
 bool Board::boardFull(){
     for (int h = 0; h < BOARD_HEIGHT; h++) {
         for (int w = 0; w < BOARD_WIDTH; w++) {
-            if(chips_[h][w]->get_color() == QColor(255, 255, 255)) return false;
+            if(chips_[h][w]->get_color() == QColor(255, 255, 255)) {
+                return false;
+                qDebug() << "hello?";
+            }
         }
     }
+    qDebug() << "oopsie";
     return true;
 }
 

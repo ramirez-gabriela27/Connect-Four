@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
+    <width>425</width>
     <height>300</height>
    </rect>
   </property>
@@ -22,135 +22,20 @@
   <widget class="QLabel" name="stat_label">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>0</y>
-     <width>81</width>
-     <height>17</height>
+     <x>140</x>
+     <y>10</y>
+     <width>121</width>
+     <height>20</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
    </property>
    <property name="text">
-    <string>Player Stats</string>
+    <string>LEADERBOARD</string>
    </property>
-  </widget>
-  <widget class="QWidget" name="verticalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>30</y>
-     <width>121</width>
-     <height>221</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="p1_stat_layout">
-    <item>
-     <widget class="QLabel" name="name_p1">
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;P1: __name__&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="pts_p1">
-      <property name="text">
-       <string>Points: ____</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="item_p1">
-      <property name="text">
-       <string>Items: ____</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="up_p1">
-      <property name="text">
-       <string>Upgrades: ____</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="verticalLayoutWidget_2">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>30</y>
-     <width>121</width>
-     <height>221</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="p2_stat_layout">
-    <item>
-     <widget class="QLabel" name="name_p2">
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;P2: __name__&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="pts_p2">
-      <property name="text">
-       <string>Points: ____</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="item_p2">
-      <property name="text">
-       <string>Items: ____</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="up_p2">
-      <property name="text">
-       <string>Upgrades: ____</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="verticalLayoutWidget_3">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>30</y>
-     <width>121</width>
-     <height>221</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="p3_stat_layout">
-    <item>
-     <widget class="QLabel" name="name_p3">
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;P3: __name__&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="pts_p3">
-      <property name="text">
-       <string>Points: ____</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="item_p3">
-      <property name="text">
-       <string>Items: ____</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="up_p3">
-      <property name="text">
-       <string>Upgrades: ____</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
   </widget>
   <widget class="QLabel" name="round_label">
    <property name="geometry">
@@ -164,6 +49,150 @@
    <property name="text">
     <string>Round: ___</string>
    </property>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>30</y>
+     <width>401</width>
+     <height>221</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <layout class="QVBoxLayout" name="p1_stat_layout">
+      <item>
+       <widget class="QLabel" name="name_p1">
+        <property name="text">
+         <string>P1: N/A</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="pts_p1">
+        <property name="text">
+         <string>Points: ____</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="item_p1">
+        <property name="text">
+         <string>Items: ____</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="up_p1">
+        <property name="text">
+         <string>Upgrades: ____</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="p2_stat_layout">
+      <item>
+       <widget class="QLabel" name="name_p2">
+        <property name="text">
+         <string>P2: N/A</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="pts_p2">
+        <property name="text">
+         <string>Points: ____</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="item_p2">
+        <property name="text">
+         <string>Items: ____</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="up_p2">
+        <property name="text">
+         <string>Upgrades: ____</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="p3_stat_layout">
+      <item>
+       <widget class="QLabel" name="name_p3">
+        <property name="text">
+         <string>P3: N/A</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="pts_p3">
+        <property name="text">
+         <string>Points: ____</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="item_p3">
+        <property name="text">
+         <string>Items: ____</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="up_p3">
+        <property name="text">
+         <string>Upgrades: ____</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>
