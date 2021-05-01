@@ -22,6 +22,12 @@ signals:
 
 public slots:
 
+    void recieve_p1_name(QString name);
+
+    void recieve_p2_name(QString name);
+
+    void recieve_p3_name(QString name);
+
     void get_rounds(int rounds);
 
 private slots:

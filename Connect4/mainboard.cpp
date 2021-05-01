@@ -10,6 +10,11 @@ MainBoard::MainBoard(QWidget *parent)
 {
     ui->setupUi(this);
     this->setWindowTitle("Connect Four");
+    QGraphicsView * view = ui->grid_view;
+    scene = new QGraphicsScene;
+//    view->setScene(scene);
+//    ui->grid_view->setBackgroundBrush(QBrush(Qt::red, Qt::SolidPattern));
+    ui->grid_view->setScene(scene);
 
     QPalette pal = ui->p1_color->palette();
     pal.setColor(QPalette::Button, QColor(Qt::blue));
@@ -38,7 +43,10 @@ MainBoard::MainBoard(QWidget *parent)
     statsDisplay *sd = new statsDisplay(this);
     this->setStatsDisplayPtr(sd);
     connect(sd, &statsDisplay::clear_show_signal, this, &MainBoard::recieve_clear_signal);
-    connect(sd, &statsDisplay::get_rounds, this, &MainBoard::send_rounds);
+    connect(this, &MainBoard::send_rounds, sd, &statsDisplay::get_rounds);
+    connect(this, &MainBoard::send_p1_name, sd, &statsDisplay::recieve_p1_name);
+    connect(this, &MainBoard::send_p2_name, sd, &statsDisplay::recieve_p2_name);
+    connect(this, &MainBoard::send_p3_name, sd, &statsDisplay::recieve_p3_name);
 }
 
 MainBoard::~MainBoard()
@@ -148,7 +156,7 @@ void MainBoard::on_doneButton_clicked()
             // set player 1 name from ui->p1_name
             p1->setName(ui->p1_name->text());
             board->addPlayer(p1);
-
+            emit send_p1_name(ui->p1_name->text());
         }
 
         // create Player 2 object here
@@ -160,6 +168,7 @@ void MainBoard::on_doneButton_clicked()
             p2->setName(ui->p2_name->text());
 
             board->addPlayer(p2);
+            emit send_p2_name(ui->p2_name->text());
 
         }
 
@@ -172,6 +181,7 @@ void MainBoard::on_doneButton_clicked()
             p3->setName(ui->p3_name->text());
 
             board->addPlayer(p3);
+            emit send_p3_name(ui->p3_name->text());
 
         }
         // set created board object pointer to be referenced by mainboard
@@ -183,9 +193,14 @@ void MainBoard::on_doneButton_clicked()
 
         ui->playerTurnLabel->setText(turn);
 
-        qDebug() << "Done.";
+//        qDebug() << "Done.";
+//        if (board->boardFull())
+//            qDebug() << "Board is full";
+        board_ = board;
 
-        playGame();
+//        playGame();
+        emit send_rounds(4);
+
     }
 }
 
@@ -367,31 +382,31 @@ void MainBoard::playGame(){
                 QString turn = curr_p->getName()+"'s turn";
                 ui->playerTurnLabel->setText(turn);
 
-                this->board_->takeTurn(curr_p); //player j will take their turn
-
+//                this->board_->takeTurn(curr_p); //player j will take their turn
+                qDebug() << "Turn taken";
                 //then we will check if they are winning
                 Chip curr_chip(curr_p->getColor());
 
                 //if current player wins, we move on to the shop
-                if(board_->checkWinner(&curr_chip)){
-                    QMessageBox msgBox;
-                    msgBox.setText("%s has won this round!");
-                    msgBox.exec();
-                    curr_p->roundWon();
-                    curr_p->addPoints(10); //winner gets 10 points, other players get 5
-                    if(j==0){//player 1 won
-                        this->board_->getPlayer(1)->addPoints(5); //p2 gets 5 points
-                        this->board_->getPlayer(2)->addPoints(5); //p3 gets 5 points
-                    }else if(j==1){//player 2 won
-                        this->board_->getPlayer(0)->addPoints(5); //p1 gets 5 points
-                        this->board_->getPlayer(2)->addPoints(5); //p3 gets 5 points
-                    }else{//player 3 won
-                        this->board_->getPlayer(0)->addPoints(5); //p1 gets 5 points
-                        this->board_->getPlayer(1)->addPoints(5); //p2 gets 5 points
-                    }
-                    out = true;
-                    break;//break out of looping through players
-                }
+//                if(board_->checkWinner(&curr_chip)){
+//                    QMessageBox msgBox;
+//                    msgBox.setText("%s has won this round!");
+//                    msgBox.exec();
+//                    curr_p->roundWon();
+//                    curr_p->addPoints(10); //winner gets 10 points, other players get 5
+//                    if(j==0){//player 1 won
+//                        this->board_->getPlayer(1)->addPoints(5); //p2 gets 5 points
+//                        this->board_->getPlayer(2)->addPoints(5); //p3 gets 5 points
+//                    }else if(j==1){//player 2 won
+//                        this->board_->getPlayer(0)->addPoints(5); //p1 gets 5 points
+//                        this->board_->getPlayer(2)->addPoints(5); //p3 gets 5 points
+//                    }else{//player 3 won
+//                        this->board_->getPlayer(0)->addPoints(5); //p1 gets 5 points
+//                        this->board_->getPlayer(1)->addPoints(5); //p2 gets 5 points
+//                    }
+//                    out = true;
+//                    break;//break out of looping through players
+//                }
 
                 //if there is no winner, check if the board is full
                 out = board_->boardFull();
@@ -400,6 +415,7 @@ void MainBoard::playGame(){
                     msgBox2.setText("Board is full; round over!");
                     msgBox2.exec();
                 }
+
             }
         }
 

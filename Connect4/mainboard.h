@@ -3,6 +3,9 @@
 #include "game.h"
 #include "statsdisplay.h"
 #include <QMainWindow>
+#include <QGraphicsScene>
+#include <QGraphicsView>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainBoard; }
@@ -30,6 +33,10 @@ public:
 signals:
 
     void send_rounds(int rounds_);
+
+    void send_p1_name(QString name);
+    void send_p2_name(QString name);
+    void send_p3_name(QString name);
 
 private slots:
 
@@ -84,5 +91,7 @@ private:
     Board* board_ = nullptr;
     statsDisplay* sd_ = nullptr;
     bool show_ = false;
+    QGraphicsScene *scene;
+
 };
 #endif // MAINBOARD_H
