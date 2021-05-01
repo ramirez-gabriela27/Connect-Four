@@ -3,6 +3,7 @@
 #include <QColor>
 #include <QColorDialog>
 #include <QMessageBox>
+#include <QRegion>
 
 MainBoard::MainBoard(QWidget *parent)
     : QMainWindow(parent)
@@ -47,6 +48,24 @@ MainBoard::MainBoard(QWidget *parent)
     connect(this, &MainBoard::send_p1_name, sd, &statsDisplay::recieve_p1_name);
     connect(this, &MainBoard::send_p2_name, sd, &statsDisplay::recieve_p2_name);
     connect(this, &MainBoard::send_p3_name, sd, &statsDisplay::recieve_p3_name);
+
+    QRect rect(0,0,25,25);
+    QRegion region(rect, QRegion::Ellipse);
+    ui->column_1->setMask(region);
+    ui->column_2->setMask(region);
+    ui->column_3->setMask(region);
+    ui->column_4->setMask(region);
+    ui->column_5->setMask(region);
+    ui->column_6->setMask(region);
+    ui->column_7->setMask(region);
+
+    ui->column_1->setStyleSheet("background-color: trasnparent");
+    ui->column_2->setStyleSheet("background-color: trasnparent");
+    ui->column_3->setStyleSheet("background-color: trasnparent");
+    ui->column_4->setStyleSheet("background-color: trasnparent");
+    ui->column_5->setStyleSheet("background-color: trasnparent");
+    ui->column_6->setStyleSheet("background-color: trasnparent");
+    ui->column_7->setStyleSheet("background-color: trasnparent");
 }
 
 MainBoard::~MainBoard()
@@ -192,6 +211,7 @@ void MainBoard::on_doneButton_clicked()
         QString turn = board->getPlayer(0)->getName()+"'s turn";
 
         ui->playerTurnLabel->setText(turn);
+        board_->set_curr_color(board->getPlayer(0)->getColor());
 
 //        qDebug() << "Done.";
 //        if (board->boardFull())
@@ -365,6 +385,115 @@ void MainBoard::on_p3_comboBox_currentIndexChanged(int index)
 }
 
 ////////////////////////////////////////////////// GAMEPLAY //////////////////////////////////////////////////
+//void MainBoard::on_column_1_hover(){
+//    ui->column_1->setStyleSheet("QPushButton{background:black;}");
+//}
+
+void MainBoard::on_column_1_pressed()
+{
+    qDebug() << "column 1 pressed";
+    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
+    ui->column_1->setStyleSheet(qss);
+    ui->column_1->update();
+}
+
+void MainBoard::on_column_1_released()
+{
+    qDebug() << "column 1 released";
+    ui->column_1->setStyleSheet("background-color: transparent");
+    ui->column_1->update();
+}
+
+void MainBoard::on_column_2_pressed()
+{
+    qDebug() << "column 2 pressed";
+    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
+    ui->column_2->setStyleSheet(qss);
+    ui->column_2->update();
+}
+
+void MainBoard::on_column_2_released()
+{
+    qDebug() << "column 2 released";
+    ui->column_2->setStyleSheet("background-color: transparent");
+    ui->column_2->update();
+}
+
+void MainBoard::on_column_3_pressed()
+{
+    qDebug() << "column 3 pressed";
+    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
+    ui->column_3->setStyleSheet(qss);
+    ui->column_3->update();
+}
+
+void MainBoard::on_column_3_released()
+{
+    qDebug() << "column 3 released";
+    ui->column_3->setStyleSheet("background-color: transparent");
+    ui->column_3->update();
+}
+
+void MainBoard::on_column_4_pressed()
+{
+    qDebug() << "column 4 pressed";
+    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
+    ui->column_4->setStyleSheet(qss);
+    ui->column_4->update();
+}
+
+void MainBoard::on_column_4_released()
+{
+    qDebug() << "column 4 released";
+    ui->column_4->setStyleSheet("background-color: transparent");
+    ui->column_4->update();
+}
+
+void MainBoard::on_column_5_pressed()
+{
+    qDebug() << "column 5 pressed";
+    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
+    ui->column_5->setStyleSheet(qss);
+    ui->column_5->update();
+}
+
+void MainBoard::on_column_5_released()
+{
+    qDebug() << "column 5 released";
+    ui->column_5->setStyleSheet("background-color: transparent");
+    ui->column_5->update();
+}
+
+void MainBoard::on_column_6_pressed()
+{
+    qDebug() << "column 6 pressed";
+    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
+    ui->column_6->setStyleSheet(qss);
+    ui->column_6->update();
+}
+
+void MainBoard::on_column_6_released()
+{
+    qDebug() << "column 6 released";
+    ui->column_6->setStyleSheet("background-color: transparent");
+    ui->column_6->update();
+}
+
+void MainBoard::on_column_7_pressed()
+{
+    qDebug() << "column 7 pressed";
+    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
+    ui->column_7->setStyleSheet(qss);
+    ui->column_7->update();
+}
+
+void MainBoard::on_column_7_released()
+{
+    qDebug() << "column 7 released";
+    ui->column_7->setStyleSheet("background-color: transparent");
+    ui->column_7->update();
+}
+
 void MainBoard::playGame(){
     rounds_ = 2*(this->board_->getNumPlayers());//4 rounds for 2 players, 6 for 3 players
 
@@ -381,6 +510,8 @@ void MainBoard::playGame(){
                 //update turn label
                 QString turn = curr_p->getName()+"'s turn";
                 ui->playerTurnLabel->setText(turn);
+
+                board_->set_curr_color(curr_p->getColor());
 
 //                this->board_->takeTurn(curr_p); //player j will take their turn
                 qDebug() << "Turn taken";

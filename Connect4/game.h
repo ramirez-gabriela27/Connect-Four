@@ -77,8 +77,11 @@ public:
     void payoutPlayers();
     bool boardFull();
     std::vector<std::vector<Chip*>> getBoard(){return chips_;};
+    void set_curr_color(QColor c){curr_color_ = c;};
+    QColor get_curr_color(){return curr_color_;};
 
 private:
+    QColor curr_color_;
     //board is a grid of cells, 2d vactor
     std::vector<std::vector<Chip*>> chips_;
     std::vector<Player*> players_;
