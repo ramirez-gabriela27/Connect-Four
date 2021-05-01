@@ -3,6 +3,9 @@
 #include "game.h"
 #include "statsdisplay.h"
 #include <QMainWindow>
+#include <QGraphicsScene>
+#include <QGraphicsView>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainBoard; }
@@ -88,5 +91,7 @@ private:
     Board* board_ = nullptr;
     statsDisplay* sd_ = nullptr;
     bool show_ = false;
+    QGraphicsScene *scene;
+
 };
 #endif // MAINBOARD_H
