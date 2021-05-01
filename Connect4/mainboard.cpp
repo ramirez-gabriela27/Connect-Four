@@ -184,6 +184,8 @@ void MainBoard::on_doneButton_clicked()
         ui->playerTurnLabel->setText(turn);
 
         qDebug() << "Done.";
+
+        playGame();
     }
 }
 
@@ -348,31 +350,105 @@ void MainBoard::on_p3_comboBox_currentIndexChanged(int index)
 }
 
 ////////////////////////////////////////////////// GAMEPLAY //////////////////////////////////////////////////
-
 void MainBoard::playGame(){
-    rounds_ = 2*(this->board_->getNumPlayers());//four rounds for 2 players, 6 for 3 players
-    emit send_rounds(rounds_);
+    rounds_ = 2*(this->board_->getNumPlayers());//4 rounds for 2 players, 6 for 3 players
 
     for(int i = 0; i<rounds_; i++){
-        // each player will take their turn
-        for(int j=0; j<board_->getNumPlayers(); j++){
-            Player *curr_p = this->board_->getPlayer(j);
-            this->board_->takeTurn(curr_p); //player j will take their turn
-            //then we will check if they are winning
-            Chip curr_chip(curr_p->getColor());
+        //update rounds label
+        emit send_rounds(i);
 
-            //if current player wins, we move on to the shop
-            if(board_->checkWinner(&curr_chip)){
-                QMessageBox msgBox;
-                msgBox.setText("%s has won this round!");
-                msgBox.exec();
-                curr_p->roundWon();
-                break;
-            }else{
-                continue;
+        // each player will take their turn
+        bool out = false;
+        while(out == false){
+            for(int j=0; j<board_->getNumPlayers(); j++){
+                Player *curr_p = this->board_->getPlayer(j);
+
+                //update turn label
+                QString turn = curr_p->getName()+"'s turn";
+                ui->playerTurnLabel->setText(turn);
+
+                this->board_->takeTurn(curr_p); //player j will take their turn
+
+                //then we will check if they are winning
+                Chip curr_chip(curr_p->getColor());
+
+                //if current player wins, we move on to the shop
+                if(board_->checkWinner(&curr_chip)){
+                    QMessageBox msgBox;
+                    msgBox.setText("%s has won this round!");
+                    msgBox.exec();
+                    curr_p->roundWon();
+                    curr_p->addPoints(10); //winner gets 10 points, other players get 5
+                    if(j==0){//player 1 won
+                        this->board_->getPlayer(1)->addPoints(5); //p2 gets 5 points
+                        this->board_->getPlayer(2)->addPoints(5); //p3 gets 5 points
+                    }else if(j==1){//player 2 won
+                        this->board_->getPlayer(0)->addPoints(5); //p1 gets 5 points
+                        this->board_->getPlayer(2)->addPoints(5); //p3 gets 5 points
+                    }else{//player 3 won
+                        this->board_->getPlayer(0)->addPoints(5); //p1 gets 5 points
+                        this->board_->getPlayer(1)->addPoints(5); //p2 gets 5 points
+                    }
+                    out = true;
+                    break;//break out of looping through players
+                }
+
+                //if there is no winner, check if the board is full
+                out = board_->boardFull();
+                if(out){
+                    QMessageBox msgBox2;
+                    msgBox2.setText("Board is full; round over!");
+                    msgBox2.exec();
+                }
             }
         }
-        on_board_shopButton_clicked();
+
+
+        //at the end of the round, proceed to shopping
+        ui->stackedWidget->setCurrentIndex(2);
+        // set menu items invisible
+        ui->menuLeaderboard->setTitle("");
+        ui->menuLeaderboard->setDisabled(true);
+        ui->menuEnd_Game->setTitle("");
+        ui->menuEnd_Game->setDisabled(true);
+        qDebug() << "Switching to shopping screen.";
+
+        // each player gets to shop
+        for(int h=0; h<board_->getNumPlayers(); h++){
+
+            Player *p = this->board_->getPlayer(h);//get player
+            int player_points = p->getPoints();
+            //update player string label
+            if(h == 0){//player 1 is shopping
+                QString str = "P1: " + QString::number(player_points) + "pts [shopping]";
+                ui->p1_pts->setText(str);
+                QString str2 = "P2: " + QString::number(this->board_->getPlayer(1)->getPoints()) + "pts";
+                ui->p2_pts->setText(str2);
+                QString str3 = "P3: " + QString::number(this->board_->getPlayer(2)->getPoints()) + "pts";
+                ui->p3_pts->setText(str3);
+
+            }else if(h == 1){//player 2 is shopping
+                QString str = "P1: " + QString::number(this->board_->getPlayer(0)->getPoints()) + "pts";
+                ui->p1_pts->setText(str);
+                QString str2 = "P2: " + QString::number(player_points) + "pts [shopping]";
+                ui->p2_pts->setText(str2);
+                QString str3 = "P3: " + QString::number(this->board_->getPlayer(2)->getPoints()) + "pts";
+                ui->p3_pts->setText(str3);
+            }else{
+                QString str = "P1: " + QString::number(this->board_->getPlayer(0)->getPoints()) + "pts";
+                ui->p1_pts->setText(str);
+                QString str2 = "P2: " + QString::number(this->board_->getPlayer(1)->getPoints()) + "pts";
+                ui->p2_pts->setText(str2);
+                QString str3 = "P3: " + QString::number(player_points) + "pts [shopping]";
+                ui->p3_pts->setText(str3);
+            }
+            //actual shopping/buying will be triggered by the buy button
+
+            //wait for either buy button to continue onto the next shopper
+
+        }
+    //wait for next round button to continue onto next round
+
     }
 }
 
@@ -478,7 +554,7 @@ void MainBoard::on_buy_item_clicked()
     ui->buy_item->setEnabled(false);
     ui->buy_upgrade->setEnabled(false);
 }
-  
+
 
 ////////////////////////////////////////////////// LEADERBOARD //////////////////////////////////////////////////
 
