@@ -4,8 +4,6 @@
 #include <QColorDialog>
 #include <QMessageBox>
 
-#define ROUNDS 6
-
 MainBoard::MainBoard(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainBoard)
@@ -344,6 +342,38 @@ void MainBoard::on_p3_comboBox_currentIndexChanged(int index)
     }
 }
 
+////////////////////////////////////////////////// GAMEPLAY //////////////////////////////////////////////////
+
+void MainBoard::playGame(){
+    rounds_ = 2*(this->board_->getNumPlayers());//four rounds for 2 players, 6 for 3 players
+    //connect(this , &MainWindow::send_rounds, statsDisplay, &statsDisplay::get_rounds);
+    emit send_rounds(rounds_);
+
+    for(int i = 0; i<rounds_; i++){
+        //update rounds label
+        //this->getStatsDisplayPtr()->round_label->setText(QString::number(i));
+
+        // each player will take their turn
+        for(int j=0; j<board_->getNumPlayers(); j++){
+            Player *curr_p = this->board_->getPlayer(j);
+            this->board_->takeTurn(curr_p); //player j will take their turn
+            //then we will check if they are winning
+            Chip curr_chip(curr_p->getColor());
+
+            //if current player wins, we move on to the shop
+            if(board_->checkWinner(&curr_chip)){
+                QMessageBox msgBox;
+                msgBox.setText("%s has won this round!");
+                msgBox.exec();
+                curr_p->roundWon();
+                break;
+            }else{
+                continue;
+            }
+        }
+        on_board_shopButton_clicked();
+    }
+}
 
 ////////////////////////////////////////////////// BOARD //////////////////////////////////////////////////
 // Use QGridLayout
