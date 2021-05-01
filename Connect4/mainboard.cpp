@@ -38,7 +38,7 @@ MainBoard::MainBoard(QWidget *parent)
     statsDisplay *sd = new statsDisplay(this);
     this->setStatsDisplayPtr(sd);
     connect(sd, &statsDisplay::clear_show_signal, this, &MainBoard::recieve_clear_signal);
-
+    connect(sd, &statsDisplay::get_rounds, this, &MainBoard::send_rounds);
 }
 
 MainBoard::~MainBoard()
@@ -346,12 +346,11 @@ void MainBoard::on_p3_comboBox_currentIndexChanged(int index)
 
 void MainBoard::playGame(){
     rounds_ = 2*(this->board_->getNumPlayers());//four rounds for 2 players, 6 for 3 players
-    //connect(this , &MainWindow::send_rounds, statsDisplay, &statsDisplay::get_rounds);
     emit send_rounds(rounds_);
 
     for(int i = 0; i<rounds_; i++){
         //update rounds label
-        //this->getStatsDisplayPtr()->round_label->setText(QString::number(i));
+        //
 
         // each player will take their turn
         for(int j=0; j<board_->getNumPlayers(); j++){
@@ -481,21 +480,10 @@ void MainBoard::on_buy_item_clicked()
 
 ////////////////////////////////////////////////// LEADERBOARD //////////////////////////////////////////////////
 
-void MainBoard::on_LeaderboardButton_clicked()
-{
-    // open leaderboard window
-    if (this->getStatsDisplayShow() == false) {
-        this->getStatsDisplayPtr()->show();
-        this->setStatsDisplayShow(true);
-    }
-}
-
 void MainBoard::recieve_clear_signal() {
     this->setStatsDisplayShow(false);
 
 }
-
-
 
 void MainBoard::on_actionLeaderboard_triggered()
 {

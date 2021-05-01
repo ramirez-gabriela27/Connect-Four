@@ -162,7 +162,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Round: ___&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>Round: ___</string>
    </property>
   </widget>
  </widget>
