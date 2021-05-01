@@ -38,7 +38,7 @@ public:
     Player(QColor color) {color_ = color; points_ = 0; chip_count_ = 21; rounds_won_ =0;};
 
     // setters
-    void setPoints(int points) {points_ = points;};
+    void addPoints(int points) {points_ += points;};
     void setName(QString name) {name_ = name;};
     void addItem(stock item) {player_inventory_.push_back(item);};
 
@@ -75,6 +75,8 @@ public:
     void takeTurn(Player* player); //update the bord as well
     bool checkWinner(Chip *c);
     void payoutPlayers();
+    bool boardFull();
+    std::vector<std::vector<Chip*>> getBoard(){return chips_;};
 
 private:
     //board is a grid of cells, 2d vactor
