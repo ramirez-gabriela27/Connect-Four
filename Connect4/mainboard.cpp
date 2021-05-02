@@ -571,41 +571,46 @@ void MainBoard::next_turn() {
 }
 
 // tests if is valid drop and if winner/draw
-bool MainBoard::recieve_dropped(int col) {
+int MainBoard::recieve_dropped(int col) {
     qDebug() << "chip has been dropped!";
-    // place display logic and checkwinner logic here...
-//    paintChip(x,y,player);
+
 
     if (!board_->columnIsFull(col)) {
-//        int row = board_->getTopmostChipRow(); // TODO
+        /// TODO
+        // int row = board_->getTopmostChipRow();
+        // update color of chip in board_->chips_ to curr_player_color
+        // updateChipDisplay(x,y,color);
+
 //        Chip c(board_->getPlayer(turn_number_)->getColor());
 //        c.set_x(col);
 //        c.set_y(row);
 //        if (board_->checkWinner(&c)) {
 ////             reward winner
+///              reset board
+///              increment round
 ////             go to shop
-
 //        }
+
         qDebug() << "Can place in column";
 
         next_turn();
-        return true;
+        return 0; // return code for all is well
 
     }
     else if (board_->isFull()) {
-        // give stalemate reward
-        // go to shop
-        // reset board
-        // proceed to next round
+        /// give stalemate reward
+        /// go to shop
+        /// reset board
+        /// proceed to next round
+        return 1; // return code for draw
     }
     else {
+        // this is the case when column is full but game is not over yet
         qDebug() << "Column is full... can't place chip here. ";
-        return false;
+        return 2;
     }
-
-
-    return true;
 }
+
 //void MainBoard::playGame(){
 //    rounds_ = 2*(this->board_->getNumPlayers());//4 rounds for 2 players, 6 for 3 players
 //    qDebug() << "Play Game";
