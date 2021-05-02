@@ -28,7 +28,7 @@ public:
     void setStatsDisplayShow(bool s) {show_ = s;};
     bool getStatsDisplayShow() {return show_;};
 
-    void playGame();
+    void update_curr_player_color();
     void next_turn();
 
 signals:
@@ -42,7 +42,7 @@ signals:
     void clear_leaderboard();
     void buy_signal();
 
-    void chip_dropped(Chip* c);
+    void chip_dropped(int col);
 
 private slots:
 
@@ -80,37 +80,51 @@ private slots:
 
     void on_actionEnd_Game_triggered();
 
-    void on_column_1_pressed();
+//    void on_column_1_pressed();
 
-    void on_column_1_released();
+//    void on_column_1_released();
 
-    void on_column_2_pressed();
+//    void on_column_2_pressed();
 
-    void on_column_2_released();
+//    void on_column_2_released();
 
-    void on_column_3_pressed();
+//    void on_column_3_pressed();
 
-    void on_column_4_pressed();
+//    void on_column_4_pressed();
 
-    void on_column_4_released();
+//    void on_column_4_released();
 
-    void on_column_5_pressed();
+//    void on_column_5_pressed();
 
-    void on_column_5_released();
+//    void on_column_5_released();
 
-    void on_column_6_released();
+//    void on_column_6_released();
 
-    void on_column_6_pressed();
+//    void on_column_6_pressed();
 
-    void on_column_7_pressed();
+//    void on_column_7_pressed();
 
-    void on_column_7_released();
+//    void on_column_7_released();
 
-    void on_column_3_released();
+//    void on_column_3_released();
 
     int recieve_buy_signal();
 
-    void recieve_dropped(Chip* c);
+    bool recieve_dropped(int col);
+
+    void on_column_1_clicked();
+
+    void on_column_2_clicked();
+
+    void on_column_3_clicked();
+
+    void on_column_4_clicked();
+
+    void on_column_5_clicked();
+
+    void on_column_6_clicked();
+
+    void on_column_7_clicked();
 
 public slots:
     void recieve_clear_signal();

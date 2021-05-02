@@ -1,27 +1,26 @@
 #include "game.h"
 #include <QMessageBox>
-
 Board::Board() {
     qDebug() << "Initializing board with chips of white color...";
-    for (int h = 0; h < BOARD_HEIGHT; h++) {
-        std::vector<Chip*> rows_;
-        for (int w = 0; w < BOARD_WIDTH; w++) {
+    for (int h = 0; h < BOARD_WIDTH; h++) {
+        std::vector<Chip*> cols_;
+        for (int w = 0; w < BOARD_HEIGHT; w++) {
 
             //with the background color being white, white chips are created and thrown in the grid
-            Chip* c = new Chip(QColor(255, 255, 255));
+            Chip* c = new Chip(CHIP_DEFAULT_COLOR);
             c->set_x(w);
             c->set_y(h);
-            rows_.push_back(c);
+            cols_.push_back(c);
         }
-        chips_.push_back(rows_);
+        chips_.push_back(cols_);
     }
     qDebug() << "Done.";
 }
 
-bool Board::boardFull(){
+bool Board::isFull(){
     for (int h = 0; h < BOARD_HEIGHT; h++) {
         for (int w = 0; w < BOARD_WIDTH; w++) {
-            if(chips_[h][w]->get_color() == QColor(255, 255, 255)) {
+            if(chips_[h][w]->get_color() == CHIP_DEFAULT_COLOR) {
                 return false;
                 qDebug() << "hello?";
             }
@@ -156,5 +155,16 @@ bool Board::checkWinner(Chip *c){
 }
 void Board::payoutPlayers(){
 
+
+}
+
+// checks if the topmost chip is white
+bool Board::columnIsFull(int col) {
+    auto column = chips_[col]; // chips_ is 2d chip pointer vector
+    // if topmost chip is not default color (aka if it is any player color)
+    if (column[BOARD_HEIGHT-1]->get_color() != CHIP_DEFAULT_COLOR)
+        return true;
+    else
+        return false;
 
 }

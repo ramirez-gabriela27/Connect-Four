@@ -9,6 +9,7 @@
 
 #define BOARD_WIDTH 7
 #define BOARD_HEIGHT 6
+#define CHIP_DEFAULT_COLOR QColor(255, 255, 255)
 
 enum class stock{ RemoveOpponentPiece, ExtraTurn, SwitchPiece, ExtraFivePts, DoublePts, TriplePts };
 
@@ -75,13 +76,14 @@ public:
     void drop_chip(int column); //update the bord as well
     bool checkWinner(Chip *c);
     void payoutPlayers();
-    bool boardFull();
+    bool isFull();
     std::vector<std::vector<Chip*>> getBoard(){return chips_;};
     void set_curr_color(QColor c){curr_color_ = c;};
     QColor get_curr_color(){return curr_color_;};
     void set_curr_player(Player* p){curr_player_ = p;};
     Player* get_curr_player(){return curr_player_;};
     std::vector<Player*> get_player_vec() {return players_;};
+    bool columnIsFull(int col);
 
 private:
     QColor curr_color_;
