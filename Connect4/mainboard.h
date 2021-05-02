@@ -29,6 +29,7 @@ public:
     bool getStatsDisplayShow() {return show_;};
 
     void playGame();
+    void next_turn();
 
 signals:
 
@@ -41,7 +42,7 @@ signals:
     void clear_leaderboard();
     void buy_signal();
 
-    void chip_dropped();
+    void chip_dropped(Chip* c);
 
 private slots:
 
@@ -109,7 +110,7 @@ private slots:
 
     int recieve_buy_signal();
 
-    int recieve_dropped();
+    void recieve_dropped(Chip* c);
 
 public slots:
     void recieve_clear_signal();
@@ -125,6 +126,7 @@ private:
     statsDisplay* sd_ = nullptr;
     bool show_ = false;
     QGraphicsScene *scene;
+    int turn_number_;
 
 };
 #endif // MAINBOARD_H
