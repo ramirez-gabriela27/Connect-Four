@@ -110,7 +110,7 @@ private slots:
 
     int recieve_buy_signal();
 
-    bool recieve_dropped(int col);
+    int recieve_dropped(int col);
 
     void on_column_1_clicked();
 

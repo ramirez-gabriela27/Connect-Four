@@ -184,7 +184,7 @@ static const uint qt_meta_data_MainBoard[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Int,
-    QMetaType::Bool, QMetaType::Int,   11,
+    QMetaType::Int, QMetaType::Int,   11,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -237,8 +237,8 @@ void MainBoard::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 23: _t->on_actionEnd_Game_triggered(); break;
         case 24: { int _r = _t->recieve_buy_signal();
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
-        case 25: { bool _r = _t->recieve_dropped((*reinterpret_cast< int(*)>(_a[1])));
-            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 25: { int _r = _t->recieve_dropped((*reinterpret_cast< int(*)>(_a[1])));
+            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
         case 26: _t->on_column_1_clicked(); break;
         case 27: _t->on_column_2_clicked(); break;
         case 28: _t->on_column_3_clicked(); break;
