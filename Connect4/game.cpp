@@ -8,8 +8,10 @@ Board::Board() {
         for (int w = 0; w < BOARD_WIDTH; w++) {
 
             //with the background color being white, white chips are created and thrown in the grid
-            Chip c(QColor(255, 255, 255));
-            rows_.push_back(&c);
+            Chip* c = new Chip(QColor(255, 255, 255));
+            c->set_x(w);
+            c->set_y(h);
+            rows_.push_back(c);
         }
         chips_.push_back(rows_);
     }
@@ -102,7 +104,9 @@ bool check_diagonal_combo_NW_SE(int x, int y, QColor c, std::vector<std::vector<
    int score = 1;
    int count = 1;
 
-   while((y+count >= 0) && (x+count < BOARD_WIDTH)){
+   while((y+count < BOARD_HEIGHT) && (x+count < BOARD_WIDTH)){
+
+
       if (board[y+count][x+count]->get_color() == c){//Check NW to SE
          score++;
          count++;
@@ -110,7 +114,9 @@ bool check_diagonal_combo_NW_SE(int x, int y, QColor c, std::vector<std::vector<
    }
 
    count = 1;
-   while((y-count < BOARD_HEIGHT) && (x-count >=0)){
+   while((y-count >= 0) && (x-count >=0)){
+//       qDebug() << "y-count"<< y-count;
+//       qDebug() << "x-count"<< x-count;
       if (board[y-count][x-count]->get_color() == c){//Check SE to NW
          score++;
          count++;
@@ -125,12 +131,26 @@ bool Board::checkWinner(Chip *c){
     QColor color = c->get_color();
     int x = c->get_x();
     int y = c->get_y();
-
     //we will use the location and the color to find the winner
-    if (check_horizontal_combo(x,y,color,chips_)) return true;
-    else if (check_vertical_combo(x,y,color,chips_)) return true;
-    else if (check_diagonal_combo_NW_SE(x,y,color,chips_)) return true;
-    else if (check_diagonal_combo_SW_NE(x,y,color,chips_)) return true;
+    if (check_horizontal_combo(x,y,color,chips_)) {
+        qDebug() << "horizontal combo true!";
+        return true;
+    }
+    else if (check_vertical_combo(x,y,color,chips_)) {
+        qDebug() << "vertical combo true!";
+        return true;
+    }
+    else if (check_diagonal_combo_NW_SE(x,y,color,chips_)) {
+
+        qDebug() << "NW_SE combo true!";
+        return true;
+
+    }
+    else if (check_diagonal_combo_SW_NE(x,y,color,chips_)) {
+        qDebug() << "SW NE combo true!";
+        return true;
+
+    }
     else return false;
 
 }
