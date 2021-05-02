@@ -55,7 +55,7 @@ MainBoard::MainBoard(QWidget *parent)
 
     connect(this, &MainBoard::chip_dropped, this, &MainBoard::recieve_dropped);
 
-    QRect rect(0,0,25,25);
+    QRect rect(20,17,40,40);
     QRegion region(rect, QRegion::Ellipse);
     ui->column_1->setMask(region);
     ui->column_2->setMask(region);
@@ -64,14 +64,6 @@ MainBoard::MainBoard(QWidget *parent)
     ui->column_5->setMask(region);
     ui->column_6->setMask(region);
     ui->column_7->setMask(region);
-
-    ui->column_1->setStyleSheet("background-color: trasnparent");
-    ui->column_2->setStyleSheet("background-color: trasnparent");
-    ui->column_3->setStyleSheet("background-color: trasnparent");
-    ui->column_4->setStyleSheet("background-color: trasnparent");
-    ui->column_5->setStyleSheet("background-color: trasnparent");
-    ui->column_6->setStyleSheet("background-color: trasnparent");
-    ui->column_7->setStyleSheet("background-color: trasnparent");
 
     turn_number_ = 0;
 }
@@ -564,6 +556,20 @@ void MainBoard::next_turn() {
     ui->playerTurnLabel->setText(turn);
     board_->set_curr_color(board_->getPlayer(turn_number_)->getColor());
     board_->set_curr_player(board_->getPlayer(turn_number_));
+
+    // update board colors
+//    ui->column_1->setStyleSheet("background-color: trasnparent");
+//    ui->column_2->setStyleSheet("background-color: trasnparent");
+//    ui->column_3->setStyleSheet("background-color: trasnparent");
+//    ui->column_4->setStyleSheet("background-color: trasnparent");
+//    ui->column_5->setStyleSheet("background-color: trasnparent");
+//    ui->column_6->setStyleSheet("background-color: trasnparent");
+//    ui->column_7->setStyleSheet("background-color: trasnparent");
+    QPalette pal = ui->column_1->palette();
+    pal.setColor(QPalette::Button, board_->get_curr_color());
+    ui->column_1->setAutoFillBackground(true);
+    ui->column_1->setPalette(pal);
+    ui->column_1->update();
 }
 
 

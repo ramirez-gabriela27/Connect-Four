@@ -57,8 +57,6 @@ public:
     QLabel *show_player_color;
     QLabel *board_label;
     QGraphicsView *grid_view;
-    QWidget *horizontalLayoutWidget_3;
-    QHBoxLayout *horizontalLayout_3;
     QPushButton *column_1;
     QPushButton *column_2;
     QPushButton *column_3;
@@ -222,54 +220,40 @@ public:
         QBrush brush(QColor(0, 0, 0, 255));
         brush.setStyle(Qt::NoBrush);
         grid_view->setBackgroundBrush(brush);
-        horizontalLayoutWidget_3 = new QWidget(connect4board);
-        horizontalLayoutWidget_3->setObjectName(QString::fromUtf8("horizontalLayoutWidget_3"));
-        horizontalLayoutWidget_3->setGeometry(QRect(60, 30, 721, 101));
-        horizontalLayout_3 = new QHBoxLayout(horizontalLayoutWidget_3);
-        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
-        column_1 = new QPushButton(horizontalLayoutWidget_3);
+        column_1 = new QPushButton(connect4board);
         column_1->setObjectName(QString::fromUtf8("column_1"));
-
-        horizontalLayout_3->addWidget(column_1);
-
-        column_2 = new QPushButton(horizontalLayoutWidget_3);
+        column_1->setGeometry(QRect(30, 40, 111, 71));
+        column_2 = new QPushButton(connect4board);
         column_2->setObjectName(QString::fromUtf8("column_2"));
-
-        horizontalLayout_3->addWidget(column_2);
-
-        column_3 = new QPushButton(horizontalLayoutWidget_3);
+        column_2->setGeometry(QRect(130, 40, 111, 71));
+        column_3 = new QPushButton(connect4board);
         column_3->setObjectName(QString::fromUtf8("column_3"));
-
-        horizontalLayout_3->addWidget(column_3);
-
-        column_4 = new QPushButton(horizontalLayoutWidget_3);
+        column_3->setGeometry(QRect(240, 40, 111, 71));
+        column_4 = new QPushButton(connect4board);
         column_4->setObjectName(QString::fromUtf8("column_4"));
-
-        horizontalLayout_3->addWidget(column_4);
-
-        column_5 = new QPushButton(horizontalLayoutWidget_3);
+        column_4->setGeometry(QRect(340, 40, 111, 71));
+        column_5 = new QPushButton(connect4board);
         column_5->setObjectName(QString::fromUtf8("column_5"));
-
-        horizontalLayout_3->addWidget(column_5);
-
-        column_6 = new QPushButton(horizontalLayoutWidget_3);
+        column_5->setGeometry(QRect(445, 40, 111, 71));
+        column_6 = new QPushButton(connect4board);
         column_6->setObjectName(QString::fromUtf8("column_6"));
-
-        horizontalLayout_3->addWidget(column_6);
-
-        column_7 = new QPushButton(horizontalLayoutWidget_3);
+        column_6->setGeometry(QRect(550, 40, 111, 71));
+        column_7 = new QPushButton(connect4board);
         column_7->setObjectName(QString::fromUtf8("column_7"));
-
-        horizontalLayout_3->addWidget(column_7);
-
+        column_7->setGeometry(QRect(655, 40, 111, 71));
         stackedWidget->addWidget(connect4board);
         grid_view->raise();
         board_label->raise();
-        horizontalLayoutWidget_3->raise();
         playerTurnLabel->raise();
         show_player_color->raise();
         board_shopButton->raise();
+        column_1->raise();
+        column_2->raise();
+        column_3->raise();
+        column_4->raise();
+        column_5->raise();
+        column_6->raise();
+        column_7->raise();
         store = new QWidget();
         store->setObjectName(QString::fromUtf8("store"));
         store_nextRoundButton = new QPushButton(store);
@@ -343,7 +327,7 @@ public:
         MainBoard->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainBoard);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 22));
+        menubar->setGeometry(QRect(0, 0, 800, 26));
         menuLeaderboard = new QMenu(menubar);
         menuLeaderboard->setObjectName(QString::fromUtf8("menuLeaderboard"));
         menuLeaderboard->setEnabled(true);
@@ -390,13 +374,13 @@ public:
         playerTurnLabel->setText(QApplication::translate("MainBoard", "x Player's turn", nullptr));
         show_player_color->setText(QString());
         board_label->setText(QString());
-        column_1->setText(QApplication::translate("MainBoard", "1", nullptr));
-        column_2->setText(QApplication::translate("MainBoard", "2", nullptr));
-        column_3->setText(QApplication::translate("MainBoard", "3", nullptr));
-        column_4->setText(QApplication::translate("MainBoard", "4", nullptr));
-        column_5->setText(QApplication::translate("MainBoard", "5", nullptr));
-        column_6->setText(QApplication::translate("MainBoard", "6", nullptr));
-        column_7->setText(QApplication::translate("MainBoard", "7", nullptr));
+        column_1->setText(QString());
+        column_2->setText(QString());
+        column_3->setText(QString());
+        column_4->setText(QString());
+        column_5->setText(QString());
+        column_6->setText(QString());
+        column_7->setText(QString());
         store_nextRoundButton->setText(QApplication::translate("MainBoard", "NEXT ROUND", nullptr));
         p1_pts->setText(QApplication::translate("MainBoard", "<html><head/><body><p align=\"center\">P1: ____ pts [shopping]</p></body></html>", nullptr));
         p2_pts->setText(QApplication::translate("MainBoard", "<html><head/><body><p align=\"center\">P2: ____ pts</p></body></html>", nullptr));
