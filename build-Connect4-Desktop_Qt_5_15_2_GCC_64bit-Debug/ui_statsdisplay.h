@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'statsdisplay.ui'
 **
-** Created by: Qt User Interface Compiler version 5.12.10
+** Created by: Qt User Interface Compiler version 5.15.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -159,21 +159,21 @@ public:
 
     void retranslateUi(QDialog *statsDisplay)
     {
-        statsDisplay->setWindowTitle(QApplication::translate("statsDisplay", "Dialog", nullptr));
-        stat_label->setText(QApplication::translate("statsDisplay", "LEADERBOARD", nullptr));
-        round_label->setText(QApplication::translate("statsDisplay", "Round: ___", nullptr));
-        name_p1->setText(QApplication::translate("statsDisplay", "P1: N/A", nullptr));
-        pts_p1->setText(QApplication::translate("statsDisplay", "Points: ____", nullptr));
-        item_p1->setText(QApplication::translate("statsDisplay", "Items: ____", nullptr));
-        up_p1->setText(QApplication::translate("statsDisplay", "Upgrades: ____", nullptr));
-        name_p2->setText(QApplication::translate("statsDisplay", "P2: N/A", nullptr));
-        pts_p2->setText(QApplication::translate("statsDisplay", "Points: ____", nullptr));
-        item_p2->setText(QApplication::translate("statsDisplay", "Items: ____", nullptr));
-        up_p2->setText(QApplication::translate("statsDisplay", "Upgrades: ____", nullptr));
-        name_p3->setText(QApplication::translate("statsDisplay", "P3: N/A", nullptr));
-        pts_p3->setText(QApplication::translate("statsDisplay", "Points: ____", nullptr));
-        item_p3->setText(QApplication::translate("statsDisplay", "Items: ____", nullptr));
-        up_p3->setText(QApplication::translate("statsDisplay", "Upgrades: ____", nullptr));
+        statsDisplay->setWindowTitle(QCoreApplication::translate("statsDisplay", "Dialog", nullptr));
+        stat_label->setText(QCoreApplication::translate("statsDisplay", "LEADERBOARD", nullptr));
+        round_label->setText(QCoreApplication::translate("statsDisplay", "Round: ___", nullptr));
+        name_p1->setText(QCoreApplication::translate("statsDisplay", "P1: N/A", nullptr));
+        pts_p1->setText(QCoreApplication::translate("statsDisplay", "Points: ____", nullptr));
+        item_p1->setText(QCoreApplication::translate("statsDisplay", "Items: ____", nullptr));
+        up_p1->setText(QCoreApplication::translate("statsDisplay", "Upgrades: ____", nullptr));
+        name_p2->setText(QCoreApplication::translate("statsDisplay", "P2: N/A", nullptr));
+        pts_p2->setText(QCoreApplication::translate("statsDisplay", "Points: ____", nullptr));
+        item_p2->setText(QCoreApplication::translate("statsDisplay", "Items: ____", nullptr));
+        up_p2->setText(QCoreApplication::translate("statsDisplay", "Upgrades: ____", nullptr));
+        name_p3->setText(QCoreApplication::translate("statsDisplay", "P3: N/A", nullptr));
+        pts_p3->setText(QCoreApplication::translate("statsDisplay", "Points: ____", nullptr));
+        item_p3->setText(QCoreApplication::translate("statsDisplay", "Items: ____", nullptr));
+        up_p3->setText(QCoreApplication::translate("statsDisplay", "Upgrades: ____", nullptr));
     } // retranslateUi
 
 };

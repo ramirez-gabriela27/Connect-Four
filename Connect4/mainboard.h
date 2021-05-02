@@ -41,6 +41,8 @@ signals:
     void clear_leaderboard();
     void buy_signal();
 
+    void chip_dropped();
+
 private slots:
 
     void on_doneButton_clicked();
@@ -106,6 +108,8 @@ private slots:
     void on_column_3_released();
 
     int recieve_buy_signal();
+
+    int recieve_dropped();
 
 public slots:
     void recieve_clear_signal();

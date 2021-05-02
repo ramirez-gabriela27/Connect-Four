@@ -52,6 +52,9 @@ MainBoard::MainBoard(QWidget *parent)
     connect(this, &MainBoard::clear_leaderboard, sd, &statsDisplay::clear_leaderboard);
 
     connect(this, &MainBoard::buy_signal, this, &MainBoard::recieve_buy_signal);
+
+    connect(this, &MainBoard::chip_dropped, this, &MainBoard::recieve_dropped);
+
     QRect rect(0,0,25,25);
     QRegion region(rect, QRegion::Ellipse);
     ui->column_1->setMask(region);
@@ -408,6 +411,9 @@ void MainBoard::on_column_1_released()
     //drop chip on this column
     this->board_->drop_chip(0);
     ui->column_1->update();
+
+    //emit signal that chip is dropped
+    emit(chip_dropped());
 }
 
 void MainBoard::on_column_2_pressed()
@@ -425,6 +431,7 @@ void MainBoard::on_column_2_released()
     //drop chip on this column
     this->board_->drop_chip(1);
     ui->column_2->update();
+    emit(chip_dropped());
 }
 
 void MainBoard::on_column_3_pressed()
@@ -442,6 +449,7 @@ void MainBoard::on_column_3_released()
     //drop chip on this column
     this->board_->drop_chip(2);
     ui->column_3->update();
+    emit(chip_dropped());
 }
 
 void MainBoard::on_column_4_pressed()
@@ -459,6 +467,7 @@ void MainBoard::on_column_4_released()
     //drop chip on this column
     this->board_->drop_chip(3);
     ui->column_4->update();
+    emit(chip_dropped());
 }
 
 void MainBoard::on_column_5_pressed()
@@ -476,6 +485,7 @@ void MainBoard::on_column_5_released()
     //drop chip on this column
     this->board_->drop_chip(4);
     ui->column_5->update();
+    emit(chip_dropped());
 }
 
 void MainBoard::on_column_6_pressed()
@@ -493,6 +503,7 @@ void MainBoard::on_column_6_released()
     //drop chip on this column
     this->board_->drop_chip(5);
     ui->column_6->update();
+    emit(chip_dropped());
 }
 
 void MainBoard::on_column_7_pressed()
@@ -510,6 +521,7 @@ void MainBoard::on_column_7_released()
     //drop chip on this column
     this->board_->drop_chip(6);
     ui->column_7->update();
+    emit(chip_dropped());
 }
 
 void MainBoard::playGame(){
@@ -535,8 +547,14 @@ void MainBoard::playGame(){
                 //wait on signal from one of the column buttons
                 qDebug() << "Waiting for Signal!";
 
-                int dont_care = recieve_buy_signal(); // slot
-                qDebug() << dont_care;
+                if(recieve_dropped()){//if we recieve a signal from the column buttons (chip is dropped)
+                    qDebug() << "chip dropped recieved";
+                    //then we continue the loop
+
+                }else{
+                    //we pause the loop
+
+                }
 
                 qDebug() << "Player " << j << "'s Turn taken";
                 //then we will check if they are winning
@@ -650,6 +668,11 @@ void MainBoard::playGame(){
     //wait for next round button to continue onto next round
 
     }
+}
+
+int MainBoard::recieve_dropped() {
+    qDebug() << "chip has been dropped!";
+    return 1;
 }
 
 ////////////////////////////////////////////////// BOARD //////////////////////////////////////////////////
