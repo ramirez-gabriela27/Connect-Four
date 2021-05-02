@@ -532,8 +532,11 @@ void MainBoard::playGame(){
 
                 board_->set_curr_color(curr_p->getColor());
 
-
                 //wait on signal from one of the column buttons
+                qDebug() << "Waiting for Signal!";
+
+                int dont_care = recieve_buy_signal(); // slot
+                qDebug() << dont_care;
 
                 qDebug() << "Player " << j << "'s Turn taken";
                 //then we will check if they are winning
@@ -542,15 +545,12 @@ void MainBoard::playGame(){
                 // loop through every chip in the board
                 // for chips in board
 
-                auto chip_vec = board_->getBoard();
-                std::vector< std::vector<Chip*> >::const_iterator row;
-                std::vector<Chip*>::const_iterator col;
-
-                for (row = chip_vec.begin(); row != chip_vec.end(); ++row)
+                for (int h = 0; h < BOARD_HEIGHT; h++)
                 {
-                    for (col = row->begin(); col != row->end(); ++col)
-                    {
-                        if(board_->checkWinner(*col)){
+                    curr_chip.set_y(h);
+                    for (int w = 0; w < BOARD_WIDTH; w++) {
+                        curr_chip.set_x(w);
+                        if(board_->checkWinner(&curr_chip)){
                             QMessageBox msgBox;
                             msgBox.setText("%s has won this round!");
                             msgBox.exec();
@@ -576,6 +576,7 @@ void MainBoard::playGame(){
                 }
 //                if current player wins, we move on to the shop
             }
+
         }
 
 
@@ -654,28 +655,6 @@ void MainBoard::playGame(){
 ////////////////////////////////////////////////// BOARD //////////////////////////////////////////////////
 // Use QGridLayout
 
-//void MainBoard::on_board_endGameButton_clicked()
-//{
-//    QMessageBox msgBox;
-//    msgBox.setWindowTitle("Quitting Game");
-//    msgBox.setText("Are you sure you want to exit?");
-//    msgBox.setStandardButtons(QMessageBox::Yes);
-//    msgBox.addButton(QMessageBox::No);
-//    msgBox.setDefaultButton(QMessageBox::No);
-//    if(msgBox.exec() == QMessageBox::Yes)
-//    {
-//        qDebug() << "Ending current game session...";
-//        //go back to home screen
-//        ui->stackedWidget->setCurrentIndex(0);
-//        // set menu items invisible
-//        ui->menuLeaderboard->setTitle("");
-//        ui->menuLeaderboard->setDisabled(true);
-//        ui->menuEnd_Game->setTitle("");
-//        ui->menuEnd_Game->setDisabled(true);
-//        delete this->getBoardRef();
-//    }
-//}
-
 void MainBoard::on_board_shopButton_clicked()
 {
     //the round is over, we shop
@@ -695,28 +674,6 @@ void MainBoard::on_board_shopButton_clicked()
 
 ////////////////////////////////////////////////// STORE //////////////////////////////////////////////////
 
-
-//void MainBoard::on_store_endGameButton_clicked()
-//{
-//    QMessageBox msgBox;
-//    msgBox.setWindowTitle("Quitting Game");
-//    msgBox.setText("Are you sure you want to exit?");
-//    msgBox.setStandardButtons(QMessageBox::Yes);
-//    msgBox.addButton(QMessageBox::No);
-//    msgBox.setDefaultButton(QMessageBox::No);
-//    if(msgBox.exec() == QMessageBox::Yes)
-//    {
-//        qDebug() << "Ending current game session...";
-//        //go back to home screen
-//        ui->stackedWidget->setCurrentIndex(0);
-//        // set menu items invisible
-//        ui->menuLeaderboard->setTitle("");
-//        ui->menuLeaderboard->setDisabled(true);
-//        ui->menuEnd_Game->setTitle("");
-//        ui->menuEnd_Game->setDisabled(true);
-//        delete this->getBoardRef();
-//    }
-//}
 
 void MainBoard::on_store_nextRoundButton_clicked()
 {

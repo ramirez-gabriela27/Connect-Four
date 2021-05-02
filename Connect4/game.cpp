@@ -132,10 +132,25 @@ bool Board::checkWinner(Chip *c){
     int x = c->get_x();
     int y = c->get_y();
     //we will use the location and the color to find the winner
-    if (check_horizontal_combo(x,y,color,chips_)) return true;  
-    else if (check_vertical_combo(x,y,color,chips_)) return true;
-    else if (check_diagonal_combo_NW_SE(x,y,color,chips_)) return true;
-    else if (check_diagonal_combo_SW_NE(x,y,color,chips_)) return true;
+    if (check_horizontal_combo(x,y,color,chips_)) {
+        qDebug() << "horizontal combo true!";
+        return true;
+    }
+    else if (check_vertical_combo(x,y,color,chips_)) {
+        qDebug() << "vertical combo true!";
+        return true;
+    }
+    else if (check_diagonal_combo_NW_SE(x,y,color,chips_)) {
+
+        qDebug() << "NW_SE combo true!";
+        return true;
+
+    }
+    else if (check_diagonal_combo_SW_NE(x,y,color,chips_)) {
+        qDebug() << "SW NE combo true!";
+        return true;
+
+    }
     else return false;
 
 }
