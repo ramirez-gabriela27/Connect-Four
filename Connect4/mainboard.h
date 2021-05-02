@@ -28,7 +28,7 @@ public:
     void setStatsDisplayShow(bool s) {show_ = s;};
     bool getStatsDisplayShow() {return show_;};
 
-    void playGame();
+    void update_curr_player_color();
     void next_turn();
 
 signals:

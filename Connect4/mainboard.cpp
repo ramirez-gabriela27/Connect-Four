@@ -218,7 +218,7 @@ void MainBoard::on_doneButton_clicked()
 //            qDebug() << "Board is full";
         board_ = board;
 
-        playGame();
+        update_curr_player_color();
         emit send_rounds(4);
 
     }
@@ -537,8 +537,16 @@ void MainBoard::on_column_7_released()
     Chip curr_chip(curr_p->getColor());
     emit chip_dropped(&curr_chip);}
 
-void MainBoard::playGame() {
-
+void MainBoard::update_curr_player_color() {
+    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
+    ui->column_1->setStyleSheet(qss);
+    ui->column_2->setStyleSheet(qss);
+    ui->column_3->setStyleSheet(qss);
+    ui->column_4->setStyleSheet(qss);
+    ui->column_5->setStyleSheet(qss);
+    ui->column_6->setStyleSheet(qss);
+    ui->column_7->setStyleSheet(qss);
+    update();
 }
 
 void MainBoard::next_turn() {
@@ -565,11 +573,8 @@ void MainBoard::next_turn() {
 //    ui->column_5->setStyleSheet("background-color: trasnparent");
 //    ui->column_6->setStyleSheet("background-color: trasnparent");
 //    ui->column_7->setStyleSheet("background-color: trasnparent");
-    QPalette pal = ui->column_1->palette();
-    pal.setColor(QPalette::Button, board_->get_curr_color());
-    ui->column_1->setAutoFillBackground(true);
-    ui->column_1->setPalette(pal);
-    ui->column_1->update();
+    update_curr_player_color();
+
 }
 
 
