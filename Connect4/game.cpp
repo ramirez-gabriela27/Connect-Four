@@ -2,17 +2,17 @@
 #include <QMessageBox>
 Board::Board() {
     qDebug() << "Initializing board with chips of white color...";
-    for (int h = 0; h < BOARD_HEIGHT; h++) {
-        std::vector<Chip*> rows_;
-        for (int w = 0; w < BOARD_WIDTH; w++) {
+    for (int h = 0; h < BOARD_WIDTH; h++) {
+        std::vector<Chip*> cols_;
+        for (int w = 0; w < BOARD_HEIGHT; w++) {
 
             //with the background color being white, white chips are created and thrown in the grid
             Chip* c = new Chip(CHIP_DEFAULT_COLOR);
             c->set_x(w);
             c->set_y(h);
-            rows_.push_back(c);
+            cols_.push_back(c);
         }
-        chips_.push_back(rows_);
+        chips_.push_back(cols_);
     }
     qDebug() << "Done.";
 }
