@@ -39,6 +39,7 @@ signals:
     void send_p3_name(QString name);
 
     void clear_leaderboard();
+    void buy_signal();
 
 private slots:
 
@@ -103,6 +104,8 @@ private slots:
     void on_column_7_released();
 
     void on_column_3_released();
+
+    int recieve_buy_signal();
 
 public slots:
     void recieve_clear_signal();
