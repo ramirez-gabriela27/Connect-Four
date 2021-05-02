@@ -590,19 +590,19 @@ int MainBoard::recieve_dropped(int col) {
 ///              increment round
 ////             go to shop
 //        }
-
+//        else if (board_->isFull()) {
+//            qDebug() << "Board is full!";
+//            /// give stalemate reward
+//            /// go to shop
+//            /// reset board
+//            /// proceed to next round
+//            return 1; // return code for draw
+//        }
         qDebug() << "Can place in column";
 
         next_turn();
         return 0; // return code for all is well
 
-    }
-    else if (board_->isFull()) {
-        /// give stalemate reward
-        /// go to shop
-        /// reset board
-        /// proceed to next round
-        return 1; // return code for draw
     }
     else {
         // this is the case when column is full but game is not over yet
