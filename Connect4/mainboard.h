@@ -42,7 +42,7 @@ signals:
     void clear_leaderboard();
     void buy_signal();
 
-    void chip_dropped(Chip* c);
+    void chip_dropped(int col);
 
 private slots:
 
@@ -110,7 +110,7 @@ private slots:
 
     int recieve_buy_signal();
 
-    bool recieve_dropped(Chip* c);
+    bool recieve_dropped(int col);
 
     void on_column_1_clicked();
 

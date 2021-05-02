@@ -570,31 +570,38 @@ void MainBoard::next_turn() {
 
 }
 
-
-bool MainBoard::recieve_dropped(Chip* c) {
+// tests if is valid drop and if winner/draw
+bool MainBoard::recieve_dropped(int col) {
     qDebug() << "chip has been dropped!";
     // place display logic and checkwinner logic here...
 //    paintChip(x,y,player);
 
-//    if (!board->column_->isFull()) {
-//        if (board_->checkWinner(c)) {
-//            // reward winner
-//            // go to shop
-//            //
-//        }
-//        if (board_->boardFull()) {
-//            // give stalemate reward
-//            // go to shop
-//            // reset board
-//            // proceed to next round
-//        }
+    if (!board_->columnIsFull(col)) {
+//        int row = board_->getTopmostChipRow(); // TODO
+//        Chip c(board_->getPlayer(turn_number_)->getColor());
+//        c.set_x(col);
+//        c.set_y(row);
+//        if (board_->checkWinner(&c)) {
+////             reward winner
+////             go to shop
 
-//        next_turn();
-//        return true;
+//        }
+        qDebug() << "Can place in column";
 
-//    } else {
-//        return false;
-//    }
+        next_turn();
+        return true;
+
+    }
+    else if (board_->isFull()) {
+        // give stalemate reward
+        // go to shop
+        // reset board
+        // proceed to next round
+    }
+    else {
+        qDebug() << "Column is full... can't place chip here. ";
+        return false;
+    }
 
 
     return true;
@@ -773,9 +780,9 @@ void MainBoard::on_column_1_clicked()
         ui->column_7->update();
 
         //emit signal that chip is dropped
-        Player* curr_p = board_->get_curr_player();
-        Chip curr_chip(curr_p->getColor());
-        emit chip_dropped(&curr_chip);
+//        Player* curr_p = board_->get_curr_player();
+//        Chip curr_chip(curr_p->getColor());
+        emit chip_dropped(0);
 }
 
 void MainBoard::on_column_2_clicked()
@@ -787,9 +794,9 @@ void MainBoard::on_column_2_clicked()
     ui->column_7->update();
 
     //emit signal that chip is dropped
-    Player* curr_p = board_->get_curr_player();
-    Chip curr_chip(curr_p->getColor());
-    emit chip_dropped(&curr_chip);
+//    Player* curr_p = board_->get_curr_player();
+//    Chip curr_chip(curr_p->getColor());
+    emit chip_dropped(1);
 }
 
 void MainBoard::on_column_3_clicked()
@@ -801,9 +808,9 @@ void MainBoard::on_column_3_clicked()
     ui->column_7->update();
 
     //emit signal that chip is dropped
-    Player* curr_p = board_->get_curr_player();
-    Chip curr_chip(curr_p->getColor());
-    emit chip_dropped(&curr_chip);
+//    Player* curr_p = board_->get_curr_player();
+//    Chip curr_chip(curr_p->getColor());
+    emit chip_dropped(2);
 }
 
 void MainBoard::on_column_4_clicked()
@@ -815,9 +822,9 @@ void MainBoard::on_column_4_clicked()
     ui->column_7->update();
 
     //emit signal that chip is dropped
-    Player* curr_p = board_->get_curr_player();
-    Chip curr_chip(curr_p->getColor());
-    emit chip_dropped(&curr_chip);
+//    Player* curr_p = board_->get_curr_player();
+//    Chip curr_chip(curr_p->getColor());
+    emit chip_dropped(3);
 }
 
 void MainBoard::on_column_5_clicked()
@@ -829,9 +836,9 @@ void MainBoard::on_column_5_clicked()
     ui->column_7->update();
 
     //emit signal that chip is dropped
-    Player* curr_p = board_->get_curr_player();
-    Chip curr_chip(curr_p->getColor());
-    emit chip_dropped(&curr_chip);
+//    Player* curr_p = board_->get_curr_player();
+//    Chip curr_chip(curr_p->getColor());
+    emit chip_dropped(4);
 }
 
 void MainBoard::on_column_6_clicked()
@@ -843,9 +850,9 @@ void MainBoard::on_column_6_clicked()
     ui->column_7->update();
 
     //emit signal that chip is dropped
-    Player* curr_p = board_->get_curr_player();
-    Chip curr_chip(curr_p->getColor());
-    emit chip_dropped(&curr_chip);
+//    Player* curr_p = board_->get_curr_player();
+//    Chip curr_chip(curr_p->getColor());
+    emit chip_dropped(5);
 }
 
 void MainBoard::on_column_7_clicked()
@@ -857,9 +864,9 @@ void MainBoard::on_column_7_clicked()
     ui->column_7->update();
 
     //emit signal that chip is dropped
-    Player* curr_p = board_->get_curr_player();
-    Chip curr_chip(curr_p->getColor());
-    emit chip_dropped(&curr_chip);
+//    Player* curr_p = board_->get_curr_player();
+//    Chip curr_chip(curr_p->getColor());
+    emit chip_dropped(6);
 }
 
 ////////////////////////////////////////////////// STORE //////////////////////////////////////////////////

@@ -17,7 +17,7 @@ Board::Board() {
     qDebug() << "Done.";
 }
 
-bool Board::boardFull(){
+bool Board::isFull(){
     for (int h = 0; h < BOARD_HEIGHT; h++) {
         for (int w = 0; w < BOARD_WIDTH; w++) {
             if(chips_[h][w]->get_color() == CHIP_DEFAULT_COLOR) {

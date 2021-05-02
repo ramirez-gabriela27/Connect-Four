@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainBoard_t {
-    QByteArrayData data[43];
-    char stringdata0[842];
+    QByteArrayData data[42];
+    char stringdata0[838];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -42,44 +42,43 @@ QT_MOC_LITERAL(7, 62, 12), // "send_p3_name"
 QT_MOC_LITERAL(8, 75, 17), // "clear_leaderboard"
 QT_MOC_LITERAL(9, 93, 10), // "buy_signal"
 QT_MOC_LITERAL(10, 104, 12), // "chip_dropped"
-QT_MOC_LITERAL(11, 117, 5), // "Chip*"
-QT_MOC_LITERAL(12, 123, 1), // "c"
-QT_MOC_LITERAL(13, 125, 21), // "on_doneButton_clicked"
-QT_MOC_LITERAL(14, 147, 19), // "on_p1_color_clicked"
-QT_MOC_LITERAL(15, 167, 19), // "on_p2_color_clicked"
-QT_MOC_LITERAL(16, 187, 19), // "on_p3_color_clicked"
-QT_MOC_LITERAL(17, 207, 34), // "on_p1_comboBox_currentIndexCh..."
-QT_MOC_LITERAL(18, 242, 5), // "index"
-QT_MOC_LITERAL(19, 248, 34), // "on_p2_comboBox_currentIndexCh..."
-QT_MOC_LITERAL(20, 283, 34), // "on_p3_comboBox_currentIndexCh..."
-QT_MOC_LITERAL(21, 318, 26), // "on_p1_name_editingFinished"
-QT_MOC_LITERAL(22, 345, 26), // "on_p2_name_editingFinished"
-QT_MOC_LITERAL(23, 372, 26), // "on_p3_name_editingFinished"
-QT_MOC_LITERAL(24, 399, 27), // "on_p1_color_editingFinished"
-QT_MOC_LITERAL(25, 427, 27), // "on_p2_color_editingFinished"
-QT_MOC_LITERAL(26, 455, 27), // "on_p3_color_editingFinished"
-QT_MOC_LITERAL(27, 483, 27), // "on_board_shopButton_clicked"
-QT_MOC_LITERAL(28, 511, 32), // "on_store_nextRoundButton_clicked"
-QT_MOC_LITERAL(29, 544, 30), // "on_actionLeaderboard_triggered"
-QT_MOC_LITERAL(30, 575, 27), // "on_actionEnd_Game_triggered"
-QT_MOC_LITERAL(31, 603, 18), // "recieve_buy_signal"
-QT_MOC_LITERAL(32, 622, 15), // "recieve_dropped"
-QT_MOC_LITERAL(33, 638, 19), // "on_column_1_clicked"
-QT_MOC_LITERAL(34, 658, 19), // "on_column_2_clicked"
-QT_MOC_LITERAL(35, 678, 19), // "on_column_3_clicked"
-QT_MOC_LITERAL(36, 698, 19), // "on_column_4_clicked"
-QT_MOC_LITERAL(37, 718, 19), // "on_column_5_clicked"
-QT_MOC_LITERAL(38, 738, 19), // "on_column_6_clicked"
-QT_MOC_LITERAL(39, 758, 19), // "on_column_7_clicked"
-QT_MOC_LITERAL(40, 778, 20), // "recieve_clear_signal"
-QT_MOC_LITERAL(41, 799, 22), // "on_buy_upgrade_clicked"
-QT_MOC_LITERAL(42, 822, 19) // "on_buy_item_clicked"
+QT_MOC_LITERAL(11, 117, 3), // "col"
+QT_MOC_LITERAL(12, 121, 21), // "on_doneButton_clicked"
+QT_MOC_LITERAL(13, 143, 19), // "on_p1_color_clicked"
+QT_MOC_LITERAL(14, 163, 19), // "on_p2_color_clicked"
+QT_MOC_LITERAL(15, 183, 19), // "on_p3_color_clicked"
+QT_MOC_LITERAL(16, 203, 34), // "on_p1_comboBox_currentIndexCh..."
+QT_MOC_LITERAL(17, 238, 5), // "index"
+QT_MOC_LITERAL(18, 244, 34), // "on_p2_comboBox_currentIndexCh..."
+QT_MOC_LITERAL(19, 279, 34), // "on_p3_comboBox_currentIndexCh..."
+QT_MOC_LITERAL(20, 314, 26), // "on_p1_name_editingFinished"
+QT_MOC_LITERAL(21, 341, 26), // "on_p2_name_editingFinished"
+QT_MOC_LITERAL(22, 368, 26), // "on_p3_name_editingFinished"
+QT_MOC_LITERAL(23, 395, 27), // "on_p1_color_editingFinished"
+QT_MOC_LITERAL(24, 423, 27), // "on_p2_color_editingFinished"
+QT_MOC_LITERAL(25, 451, 27), // "on_p3_color_editingFinished"
+QT_MOC_LITERAL(26, 479, 27), // "on_board_shopButton_clicked"
+QT_MOC_LITERAL(27, 507, 32), // "on_store_nextRoundButton_clicked"
+QT_MOC_LITERAL(28, 540, 30), // "on_actionLeaderboard_triggered"
+QT_MOC_LITERAL(29, 571, 27), // "on_actionEnd_Game_triggered"
+QT_MOC_LITERAL(30, 599, 18), // "recieve_buy_signal"
+QT_MOC_LITERAL(31, 618, 15), // "recieve_dropped"
+QT_MOC_LITERAL(32, 634, 19), // "on_column_1_clicked"
+QT_MOC_LITERAL(33, 654, 19), // "on_column_2_clicked"
+QT_MOC_LITERAL(34, 674, 19), // "on_column_3_clicked"
+QT_MOC_LITERAL(35, 694, 19), // "on_column_4_clicked"
+QT_MOC_LITERAL(36, 714, 19), // "on_column_5_clicked"
+QT_MOC_LITERAL(37, 734, 19), // "on_column_6_clicked"
+QT_MOC_LITERAL(38, 754, 19), // "on_column_7_clicked"
+QT_MOC_LITERAL(39, 774, 20), // "recieve_clear_signal"
+QT_MOC_LITERAL(40, 795, 22), // "on_buy_upgrade_clicked"
+QT_MOC_LITERAL(41, 818, 19) // "on_buy_item_clicked"
 
     },
     "MainBoard\0send_rounds\0\0rounds_\0"
     "send_p1_name\0name\0send_p2_name\0"
     "send_p3_name\0clear_leaderboard\0"
-    "buy_signal\0chip_dropped\0Chip*\0c\0"
+    "buy_signal\0chip_dropped\0col\0"
     "on_doneButton_clicked\0on_p1_color_clicked\0"
     "on_p2_color_clicked\0on_p3_color_clicked\0"
     "on_p1_comboBox_currentIndexChanged\0"
@@ -127,35 +126,35 @@ static const uint qt_meta_data_MainBoard[] = {
       10,    1,  208,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      13,    0,  211,    2, 0x08 /* Private */,
-      14,    0,  212,    2, 0x08 /* Private */,
-      15,    0,  213,    2, 0x08 /* Private */,
-      16,    0,  214,    2, 0x08 /* Private */,
-      17,    1,  215,    2, 0x08 /* Private */,
-      19,    1,  218,    2, 0x08 /* Private */,
-      20,    1,  221,    2, 0x08 /* Private */,
-      21,    0,  224,    2, 0x08 /* Private */,
-      22,    0,  225,    2, 0x08 /* Private */,
-      23,    0,  226,    2, 0x08 /* Private */,
-      24,    0,  227,    2, 0x08 /* Private */,
-      25,    0,  228,    2, 0x08 /* Private */,
-      26,    0,  229,    2, 0x08 /* Private */,
-      27,    0,  230,    2, 0x08 /* Private */,
-      28,    0,  231,    2, 0x08 /* Private */,
-      29,    0,  232,    2, 0x08 /* Private */,
-      30,    0,  233,    2, 0x08 /* Private */,
-      31,    0,  234,    2, 0x08 /* Private */,
-      32,    1,  235,    2, 0x08 /* Private */,
-      33,    0,  238,    2, 0x08 /* Private */,
-      34,    0,  239,    2, 0x08 /* Private */,
-      35,    0,  240,    2, 0x08 /* Private */,
-      36,    0,  241,    2, 0x08 /* Private */,
-      37,    0,  242,    2, 0x08 /* Private */,
-      38,    0,  243,    2, 0x08 /* Private */,
-      39,    0,  244,    2, 0x08 /* Private */,
-      40,    0,  245,    2, 0x0a /* Public */,
-      41,    0,  246,    2, 0x0a /* Public */,
-      42,    0,  247,    2, 0x0a /* Public */,
+      12,    0,  211,    2, 0x08 /* Private */,
+      13,    0,  212,    2, 0x08 /* Private */,
+      14,    0,  213,    2, 0x08 /* Private */,
+      15,    0,  214,    2, 0x08 /* Private */,
+      16,    1,  215,    2, 0x08 /* Private */,
+      18,    1,  218,    2, 0x08 /* Private */,
+      19,    1,  221,    2, 0x08 /* Private */,
+      20,    0,  224,    2, 0x08 /* Private */,
+      21,    0,  225,    2, 0x08 /* Private */,
+      22,    0,  226,    2, 0x08 /* Private */,
+      23,    0,  227,    2, 0x08 /* Private */,
+      24,    0,  228,    2, 0x08 /* Private */,
+      25,    0,  229,    2, 0x08 /* Private */,
+      26,    0,  230,    2, 0x08 /* Private */,
+      27,    0,  231,    2, 0x08 /* Private */,
+      28,    0,  232,    2, 0x08 /* Private */,
+      29,    0,  233,    2, 0x08 /* Private */,
+      30,    0,  234,    2, 0x08 /* Private */,
+      31,    1,  235,    2, 0x08 /* Private */,
+      32,    0,  238,    2, 0x08 /* Private */,
+      33,    0,  239,    2, 0x08 /* Private */,
+      34,    0,  240,    2, 0x08 /* Private */,
+      35,    0,  241,    2, 0x08 /* Private */,
+      36,    0,  242,    2, 0x08 /* Private */,
+      37,    0,  243,    2, 0x08 /* Private */,
+      38,    0,  244,    2, 0x08 /* Private */,
+      39,    0,  245,    2, 0x0a /* Public */,
+      40,    0,  246,    2, 0x0a /* Public */,
+      41,    0,  247,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    3,
@@ -164,16 +163,16 @@ static const uint qt_meta_data_MainBoard[] = {
     QMetaType::Void, QMetaType::QString,    5,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 11,   12,
+    QMetaType::Void, QMetaType::Int,   11,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,   18,
-    QMetaType::Void, QMetaType::Int,   18,
-    QMetaType::Void, QMetaType::Int,   18,
+    QMetaType::Void, QMetaType::Int,   17,
+    QMetaType::Void, QMetaType::Int,   17,
+    QMetaType::Void, QMetaType::Int,   17,
     QMetaType::Bool,
     QMetaType::Bool,
     QMetaType::Bool,
@@ -185,7 +184,7 @@ static const uint qt_meta_data_MainBoard[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Int,
-    QMetaType::Bool, 0x80000000 | 11,   12,
+    QMetaType::Bool, QMetaType::Int,   11,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -212,7 +211,7 @@ void MainBoard::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 3: _t->send_p3_name((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 4: _t->clear_leaderboard(); break;
         case 5: _t->buy_signal(); break;
-        case 6: _t->chip_dropped((*reinterpret_cast< Chip*(*)>(_a[1]))); break;
+        case 6: _t->chip_dropped((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 7: _t->on_doneButton_clicked(); break;
         case 8: _t->on_p1_color_clicked(); break;
         case 9: _t->on_p2_color_clicked(); break;
@@ -238,7 +237,7 @@ void MainBoard::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 23: _t->on_actionEnd_Game_triggered(); break;
         case 24: { int _r = _t->recieve_buy_signal();
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
-        case 25: { bool _r = _t->recieve_dropped((*reinterpret_cast< Chip*(*)>(_a[1])));
+        case 25: { bool _r = _t->recieve_dropped((*reinterpret_cast< int(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
         case 26: _t->on_column_1_clicked(); break;
         case 27: _t->on_column_2_clicked(); break;
@@ -297,7 +296,7 @@ void MainBoard::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
             }
         }
         {
-            using _t = void (MainBoard::*)(Chip * );
+            using _t = void (MainBoard::*)(int );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MainBoard::chip_dropped)) {
                 *result = 6;
                 return;
@@ -387,7 +386,7 @@ void MainBoard::buy_signal()
 }
 
 // SIGNAL 6
-void MainBoard::chip_dropped(Chip * _t1)
+void MainBoard::chip_dropped(int _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 6, _a);

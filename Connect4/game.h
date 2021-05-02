@@ -76,7 +76,7 @@ public:
     void drop_chip(int column); //update the bord as well
     bool checkWinner(Chip *c);
     void payoutPlayers();
-    bool boardFull();
+    bool isFull();
     std::vector<std::vector<Chip*>> getBoard(){return chips_;};
     void set_curr_color(QColor c){curr_color_ = c;};
     QColor get_curr_color(){return curr_color_;};
