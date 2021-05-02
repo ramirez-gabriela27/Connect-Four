@@ -51,7 +51,7 @@ MainBoard::MainBoard(QWidget *parent)
 
     connect(this, &MainBoard::clear_leaderboard, sd, &statsDisplay::clear_leaderboard);
 
-
+    connect(this, &MainBoard::buy_signal, this, &MainBoard::recieve_buy_signal);
     QRect rect(0,0,25,25);
     QRegion region(rect, QRegion::Ellipse);
     ui->column_1->setMask(region);
@@ -579,11 +579,13 @@ void MainBoard::playGame(){
         ui->menuLeaderboard->setDisabled(true);
         ui->menuEnd_Game->setTitle("");
         ui->menuEnd_Game->setDisabled(true);
-        qDebug() << "Switching to shopping screen.";
+        qDebug() << "Number of players" <<board_->getNumPlayers();
+
+        qDebug() << "Round over. Switching to shopping screen.";
 
         // each player gets to shop
         for(int h=0; h<board_->getNumPlayers(); h++){
-
+            qDebug() << h;
             Player *p = this->board_->getPlayer(h);//get player
             int player_points = p->getPoints();
             //update player string label
@@ -613,7 +615,10 @@ void MainBoard::playGame(){
             //actual shopping/buying will be triggered by the buy button
 
             //wait for either buy button to continue onto the next shopper
+            qDebug() << "Waiting for Signal!";
 
+            int i = recieve_buy_signal(); // slot
+            qDebug() << i;
         }
     //wait for next round button to continue onto next round
 
@@ -654,7 +659,7 @@ void MainBoard::on_board_shopButton_clicked()
     ui->menuLeaderboard->setDisabled(true);
     ui->menuEnd_Game->setTitle("");
     ui->menuEnd_Game->setDisabled(true);
-    qDebug() << "Switching to shopping screen.";
+    qDebug() << "Shopping Button clicked!";
     //enable buttons again -- will be enabled when we move from player to player shopping
     ui->buy_item->setEnabled(true);
     ui->buy_upgrade->setEnabled(true);
@@ -709,6 +714,7 @@ void MainBoard::on_buy_upgrade_clicked()
     //disable further purchases for thisplayer
     ui->buy_item->setEnabled(false);
     ui->buy_upgrade->setEnabled(false);
+    emit buy_signal();
 }
 
 void MainBoard::on_buy_item_clicked()
@@ -721,8 +727,13 @@ void MainBoard::on_buy_item_clicked()
     //disable further purchases for thisplayer
     ui->buy_item->setEnabled(false);
     ui->buy_upgrade->setEnabled(false);
+    emit buy_signal();
 }
 
+int MainBoard::recieve_buy_signal() {
+    qDebug() << "Buy Signal Recieved!";
+    return 1;
+}
 
 ////////////////////////////////////////////////// LEADERBOARD //////////////////////////////////////////////////
 
