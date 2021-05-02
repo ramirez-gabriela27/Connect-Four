@@ -222,7 +222,7 @@ void MainBoard::on_doneButton_clicked()
 //            qDebug() << "Board is full";
         board_ = board;
 
-//        playGame();
+        playGame();
         emit send_rounds(4);
 
     }
@@ -514,7 +514,7 @@ void MainBoard::on_column_7_released()
 
 void MainBoard::playGame(){
     rounds_ = 2*(this->board_->getNumPlayers());//4 rounds for 2 players, 6 for 3 players
-
+    qDebug() << "Play Game";
     for(int i = 0; i<rounds_; i++){
         //update rounds label
         emit send_rounds(i);
@@ -535,30 +535,30 @@ void MainBoard::playGame(){
 
                 //wait on signal from one of the column buttons
 
-                qDebug() << "Turn taken";
+                qDebug() << "Player " << j << "'s Turn taken";
                 //then we will check if they are winning
                 Chip curr_chip(curr_p->getColor());
 
-                //if current player wins, we move on to the shop
-//                if(board_->checkWinner(&curr_chip)){
-//                    QMessageBox msgBox;
-//                    msgBox.setText("%s has won this round!");
-//                    msgBox.exec();
-//                    curr_p->roundWon();
-//                    curr_p->addPoints(10); //winner gets 10 points, other players get 5
-//                    if(j==0){//player 1 won
-//                        this->board_->getPlayer(1)->addPoints(5); //p2 gets 5 points
-//                        this->board_->getPlayer(2)->addPoints(5); //p3 gets 5 points
-//                    }else if(j==1){//player 2 won
-//                        this->board_->getPlayer(0)->addPoints(5); //p1 gets 5 points
-//                        this->board_->getPlayer(2)->addPoints(5); //p3 gets 5 points
-//                    }else{//player 3 won
-//                        this->board_->getPlayer(0)->addPoints(5); //p1 gets 5 points
-//                        this->board_->getPlayer(1)->addPoints(5); //p2 gets 5 points
-//                    }
-//                    out = true;
-//                    break;//break out of looping through players
-//                }
+//                if current player wins, we move on to the shop
+                if(board_->checkWinner(&curr_chip)){
+                    QMessageBox msgBox;
+                    msgBox.setText("%s has won this round!");
+                    msgBox.exec();
+                    curr_p->roundWon();
+                    curr_p->addPoints(10); //winner gets 10 points, other players get 5
+                    if(j==0){//player 1 won
+                        this->board_->getPlayer(1)->addPoints(5); //p2 gets 5 points
+                        this->board_->getPlayer(2)->addPoints(5); //p3 gets 5 points
+                    }else if(j==1){//player 2 won
+                        this->board_->getPlayer(0)->addPoints(5); //p1 gets 5 points
+                        this->board_->getPlayer(2)->addPoints(5); //p3 gets 5 points
+                    }else{//player 3 won
+                        this->board_->getPlayer(0)->addPoints(5); //p1 gets 5 points
+                        this->board_->getPlayer(1)->addPoints(5); //p2 gets 5 points
+                    }
+                    out = true;
+                    break;//break out of looping through players
+                }
 
                 //if there is no winner, check if the board is full
                 out = board_->boardFull();
@@ -585,7 +585,7 @@ void MainBoard::playGame(){
 
         // each player gets to shop
         for(int h=0; h<board_->getNumPlayers(); h++){
-            qDebug() << h;
+            qDebug() << "Player " << h << "'s turn to shop";
             Player *p = this->board_->getPlayer(h);//get player
             int player_points = p->getPoints();
             //update player string label
@@ -617,8 +617,8 @@ void MainBoard::playGame(){
             //wait for either buy button to continue onto the next shopper
             qDebug() << "Waiting for Signal!";
 
-            int i = recieve_buy_signal(); // slot
-            qDebug() << i;
+            int dont_care = recieve_buy_signal(); // slot
+            qDebug() << dont_care;
         }
     //wait for next round button to continue onto next round
 
