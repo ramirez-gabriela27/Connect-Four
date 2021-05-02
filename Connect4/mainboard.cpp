@@ -571,26 +571,33 @@ void MainBoard::next_turn() {
 }
 
 
-void MainBoard::recieve_dropped(Chip* c) {
+bool MainBoard::recieve_dropped(Chip* c) {
     qDebug() << "chip has been dropped!";
     // place display logic and checkwinner logic here...
 //    paintChip(x,y,player);
 
+//    if (!board->column_->isFull()) {
+//        if (board_->checkWinner(c)) {
+//            // reward winner
+//            // go to shop
+//            //
+//        }
+//        if (board_->boardFull()) {
+//            // give stalemate reward
+//            // go to shop
+//            // reset board
+//            // proceed to next round
+//        }
+
+//        next_turn();
+//        return true;
+
+//    } else {
+//        return false;
+//    }
 
 
-    if (board_->checkWinner(c)) {
-        // reward winner
-        // go to shop
-        //
-    }
-    if (board_->boardFull()) {
-        // give stalemate reward
-        // go to shop
-        // reset board
-        // proceed to next round
-    }
-
-    next_turn();
+    return true;
 }
 //void MainBoard::playGame(){
 //    rounds_ = 2*(this->board_->getNumPlayers());//4 rounds for 2 players, 6 for 3 players

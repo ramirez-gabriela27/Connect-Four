@@ -9,6 +9,7 @@
 
 #define BOARD_WIDTH 7
 #define BOARD_HEIGHT 6
+#define CHIP_DEFAULT_COLOR QColor(255, 255, 255)
 
 enum class stock{ RemoveOpponentPiece, ExtraTurn, SwitchPiece, ExtraFivePts, DoublePts, TriplePts };
 
@@ -82,6 +83,7 @@ public:
     void set_curr_player(Player* p){curr_player_ = p;};
     Player* get_curr_player(){return curr_player_;};
     std::vector<Player*> get_player_vec() {return players_;};
+    bool columnIsFull(int col);
 
 private:
     QColor curr_color_;

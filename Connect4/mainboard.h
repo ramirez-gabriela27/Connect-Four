@@ -110,7 +110,7 @@ private slots:
 
     int recieve_buy_signal();
 
-    void recieve_dropped(Chip* c);
+    bool recieve_dropped(Chip* c);
 
     void on_column_1_clicked();
 
