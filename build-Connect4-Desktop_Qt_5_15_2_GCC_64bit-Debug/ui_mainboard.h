@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainboard.ui'
 **
-** Created by: Qt User Interface Compiler version 5.12.10
+** Created by: Qt User Interface Compiler version 5.15.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -343,7 +343,7 @@ public:
         MainBoard->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainBoard);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 26));
+        menubar->setGeometry(QRect(0, 0, 800, 22));
         menuLeaderboard = new QMenu(menubar);
         menuLeaderboard->setObjectName(QString::fromUtf8("menuLeaderboard"));
         menuLeaderboard->setEnabled(true);
@@ -358,7 +358,7 @@ public:
 
         retranslateUi(MainBoard);
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainBoard);
@@ -366,48 +366,48 @@ public:
 
     void retranslateUi(QMainWindow *MainBoard)
     {
-        MainBoard->setWindowTitle(QApplication::translate("MainBoard", "MainBoard", nullptr));
-        actionLeaderboard->setText(QApplication::translate("MainBoard", "Leaderboard", nullptr));
-        actionEnd_Game->setText(QApplication::translate("MainBoard", "End Game", nullptr));
-        MainMenu_label->setText(QApplication::translate("MainBoard", "Main Menu (Insert Image Here)", nullptr));
-        doneButton->setText(QApplication::translate("MainBoard", "Start Game", nullptr));
-        p2_name->setPlaceholderText(QApplication::translate("MainBoard", "Player 2 Name", nullptr));
-        p1_name->setPlaceholderText(QApplication::translate("MainBoard", "Player 1 Name", nullptr));
-        p1_comboBox->setItemText(0, QApplication::translate("MainBoard", "Disabled", nullptr));
-        p1_comboBox->setItemText(1, QApplication::translate("MainBoard", "Enabled", nullptr));
+        MainBoard->setWindowTitle(QCoreApplication::translate("MainBoard", "MainBoard", nullptr));
+        actionLeaderboard->setText(QCoreApplication::translate("MainBoard", "Leaderboard", nullptr));
+        actionEnd_Game->setText(QCoreApplication::translate("MainBoard", "End Game", nullptr));
+        MainMenu_label->setText(QCoreApplication::translate("MainBoard", "Main Menu (Insert Image Here)", nullptr));
+        doneButton->setText(QCoreApplication::translate("MainBoard", "Start Game", nullptr));
+        p2_name->setPlaceholderText(QCoreApplication::translate("MainBoard", "Player 2 Name", nullptr));
+        p1_name->setPlaceholderText(QCoreApplication::translate("MainBoard", "Player 1 Name", nullptr));
+        p1_comboBox->setItemText(0, QCoreApplication::translate("MainBoard", "Disabled", nullptr));
+        p1_comboBox->setItemText(1, QCoreApplication::translate("MainBoard", "Enabled", nullptr));
 
-        p2_comboBox->setItemText(0, QApplication::translate("MainBoard", "Disabled", nullptr));
-        p2_comboBox->setItemText(1, QApplication::translate("MainBoard", "Enabled", nullptr));
+        p2_comboBox->setItemText(0, QCoreApplication::translate("MainBoard", "Disabled", nullptr));
+        p2_comboBox->setItemText(1, QCoreApplication::translate("MainBoard", "Enabled", nullptr));
 
-        p3_name->setPlaceholderText(QApplication::translate("MainBoard", "Player 3 Name", nullptr));
-        p3_comboBox->setItemText(0, QApplication::translate("MainBoard", "Disabled", nullptr));
-        p3_comboBox->setItemText(1, QApplication::translate("MainBoard", "Enabled", nullptr));
+        p3_name->setPlaceholderText(QCoreApplication::translate("MainBoard", "Player 3 Name", nullptr));
+        p3_comboBox->setItemText(0, QCoreApplication::translate("MainBoard", "Disabled", nullptr));
+        p3_comboBox->setItemText(1, QCoreApplication::translate("MainBoard", "Enabled", nullptr));
 
         p1_color->setText(QString());
         p2_color->setText(QString());
         p3_color->setText(QString());
-        board_shopButton->setText(QApplication::translate("MainBoard", "SHOP", nullptr));
-        playerTurnLabel->setText(QApplication::translate("MainBoard", "x Player's turn", nullptr));
+        board_shopButton->setText(QCoreApplication::translate("MainBoard", "SHOP", nullptr));
+        playerTurnLabel->setText(QCoreApplication::translate("MainBoard", "x Player's turn", nullptr));
         show_player_color->setText(QString());
         board_label->setText(QString());
-        column_1->setText(QApplication::translate("MainBoard", "1", nullptr));
-        column_2->setText(QApplication::translate("MainBoard", "2", nullptr));
-        column_3->setText(QApplication::translate("MainBoard", "3", nullptr));
-        column_4->setText(QApplication::translate("MainBoard", "4", nullptr));
-        column_5->setText(QApplication::translate("MainBoard", "5", nullptr));
-        column_6->setText(QApplication::translate("MainBoard", "6", nullptr));
-        column_7->setText(QApplication::translate("MainBoard", "7", nullptr));
-        store_nextRoundButton->setText(QApplication::translate("MainBoard", "NEXT ROUND", nullptr));
-        p1_pts->setText(QApplication::translate("MainBoard", "<html><head/><body><p align=\"center\">P1: ____ pts [shopping]</p></body></html>", nullptr));
-        p2_pts->setText(QApplication::translate("MainBoard", "<html><head/><body><p align=\"center\">P2: ____ pts</p></body></html>", nullptr));
-        p3_pts->setText(QApplication::translate("MainBoard", "<html><head/><body><p align=\"center\">P3: ____ pts</p></body></html>", nullptr));
-        upgrade_label->setText(QApplication::translate("MainBoard", "<html><head/><body><p align=\"center\">UPGRADES</p></body></html>", nullptr));
-        buy_upgrade->setText(QApplication::translate("MainBoard", "Buy!", nullptr));
-        item_label->setText(QApplication::translate("MainBoard", "<html><head/><body><p align=\"center\">ITEMS</p></body></html>", nullptr));
-        buy_item->setText(QApplication::translate("MainBoard", "Buy!", nullptr));
-        store_label->setText(QApplication::translate("MainBoard", "<html><head/><body><p align=\"center\">Welcome to the Shop!</p></body></html>", nullptr));
-        menuLeaderboard->setTitle(QApplication::translate("MainBoard", "Leaderboard", nullptr));
-        menuEnd_Game->setTitle(QApplication::translate("MainBoard", "End Game", nullptr));
+        column_1->setText(QCoreApplication::translate("MainBoard", "1", nullptr));
+        column_2->setText(QCoreApplication::translate("MainBoard", "2", nullptr));
+        column_3->setText(QCoreApplication::translate("MainBoard", "3", nullptr));
+        column_4->setText(QCoreApplication::translate("MainBoard", "4", nullptr));
+        column_5->setText(QCoreApplication::translate("MainBoard", "5", nullptr));
+        column_6->setText(QCoreApplication::translate("MainBoard", "6", nullptr));
+        column_7->setText(QCoreApplication::translate("MainBoard", "7", nullptr));
+        store_nextRoundButton->setText(QCoreApplication::translate("MainBoard", "NEXT ROUND", nullptr));
+        p1_pts->setText(QCoreApplication::translate("MainBoard", "<html><head/><body><p align=\"center\">P1: ____ pts [shopping]</p></body></html>", nullptr));
+        p2_pts->setText(QCoreApplication::translate("MainBoard", "<html><head/><body><p align=\"center\">P2: ____ pts</p></body></html>", nullptr));
+        p3_pts->setText(QCoreApplication::translate("MainBoard", "<html><head/><body><p align=\"center\">P3: ____ pts</p></body></html>", nullptr));
+        upgrade_label->setText(QCoreApplication::translate("MainBoard", "<html><head/><body><p align=\"center\">UPGRADES</p></body></html>", nullptr));
+        buy_upgrade->setText(QCoreApplication::translate("MainBoard", "Buy!", nullptr));
+        item_label->setText(QCoreApplication::translate("MainBoard", "<html><head/><body><p align=\"center\">ITEMS</p></body></html>", nullptr));
+        buy_item->setText(QCoreApplication::translate("MainBoard", "Buy!", nullptr));
+        store_label->setText(QCoreApplication::translate("MainBoard", "<html><head/><body><p align=\"center\">Welcome to the Shop!</p></body></html>", nullptr));
+        menuLeaderboard->setTitle(QCoreApplication::translate("MainBoard", "Leaderboard", nullptr));
+        menuEnd_Game->setTitle(QCoreApplication::translate("MainBoard", "End Game", nullptr));
     } // retranslateUi
 
 };
