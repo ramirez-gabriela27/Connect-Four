@@ -407,7 +407,7 @@ rgb(85, 0, 255)
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QLabel" name="p3_pts">
+        <widget class="QLabel" name="p1_pts">
          <property name="text">
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;P1: ____ pts [shopping]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
@@ -421,7 +421,7 @@ rgb(85, 0, 255)
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="p1_pts">
+        <widget class="QLabel" name="p3_pts">
          <property name="text">
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;P3: ____ pts&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>

@@ -81,6 +81,7 @@ public:
     QColor get_curr_color(){return curr_color_;};
     void set_curr_player(Player* p){curr_player_ = p;};
     Player* get_curr_player(){return curr_player_;};
+    std::vector<Player*> get_player_vec() {return players_;};
 
 private:
     QColor curr_color_;
