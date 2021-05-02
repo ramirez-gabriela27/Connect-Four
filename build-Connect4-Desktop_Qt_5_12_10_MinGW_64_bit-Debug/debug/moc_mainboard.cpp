@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainBoard_t {
-    QByteArrayData data[50];
-    char stringdata0[989];
+    QByteArrayData data[43];
+    char stringdata0[842];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -62,25 +62,18 @@ QT_MOC_LITERAL(27, 483, 27), // "on_board_shopButton_clicked"
 QT_MOC_LITERAL(28, 511, 32), // "on_store_nextRoundButton_clicked"
 QT_MOC_LITERAL(29, 544, 30), // "on_actionLeaderboard_triggered"
 QT_MOC_LITERAL(30, 575, 27), // "on_actionEnd_Game_triggered"
-QT_MOC_LITERAL(31, 603, 19), // "on_column_1_pressed"
-QT_MOC_LITERAL(32, 623, 20), // "on_column_1_released"
-QT_MOC_LITERAL(33, 644, 19), // "on_column_2_pressed"
-QT_MOC_LITERAL(34, 664, 20), // "on_column_2_released"
-QT_MOC_LITERAL(35, 685, 19), // "on_column_3_pressed"
-QT_MOC_LITERAL(36, 705, 19), // "on_column_4_pressed"
-QT_MOC_LITERAL(37, 725, 20), // "on_column_4_released"
-QT_MOC_LITERAL(38, 746, 19), // "on_column_5_pressed"
-QT_MOC_LITERAL(39, 766, 20), // "on_column_5_released"
-QT_MOC_LITERAL(40, 787, 20), // "on_column_6_released"
-QT_MOC_LITERAL(41, 808, 19), // "on_column_6_pressed"
-QT_MOC_LITERAL(42, 828, 19), // "on_column_7_pressed"
-QT_MOC_LITERAL(43, 848, 20), // "on_column_7_released"
-QT_MOC_LITERAL(44, 869, 20), // "on_column_3_released"
-QT_MOC_LITERAL(45, 890, 18), // "recieve_buy_signal"
-QT_MOC_LITERAL(46, 909, 15), // "recieve_dropped"
-QT_MOC_LITERAL(47, 925, 20), // "recieve_clear_signal"
-QT_MOC_LITERAL(48, 946, 22), // "on_buy_upgrade_clicked"
-QT_MOC_LITERAL(49, 969, 19) // "on_buy_item_clicked"
+QT_MOC_LITERAL(31, 603, 18), // "recieve_buy_signal"
+QT_MOC_LITERAL(32, 622, 15), // "recieve_dropped"
+QT_MOC_LITERAL(33, 638, 19), // "on_column_1_clicked"
+QT_MOC_LITERAL(34, 658, 19), // "on_column_2_clicked"
+QT_MOC_LITERAL(35, 678, 19), // "on_column_3_clicked"
+QT_MOC_LITERAL(36, 698, 19), // "on_column_4_clicked"
+QT_MOC_LITERAL(37, 718, 19), // "on_column_5_clicked"
+QT_MOC_LITERAL(38, 738, 19), // "on_column_6_clicked"
+QT_MOC_LITERAL(39, 758, 19), // "on_column_7_clicked"
+QT_MOC_LITERAL(40, 778, 20), // "recieve_clear_signal"
+QT_MOC_LITERAL(41, 799, 22), // "on_buy_upgrade_clicked"
+QT_MOC_LITERAL(42, 822, 19) // "on_buy_item_clicked"
 
     },
     "MainBoard\0send_rounds\0\0rounds_\0"
@@ -102,16 +95,12 @@ QT_MOC_LITERAL(49, 969, 19) // "on_buy_item_clicked"
     "on_store_nextRoundButton_clicked\0"
     "on_actionLeaderboard_triggered\0"
     "on_actionEnd_Game_triggered\0"
-    "on_column_1_pressed\0on_column_1_released\0"
-    "on_column_2_pressed\0on_column_2_released\0"
-    "on_column_3_pressed\0on_column_4_pressed\0"
-    "on_column_4_released\0on_column_5_pressed\0"
-    "on_column_5_released\0on_column_6_released\0"
-    "on_column_6_pressed\0on_column_7_pressed\0"
-    "on_column_7_released\0on_column_3_released\0"
     "recieve_buy_signal\0recieve_dropped\0"
-    "recieve_clear_signal\0on_buy_upgrade_clicked\0"
-    "on_buy_item_clicked"
+    "on_column_1_clicked\0on_column_2_clicked\0"
+    "on_column_3_clicked\0on_column_4_clicked\0"
+    "on_column_5_clicked\0on_column_6_clicked\0"
+    "on_column_7_clicked\0recieve_clear_signal\0"
+    "on_buy_upgrade_clicked\0on_buy_item_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -121,7 +110,7 @@ static const uint qt_meta_data_MainBoard[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      43,   14, // methods
+      36,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -129,51 +118,44 @@ static const uint qt_meta_data_MainBoard[] = {
        7,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,  229,    2, 0x06 /* Public */,
-       4,    1,  232,    2, 0x06 /* Public */,
-       6,    1,  235,    2, 0x06 /* Public */,
-       7,    1,  238,    2, 0x06 /* Public */,
-       8,    0,  241,    2, 0x06 /* Public */,
-       9,    0,  242,    2, 0x06 /* Public */,
-      10,    1,  243,    2, 0x06 /* Public */,
+       1,    1,  194,    2, 0x06 /* Public */,
+       4,    1,  197,    2, 0x06 /* Public */,
+       6,    1,  200,    2, 0x06 /* Public */,
+       7,    1,  203,    2, 0x06 /* Public */,
+       8,    0,  206,    2, 0x06 /* Public */,
+       9,    0,  207,    2, 0x06 /* Public */,
+      10,    1,  208,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      13,    0,  246,    2, 0x08 /* Private */,
-      14,    0,  247,    2, 0x08 /* Private */,
-      15,    0,  248,    2, 0x08 /* Private */,
-      16,    0,  249,    2, 0x08 /* Private */,
-      17,    1,  250,    2, 0x08 /* Private */,
-      19,    1,  253,    2, 0x08 /* Private */,
-      20,    1,  256,    2, 0x08 /* Private */,
-      21,    0,  259,    2, 0x08 /* Private */,
-      22,    0,  260,    2, 0x08 /* Private */,
-      23,    0,  261,    2, 0x08 /* Private */,
-      24,    0,  262,    2, 0x08 /* Private */,
-      25,    0,  263,    2, 0x08 /* Private */,
-      26,    0,  264,    2, 0x08 /* Private */,
-      27,    0,  265,    2, 0x08 /* Private */,
-      28,    0,  266,    2, 0x08 /* Private */,
-      29,    0,  267,    2, 0x08 /* Private */,
-      30,    0,  268,    2, 0x08 /* Private */,
-      31,    0,  269,    2, 0x08 /* Private */,
-      32,    0,  270,    2, 0x08 /* Private */,
-      33,    0,  271,    2, 0x08 /* Private */,
-      34,    0,  272,    2, 0x08 /* Private */,
-      35,    0,  273,    2, 0x08 /* Private */,
-      36,    0,  274,    2, 0x08 /* Private */,
-      37,    0,  275,    2, 0x08 /* Private */,
-      38,    0,  276,    2, 0x08 /* Private */,
-      39,    0,  277,    2, 0x08 /* Private */,
-      40,    0,  278,    2, 0x08 /* Private */,
-      41,    0,  279,    2, 0x08 /* Private */,
-      42,    0,  280,    2, 0x08 /* Private */,
-      43,    0,  281,    2, 0x08 /* Private */,
-      44,    0,  282,    2, 0x08 /* Private */,
-      45,    0,  283,    2, 0x08 /* Private */,
-      46,    1,  284,    2, 0x08 /* Private */,
-      47,    0,  287,    2, 0x0a /* Public */,
-      48,    0,  288,    2, 0x0a /* Public */,
-      49,    0,  289,    2, 0x0a /* Public */,
+      13,    0,  211,    2, 0x08 /* Private */,
+      14,    0,  212,    2, 0x08 /* Private */,
+      15,    0,  213,    2, 0x08 /* Private */,
+      16,    0,  214,    2, 0x08 /* Private */,
+      17,    1,  215,    2, 0x08 /* Private */,
+      19,    1,  218,    2, 0x08 /* Private */,
+      20,    1,  221,    2, 0x08 /* Private */,
+      21,    0,  224,    2, 0x08 /* Private */,
+      22,    0,  225,    2, 0x08 /* Private */,
+      23,    0,  226,    2, 0x08 /* Private */,
+      24,    0,  227,    2, 0x08 /* Private */,
+      25,    0,  228,    2, 0x08 /* Private */,
+      26,    0,  229,    2, 0x08 /* Private */,
+      27,    0,  230,    2, 0x08 /* Private */,
+      28,    0,  231,    2, 0x08 /* Private */,
+      29,    0,  232,    2, 0x08 /* Private */,
+      30,    0,  233,    2, 0x08 /* Private */,
+      31,    0,  234,    2, 0x08 /* Private */,
+      32,    1,  235,    2, 0x08 /* Private */,
+      33,    0,  238,    2, 0x08 /* Private */,
+      34,    0,  239,    2, 0x08 /* Private */,
+      35,    0,  240,    2, 0x08 /* Private */,
+      36,    0,  241,    2, 0x08 /* Private */,
+      37,    0,  242,    2, 0x08 /* Private */,
+      38,    0,  243,    2, 0x08 /* Private */,
+      39,    0,  244,    2, 0x08 /* Private */,
+      40,    0,  245,    2, 0x0a /* Public */,
+      41,    0,  246,    2, 0x0a /* Public */,
+      42,    0,  247,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    3,
@@ -202,22 +184,15 @@ static const uint qt_meta_data_MainBoard[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
     QMetaType::Int,
     QMetaType::Void, 0x80000000 | 11,   12,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -261,26 +236,19 @@ void MainBoard::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 21: _t->on_store_nextRoundButton_clicked(); break;
         case 22: _t->on_actionLeaderboard_triggered(); break;
         case 23: _t->on_actionEnd_Game_triggered(); break;
-        case 24: _t->on_column_1_pressed(); break;
-        case 25: _t->on_column_1_released(); break;
-        case 26: _t->on_column_2_pressed(); break;
-        case 27: _t->on_column_2_released(); break;
-        case 28: _t->on_column_3_pressed(); break;
-        case 29: _t->on_column_4_pressed(); break;
-        case 30: _t->on_column_4_released(); break;
-        case 31: _t->on_column_5_pressed(); break;
-        case 32: _t->on_column_5_released(); break;
-        case 33: _t->on_column_6_released(); break;
-        case 34: _t->on_column_6_pressed(); break;
-        case 35: _t->on_column_7_pressed(); break;
-        case 36: _t->on_column_7_released(); break;
-        case 37: _t->on_column_3_released(); break;
-        case 38: { int _r = _t->recieve_buy_signal();
+        case 24: { int _r = _t->recieve_buy_signal();
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
-        case 39: _t->recieve_dropped((*reinterpret_cast< Chip*(*)>(_a[1]))); break;
-        case 40: _t->recieve_clear_signal(); break;
-        case 41: _t->on_buy_upgrade_clicked(); break;
-        case 42: _t->on_buy_item_clicked(); break;
+        case 25: _t->recieve_dropped((*reinterpret_cast< Chip*(*)>(_a[1]))); break;
+        case 26: _t->on_column_1_clicked(); break;
+        case 27: _t->on_column_2_clicked(); break;
+        case 28: _t->on_column_3_clicked(); break;
+        case 29: _t->on_column_4_clicked(); break;
+        case 30: _t->on_column_5_clicked(); break;
+        case 31: _t->on_column_6_clicked(); break;
+        case 32: _t->on_column_7_clicked(); break;
+        case 33: _t->recieve_clear_signal(); break;
+        case 34: _t->on_buy_upgrade_clicked(); break;
+        case 35: _t->on_buy_item_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -366,13 +334,13 @@ int MainBoard::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 43)
+        if (_id < 36)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 43;
+        _id -= 36;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 43)
+        if (_id < 36)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 43;
+        _id -= 36;
     }
     return _id;
 }

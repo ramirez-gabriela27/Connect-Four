@@ -389,153 +389,153 @@ void MainBoard::on_p3_comboBox_currentIndexChanged(int index)
 //    ui->column_1->setStyleSheet("QPushButton{background:black;}");
 //}
 
-void MainBoard::on_column_1_pressed()
-{
-    qDebug() << "column 1 pressed";
-    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
-    ui->column_1->setStyleSheet(qss);
-    ui->column_1->update();
-}
+//void MainBoard::on_column_1_pressed()
+//{
+//    qDebug() << "column 1 pressed";
+//    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
+//    ui->column_1->setStyleSheet(qss);
+//    ui->column_1->update();
+//}
 
-void MainBoard::on_column_1_released()
-{
-    qDebug() << "column 1 released";
-    ui->column_1->setStyleSheet("background-color: transparent");
-    //drop chip on this column
-    this->board_->drop_chip(0);
-    ui->column_1->update();
+//void MainBoard::on_column_1_released()
+//{
+//    qDebug() << "column 1 released";
+//    ui->column_1->setStyleSheet("background-color: transparent");
+//    //drop chip on this column
+//    this->board_->drop_chip(0);
+//    ui->column_1->update();
 
-    //emit signal that chip is dropped
-    Player* curr_p = board_->get_curr_player();
-    Chip curr_chip(curr_p->getColor());
-    emit chip_dropped(&curr_chip);
-}
+//    //emit signal that chip is dropped
+//    Player* curr_p = board_->get_curr_player();
+//    Chip curr_chip(curr_p->getColor());
+//    emit chip_dropped(&curr_chip);
+//}
 
-void MainBoard::on_column_2_pressed()
-{
-    qDebug() << "column 2 pressed";
-    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
-    ui->column_2->setStyleSheet(qss);
-    ui->column_2->update();
-}
+//void MainBoard::on_column_2_pressed()
+//{
+//    qDebug() << "column 2 pressed";
+//    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
+//    ui->column_2->setStyleSheet(qss);
+//    ui->column_2->update();
+//}
 
-void MainBoard::on_column_2_released()
-{
-    qDebug() << "column 2 released";
-    ui->column_2->setStyleSheet("background-color: transparent");
-    //drop chip on this column
-    this->board_->drop_chip(1);
-    ui->column_2->update();
+//void MainBoard::on_column_2_released()
+//{
+//    qDebug() << "column 2 released";
+//    ui->column_2->setStyleSheet("background-color: transparent");
+//    //drop chip on this column
+//    this->board_->drop_chip(1);
+//    ui->column_2->update();
 
-    //emit signal that chip is dropped
-    Player* curr_p = board_->get_curr_player();
-    Chip curr_chip(curr_p->getColor());
-    emit chip_dropped(&curr_chip);}
+//    //emit signal that chip is dropped
+//    Player* curr_p = board_->get_curr_player();
+//    Chip curr_chip(curr_p->getColor());
+//    emit chip_dropped(&curr_chip);}
 
-void MainBoard::on_column_3_pressed()
-{
-    qDebug() << "column 3 pressed";
-    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
-    ui->column_3->setStyleSheet(qss);
-    ui->column_3->update();
-}
+//void MainBoard::on_column_3_pressed()
+//{
+//    qDebug() << "column 3 pressed";
+//    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
+//    ui->column_3->setStyleSheet(qss);
+//    ui->column_3->update();
+//}
 
-void MainBoard::on_column_3_released()
-{
-    qDebug() << "column 3 released";
-    ui->column_3->setStyleSheet("background-color: transparent");
-    //drop chip on this column
-    this->board_->drop_chip(2);
-    ui->column_3->update();
+//void MainBoard::on_column_3_released()
+//{
+//    qDebug() << "column 3 released";
+//    ui->column_3->setStyleSheet("background-color: transparent");
+//    //drop chip on this column
+//    this->board_->drop_chip(2);
+//    ui->column_3->update();
 
-    //emit signal that chip is dropped
-    Player* curr_p = board_->get_curr_player();
-    Chip curr_chip(curr_p->getColor());
-    emit chip_dropped(&curr_chip);}
+//    //emit signal that chip is dropped
+//    Player* curr_p = board_->get_curr_player();
+//    Chip curr_chip(curr_p->getColor());
+//    emit chip_dropped(&curr_chip);}
 
-void MainBoard::on_column_4_pressed()
-{
-    qDebug() << "column 4 pressed";
-    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
-    ui->column_4->setStyleSheet(qss);
-    ui->column_4->update();
-}
+//void MainBoard::on_column_4_pressed()
+//{
+//    qDebug() << "column 4 pressed";
+//    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
+//    ui->column_4->setStyleSheet(qss);
+//    ui->column_4->update();
+//}
 
-void MainBoard::on_column_4_released()
-{
-    qDebug() << "column 4 released";
-    ui->column_4->setStyleSheet("background-color: transparent");
-    //drop chip on this column
-    this->board_->drop_chip(3);
-    ui->column_4->update();
+//void MainBoard::on_column_4_released()
+//{
+//    qDebug() << "column 4 released";
+//    ui->column_4->setStyleSheet("background-color: transparent");
+//    //drop chip on this column
+//    this->board_->drop_chip(3);
+//    ui->column_4->update();
 
-    //emit signal that chip is dropped
-    Player* curr_p = board_->get_curr_player();
-    Chip curr_chip(curr_p->getColor());
-    emit chip_dropped(&curr_chip);}
+//    //emit signal that chip is dropped
+//    Player* curr_p = board_->get_curr_player();
+//    Chip curr_chip(curr_p->getColor());
+//    emit chip_dropped(&curr_chip);}
 
-void MainBoard::on_column_5_pressed()
-{
-    qDebug() << "column 5 pressed";
-    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
-    ui->column_5->setStyleSheet(qss);
-    ui->column_5->update();
-}
+//void MainBoard::on_column_5_pressed()
+//{
+//    qDebug() << "column 5 pressed";
+//    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
+//    ui->column_5->setStyleSheet(qss);
+//    ui->column_5->update();
+//}
 
-void MainBoard::on_column_5_released()
-{
-    qDebug() << "column 5 released";
-    ui->column_5->setStyleSheet("background-color: transparent");
-    //drop chip on this column
-    this->board_->drop_chip(4);
-    ui->column_5->update();
+//void MainBoard::on_column_5_released()
+//{
+//    qDebug() << "column 5 released";
+//    ui->column_5->setStyleSheet("background-color: transparent");
+//    //drop chip on this column
+//    this->board_->drop_chip(4);
+//    ui->column_5->update();
 
-    //emit signal that chip is dropped
-    Player* curr_p = board_->get_curr_player();
-    Chip curr_chip(curr_p->getColor());
-    emit chip_dropped(&curr_chip);}
+//    //emit signal that chip is dropped
+//    Player* curr_p = board_->get_curr_player();
+//    Chip curr_chip(curr_p->getColor());
+//    emit chip_dropped(&curr_chip);}
 
-void MainBoard::on_column_6_pressed()
-{
-    qDebug() << "column 6 pressed";
-    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
-    ui->column_6->setStyleSheet(qss);
-    ui->column_6->update();
-}
+//void MainBoard::on_column_6_pressed()
+//{
+//    qDebug() << "column 6 pressed";
+//    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
+//    ui->column_6->setStyleSheet(qss);
+//    ui->column_6->update();
+//}
 
-void MainBoard::on_column_6_released()
-{
-    qDebug() << "column 6 released";
-    ui->column_6->setStyleSheet("background-color: transparent");
-    //drop chip on this column
-    this->board_->drop_chip(5);
-    ui->column_6->update();
+//void MainBoard::on_column_6_released()
+//{
+//    qDebug() << "column 6 released";
+//    ui->column_6->setStyleSheet("background-color: transparent");
+//    //drop chip on this column
+//    this->board_->drop_chip(5);
+//    ui->column_6->update();
 
-    //emit signal that chip is dropped
-    Player* curr_p = board_->get_curr_player();
-    Chip curr_chip(curr_p->getColor());
-    emit chip_dropped(&curr_chip);}
+//    //emit signal that chip is dropped
+//    Player* curr_p = board_->get_curr_player();
+//    Chip curr_chip(curr_p->getColor());
+//    emit chip_dropped(&curr_chip);}
 
-void MainBoard::on_column_7_pressed()
-{
-    qDebug() << "column 7 pressed";
-    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
-    ui->column_7->setStyleSheet(qss);
-    ui->column_7->update();
-}
+//void MainBoard::on_column_7_pressed()
+//{
+//    qDebug() << "column 7 pressed";
+//    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
+//    ui->column_7->setStyleSheet(qss);
+//    ui->column_7->update();
+//}
 
-void MainBoard::on_column_7_released()
-{
-    qDebug() << "column 7 released";
-    ui->column_7->setStyleSheet("background-color: transparent");
-    //drop chip on this column
-    this->board_->drop_chip(6);
-    ui->column_7->update();
+//void MainBoard::on_column_7_released()
+//{
+//    qDebug() << "column 7 released";
+//    ui->column_7->setStyleSheet("background-color: transparent");
+//    //drop chip on this column
+//    this->board_->drop_chip(6);
+//    ui->column_7->update();
 
-    //emit signal that chip is dropped
-    Player* curr_p = board_->get_curr_player();
-    Chip curr_chip(curr_p->getColor());
-    emit chip_dropped(&curr_chip);}
+//    //emit signal that chip is dropped
+//    Player* curr_p = board_->get_curr_player();
+//    Chip curr_chip(curr_p->getColor());
+//    emit chip_dropped(&curr_chip);}
 
 void MainBoard::update_curr_player_color() {
     QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
@@ -566,13 +566,6 @@ void MainBoard::next_turn() {
     board_->set_curr_player(board_->getPlayer(turn_number_));
 
     // update board colors
-//    ui->column_1->setStyleSheet("background-color: trasnparent");
-//    ui->column_2->setStyleSheet("background-color: trasnparent");
-//    ui->column_3->setStyleSheet("background-color: trasnparent");
-//    ui->column_4->setStyleSheet("background-color: trasnparent");
-//    ui->column_5->setStyleSheet("background-color: trasnparent");
-//    ui->column_6->setStyleSheet("background-color: trasnparent");
-//    ui->column_7->setStyleSheet("background-color: trasnparent");
     update_curr_player_color();
 
 }
@@ -764,7 +757,103 @@ void MainBoard::on_board_shopButton_clicked()
     ui->buy_upgrade->setEnabled(true);
 }
 
+void MainBoard::on_column_1_clicked()
+{
+    qDebug() << "column 1 clicked";
+        ui->column_7->setStyleSheet("background-color: transparent");
+        //drop chip on this column
+        this->board_->drop_chip(0);
+        ui->column_7->update();
 
+        //emit signal that chip is dropped
+        Player* curr_p = board_->get_curr_player();
+        Chip curr_chip(curr_p->getColor());
+        emit chip_dropped(&curr_chip);
+}
+
+void MainBoard::on_column_2_clicked()
+{
+    qDebug() << "column 2 clicked";
+    ui->column_7->setStyleSheet("background-color: transparent");
+    //drop chip on this column
+    this->board_->drop_chip(1);
+    ui->column_7->update();
+
+    //emit signal that chip is dropped
+    Player* curr_p = board_->get_curr_player();
+    Chip curr_chip(curr_p->getColor());
+    emit chip_dropped(&curr_chip);
+}
+
+void MainBoard::on_column_3_clicked()
+{
+    qDebug() << "column 3 clicked";
+    ui->column_7->setStyleSheet("background-color: transparent");
+    //drop chip on this column
+    this->board_->drop_chip(2);
+    ui->column_7->update();
+
+    //emit signal that chip is dropped
+    Player* curr_p = board_->get_curr_player();
+    Chip curr_chip(curr_p->getColor());
+    emit chip_dropped(&curr_chip);
+}
+
+void MainBoard::on_column_4_clicked()
+{
+    qDebug() << "column 4 clicked";
+    ui->column_7->setStyleSheet("background-color: transparent");
+    //drop chip on this column
+    this->board_->drop_chip(3);
+    ui->column_7->update();
+
+    //emit signal that chip is dropped
+    Player* curr_p = board_->get_curr_player();
+    Chip curr_chip(curr_p->getColor());
+    emit chip_dropped(&curr_chip);
+}
+
+void MainBoard::on_column_5_clicked()
+{
+    qDebug() << "column 5 clicked";
+    ui->column_7->setStyleSheet("background-color: transparent");
+    //drop chip on this column
+    this->board_->drop_chip(4);
+    ui->column_7->update();
+
+    //emit signal that chip is dropped
+    Player* curr_p = board_->get_curr_player();
+    Chip curr_chip(curr_p->getColor());
+    emit chip_dropped(&curr_chip);
+}
+
+void MainBoard::on_column_6_clicked()
+{
+    qDebug() << "column 6 clicked";
+    ui->column_7->setStyleSheet("background-color: transparent");
+    //drop chip on this column
+    this->board_->drop_chip(5);
+    ui->column_7->update();
+
+    //emit signal that chip is dropped
+    Player* curr_p = board_->get_curr_player();
+    Chip curr_chip(curr_p->getColor());
+    emit chip_dropped(&curr_chip);
+}
+
+void MainBoard::on_column_7_clicked()
+{
+    qDebug() << "column 7 clicked";
+    ui->column_7->setStyleSheet("background-color: transparent");
+    //drop chip on this column
+    this->board_->drop_chip(6);
+    ui->column_7->update();
+
+    //emit signal that chip is dropped
+    Player* curr_p = board_->get_curr_player();
+    Chip curr_chip(curr_p->getColor());
+    emit chip_dropped(&curr_chip);
+}
 
 ////////////////////////////////////////////////// STORE //////////////////////////////////////////////////
 
@@ -852,3 +941,5 @@ void MainBoard::on_actionEnd_Game_triggered()
 
     emit clear_leaderboard();
 }
+
+
