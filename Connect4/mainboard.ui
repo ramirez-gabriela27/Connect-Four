@@ -36,23 +36,20 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="mainmenu">
      <widget class="QLabel" name="MainMenu_label">
       <property name="geometry">
        <rect>
-        <x>170</x>
-        <y>0</y>
-        <width>381</width>
-        <height>131</height>
+        <x>290</x>
+        <y>30</y>
+        <width>191</width>
+        <height>20</height>
        </rect>
       </property>
       <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap>Connect4png.png</pixmap>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;CONNECT 4&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QPushButton" name="doneButton">
@@ -282,7 +279,7 @@ rgb(85, 0, 255)
         <x>0</x>
         <y>0</y>
         <width>763</width>
-        <height>569</height>
+        <height>0</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -292,7 +289,7 @@ rgb(85, 0, 255)
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>:/new/images/c4-1.png</pixmap>
+       <pixmap resource="c4.qrc">:/new/images/c4-1.png</pixmap>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -642,6 +639,8 @@ rgb(85, 0, 255)
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="c4.qrc"/>
+ </resources>
  <connections/>
 </ui>

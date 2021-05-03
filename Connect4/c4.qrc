@@ -1,9 +1,5 @@
 <RCC>
     <qresource prefix="/new/images">
         <file>c4-1.png</file>
-        <file>Connect4png.png</file>
-    </qresource>
-    <qresource prefix="/">
-        <file>../../../../../Downloads/Connect4png.png</file>
     </qresource>
 </RCC>
