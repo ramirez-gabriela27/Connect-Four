@@ -476,15 +476,25 @@ int MainBoard::recieve_dropped(int col) {
         qDebug() << "Dropping chip on column "  << col + 1 << " for player " << board_->get_curr_player()->getName() << "....";
         /// TODO
         int row = board_->getTopChip(col);
+
         qDebug() << "Top available chip at (" << row << "," << col << ")";
         // update color of chip in board_->chips_ to curr_player_color
 
-        Chip c(board_->getPlayer(turn_number_)->getColor());
-        c.set_x(col);
-        c.set_y(row);
+        Chip* c = new Chip(board_->getPlayer(turn_number_)->getColor());
+        c->set_x(col);
+        c->set_y(row);
+        qDebug() << "Column is" << col;
+        qDebug() << "Row is " << row;
+
         board_->updateChipColor(col, row, board_->getPlayer(turn_number_)->getColor());
         //update(); ->gotta ge the grid to display and update still
-        if (board_->checkWinner(&c)){
+        Chip* temp = new Chip(board_->getPlayer(turn_number_)->getColor());
+        temp->set_x(col);
+        temp->set_y(BOARD_HEIGHT-row-1);
+        scene->addItem(temp);
+
+//        update();
+        if (board_->checkWinner(c)){
             qDebug() << "Winner detected!!";
             board_->resetBoard();
 
