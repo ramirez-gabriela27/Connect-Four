@@ -211,7 +211,7 @@ public:
         board_label = new QLabel(connect4board);
         board_label->setObjectName(QString::fromUtf8("board_label"));
         board_label->setEnabled(true);
-        board_label->setGeometry(QRect(0, 0, 763, 569));
+        board_label->setGeometry(QRect(0, 0, 763, 0));
         board_label->setFrameShape(QFrame::Box);
         board_label->setPixmap(QPixmap(QString::fromUtf8(":/new/images/c4-1.png")));
         board_label->setAlignment(Qt::AlignCenter);
