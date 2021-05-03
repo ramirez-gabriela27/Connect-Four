@@ -219,7 +219,8 @@ void MainBoard::on_doneButton_clicked()
         board_ = board;
 
         update_curr_player_color();
-        emit send_rounds(4);
+        round_trakcer_ = 0;
+        emit send_rounds(2*board_->getNumPlayers());
 
     }
 }
@@ -385,158 +386,6 @@ void MainBoard::on_p3_comboBox_currentIndexChanged(int index)
 }
 
 ////////////////////////////////////////////////// GAMEPLAY //////////////////////////////////////////////////
-//void MainBoard::on_column_1_hover(){
-//    ui->column_1->setStyleSheet("QPushButton{background:black;}");
-//}
-
-//void MainBoard::on_column_1_pressed()
-//{
-//    qDebug() << "column 1 pressed";
-//    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
-//    ui->column_1->setStyleSheet(qss);
-//    ui->column_1->update();
-//}
-
-//void MainBoard::on_column_1_released()
-//{
-//    qDebug() << "column 1 released";
-//    ui->column_1->setStyleSheet("background-color: transparent");
-//    //drop chip on this column
-//    this->board_->drop_chip(0);
-//    ui->column_1->update();
-
-//    //emit signal that chip is dropped
-//    Player* curr_p = board_->get_curr_player();
-//    Chip curr_chip(curr_p->getColor());
-//    emit chip_dropped(&curr_chip);
-//}
-
-//void MainBoard::on_column_2_pressed()
-//{
-//    qDebug() << "column 2 pressed";
-//    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
-//    ui->column_2->setStyleSheet(qss);
-//    ui->column_2->update();
-//}
-
-//void MainBoard::on_column_2_released()
-//{
-//    qDebug() << "column 2 released";
-//    ui->column_2->setStyleSheet("background-color: transparent");
-//    //drop chip on this column
-//    this->board_->drop_chip(1);
-//    ui->column_2->update();
-
-//    //emit signal that chip is dropped
-//    Player* curr_p = board_->get_curr_player();
-//    Chip curr_chip(curr_p->getColor());
-//    emit chip_dropped(&curr_chip);}
-
-//void MainBoard::on_column_3_pressed()
-//{
-//    qDebug() << "column 3 pressed";
-//    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
-//    ui->column_3->setStyleSheet(qss);
-//    ui->column_3->update();
-//}
-
-//void MainBoard::on_column_3_released()
-//{
-//    qDebug() << "column 3 released";
-//    ui->column_3->setStyleSheet("background-color: transparent");
-//    //drop chip on this column
-//    this->board_->drop_chip(2);
-//    ui->column_3->update();
-
-//    //emit signal that chip is dropped
-//    Player* curr_p = board_->get_curr_player();
-//    Chip curr_chip(curr_p->getColor());
-//    emit chip_dropped(&curr_chip);}
-
-//void MainBoard::on_column_4_pressed()
-//{
-//    qDebug() << "column 4 pressed";
-//    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
-//    ui->column_4->setStyleSheet(qss);
-//    ui->column_4->update();
-//}
-
-//void MainBoard::on_column_4_released()
-//{
-//    qDebug() << "column 4 released";
-//    ui->column_4->setStyleSheet("background-color: transparent");
-//    //drop chip on this column
-//    this->board_->drop_chip(3);
-//    ui->column_4->update();
-
-//    //emit signal that chip is dropped
-//    Player* curr_p = board_->get_curr_player();
-//    Chip curr_chip(curr_p->getColor());
-//    emit chip_dropped(&curr_chip);}
-
-//void MainBoard::on_column_5_pressed()
-//{
-//    qDebug() << "column 5 pressed";
-//    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
-//    ui->column_5->setStyleSheet(qss);
-//    ui->column_5->update();
-//}
-
-//void MainBoard::on_column_5_released()
-//{
-//    qDebug() << "column 5 released";
-//    ui->column_5->setStyleSheet("background-color: transparent");
-//    //drop chip on this column
-//    this->board_->drop_chip(4);
-//    ui->column_5->update();
-
-//    //emit signal that chip is dropped
-//    Player* curr_p = board_->get_curr_player();
-//    Chip curr_chip(curr_p->getColor());
-//    emit chip_dropped(&curr_chip);}
-
-//void MainBoard::on_column_6_pressed()
-//{
-//    qDebug() << "column 6 pressed";
-//    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
-//    ui->column_6->setStyleSheet(qss);
-//    ui->column_6->update();
-//}
-
-//void MainBoard::on_column_6_released()
-//{
-//    qDebug() << "column 6 released";
-//    ui->column_6->setStyleSheet("background-color: transparent");
-//    //drop chip on this column
-//    this->board_->drop_chip(5);
-//    ui->column_6->update();
-
-//    //emit signal that chip is dropped
-//    Player* curr_p = board_->get_curr_player();
-//    Chip curr_chip(curr_p->getColor());
-//    emit chip_dropped(&curr_chip);}
-
-//void MainBoard::on_column_7_pressed()
-//{
-//    qDebug() << "column 7 pressed";
-//    QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
-//    ui->column_7->setStyleSheet(qss);
-//    ui->column_7->update();
-//}
-
-//void MainBoard::on_column_7_released()
-//{
-//    qDebug() << "column 7 released";
-//    ui->column_7->setStyleSheet("background-color: transparent");
-//    //drop chip on this column
-//    this->board_->drop_chip(6);
-//    ui->column_7->update();
-
-//    //emit signal that chip is dropped
-//    Player* curr_p = board_->get_curr_player();
-//    Chip curr_chip(curr_p->getColor());
-//    emit chip_dropped(&curr_chip);}
-
 void MainBoard::update_curr_player_color() {
     QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
     ui->column_1->setStyleSheet(qss);
@@ -550,6 +399,9 @@ void MainBoard::update_curr_player_color() {
 }
 
 void MainBoard::next_turn() {
+
+    ui->tracker->setText("Round#" + QString::number(round_trakcer_ + 1));
+
     int turn_ahead = turn_number_ + 1;
     if (turn_ahead >= board_->getNumPlayers()) {
         turn_number_ = 0;
@@ -568,36 +420,67 @@ void MainBoard::next_turn() {
     // update board colors
     update_curr_player_color();
 
+    if(board_->columnIsFull(0))
+        ui->column_1->setStyleSheet("background-color: transparent");
+    if(board_->columnIsFull(1))
+        ui->column_2->setStyleSheet("background-color: transparent");
+    if(board_->columnIsFull(2))
+        ui->column_3->setStyleSheet("background-color: transparent");
+    if(board_->columnIsFull(3))
+        ui->column_4->setStyleSheet("background-color: transparent");
+    if(board_->columnIsFull(4))
+        ui->column_5->setStyleSheet("background-color: transparent");
+    if(board_->columnIsFull(5))
+        ui->column_6->setStyleSheet("background-color: transparent");
+    if(board_->columnIsFull(6))
+        ui->column_7->setStyleSheet("background-color: transparent");
+
 }
 
 // tests if is valid drop and if winner/draw
 int MainBoard::recieve_dropped(int col) {
-    qDebug() << "chip has been dropped!";
-
 
     if (!board_->columnIsFull(col)) {
+        qDebug() << "Dropping chip on column "  << col + 1 << " for player " << board_->get_curr_player()->getName() << "....";
         /// TODO
-        // int row = board_->getTopmostChipRow();
+        int row = board_->getTopChip(col);
+        qDebug() << "Top available chip at (" << row << "," << col << ")";
         // update color of chip in board_->chips_ to curr_player_color
         // updateChipDisplay(x,y,color);
 
-//        Chip c(board_->getPlayer(turn_number_)->getColor());
-//        c.set_x(col);
-//        c.set_y(row);
-//        if (board_->checkWinner(&c)) {
-////             reward winner
-///              reset board
-///              increment round
-////             go to shop
-//        }
-//        else if (board_->isFull()) {
-//            qDebug() << "Board is full!";
-//            /// give stalemate reward
-//            /// go to shop
-//            /// reset board
-//            /// proceed to next round
-//            return 1; // return code for draw
-//        }
+        Chip c(board_->getPlayer(turn_number_)->getColor());
+        c.set_x(col);
+        c.set_y(row);
+        board_->updateChipDisplay(col, row, board_->getPlayer(turn_number_)->getColor());
+
+        //update(); ->gotta ge the grid to display and update still
+/*        if (board_->checkWinner(&c)){
+            board_->resetBoard();
+
+            for(unsigned int i = 0; i < board_->get_player_vec().size(); i++){
+                board_->get_player_vec()[i]->addPoints(5); //every player gets 5 pts
+            }
+            board_->get_curr_player()->addPoints(5); //winner (current player) gets 5 more, 10 total
+            board_->get_curr_player()->roundWon();
+
+            on_board_shopButton_clicked();
+            //round incremented by shop (next round button clicked)
+            //proceed to next round
+
+        }else */if(board_->isFull()){
+            qDebug() << "Board full returned true";
+            board_->resetBoard();
+
+            for(unsigned int i = 0; i < board_->get_player_vec().size(); i++){
+                board_->get_player_vec()[i]->addPoints(5); //every player gets 5 pts
+            }
+
+            on_board_shopButton_clicked();
+            //round incremented by shop (next round button clicked)
+            //proceed to next round
+            return 1;
+        }
+
         qDebug() << "Can place in column";
 
         next_turn();
@@ -610,153 +493,6 @@ int MainBoard::recieve_dropped(int col) {
         return 2;
     }
 }
-
-//void MainBoard::playGame(){
-//    rounds_ = 2*(this->board_->getNumPlayers());//4 rounds for 2 players, 6 for 3 players
-//    qDebug() << "Play Game";
-//    for(int i = 0; i<rounds_; i++){
-//        //update rounds label
-//        emit send_rounds(i);
-
-//        // each player will take their turn
-//        bool out = false;
-//        while(out == false){
-//            for(int j=0; j<board_->getNumPlayers(); j++){
-//                Player *curr_p = this->board_->getPlayer(j);
-//                board_->set_curr_player(curr_p);
-
-//                //update turn label
-//                QString turn = curr_p->getName()+"'s turn";
-//                ui->playerTurnLabel->setText(turn);
-
-//                board_->set_curr_color(curr_p->getColor());
-
-//                //wait on signal from one of the column buttons
-//                qDebug() << "Waiting for Signal!";
-
-//                if(recieve_dropped()){//if we recieve a signal from the column buttons (chip is dropped)
-//                    qDebug() << "chip dropped recieved";
-//                    //then we continue the loop
-
-//                }else{
-//                    //we pause the loop
-
-//                }
-
-//                qDebug() << "Player " << j << "'s Turn taken";
-//                //then we will check if they are winning
-//                Chip curr_chip(curr_p->getColor());
-
-//                // loop through every chip in the board
-//                // for chips in board
-
-//                for (int h = 0; h < BOARD_HEIGHT; h++)
-//                {
-//                    curr_chip.set_y(h);
-//                    for (int w = 0; w < BOARD_WIDTH; w++) {
-//                        curr_chip.set_x(w);
-//                        if(board_->checkWinner(&curr_chip)){
-//                            QMessageBox msgBox;
-//                            msgBox.setText("%s has won this round!");
-//                            msgBox.exec();
-//                            curr_p->roundWon();
-//                            qDebug() << "Adding points!";
-//                            curr_p->addPoints(5); //winner gets 10 points, other players get 5
-//                            auto player_vec = board_->get_player_vec();
-//                                // player 1 is first in vector
-//                                for (auto p: player_vec) {
-//                                    p->addPoints(5);
-//                                }
-//                            out = true;
-//                            break;//break out of looping through players
-//                        }
-//                        //if there is no winner, check if the board is full
-//                        out = board_->boardFull();
-//                        if(out){
-//                            QMessageBox msgBox2;
-//                            msgBox2.setText("Board is full; round over!");
-//                            msgBox2.exec();
-//                        }
-//                    }
-//                }
-////                if current player wins, we move on to the shop
-//            }
-
-//        }
-
-
-//        //at the end of the round, proceed to shopping
-//        ui->stackedWidget->setCurrentIndex(2);
-//        // set menu items invisible
-//        ui->menuLeaderboard->setTitle("");
-//        ui->menuLeaderboard->setDisabled(true);
-//        ui->menuEnd_Game->setTitle("");
-//        ui->menuEnd_Game->setDisabled(true);
-//        qDebug() << "Number of players" <<board_->getNumPlayers();
-
-//        qDebug() << "Round over. Switching to shopping screen.";
-
-//        // each player gets to shop
-//        for(int h=0; h<board_->getNumPlayers(); h++){
-//            qDebug() << "Player " << h << "'s turn to shop";
-//            Player *p = this->board_->getPlayer(h);//get player
-
-//            int player_points = p->getPoints();
-//            //update player string label
-//            auto player_vec = board_->get_player_vec();
-
-//            if(h == 0){//player 1 is shopping
-//                // updates curr player label to shopping
-
-//                QString str1 = "P1: " + QString::number(board_->getPlayer(0)->getPoints()) + "pts [shopping]";
-//                ui->p1_pts->setText(str1);
-//                QString str2 = "P2: " + QString::number(board_->getPlayer(1)->getPoints()) + "pts";
-//                ui->p2_pts->setText(str1);
-//                try {
-//                    Player* player = board_->get_player_vec().at(2);
-//                    int pts = player->getPoints();
-//                    QString str1 = "P3: " + QString::number(pts) + "pts";
-//                    ui->p3_pts->setText(str1);
-//                }  catch (std::out_of_range const& exc) {
-//                    continue;
-//                }
-//            }else if(h == 1){//player 2 is shopping
-
-//                QString str1 = "P1: " + QString::number(board_->getPlayer(0)->getPoints()) + "pts";
-//                ui->p1_pts->setText(str1);
-//                QString str2 = "P2: " + QString::number(board_->getPlayer(1)->getPoints()) + "pts[shopping]";
-//                ui->p2_pts->setText(str1);
-//                try {
-//                    Player* player = board_->get_player_vec().at(2);
-//                    int pts = player->getPoints();
-//                    QString str1 = "P3: " + QString::number(pts) + "pts";
-//                    ui->p3_pts->setText(str1);
-//                }  catch (std::out_of_range const& exc) {
-//                    continue;
-//                }
-//            }else if (h == 3){
-
-//                QString str1 = "P1: " + QString::number(board_->getPlayer(0)->getPoints()) + "pts";
-//                ui->p1_pts->setText(str1);
-//                QString str2 = "P2: " + QString::number(board_->getPlayer(1)->getPoints()) + "pts";
-//                ui->p2_pts->setText(str1);
-//                QString str3 = "P3: " + QString::number(board_->getPlayer(2)->getPoints()) + "pts [shopping]";
-//                ui->p3_pts->setText(str1);
-
-//            }
-//            //actual shopping/buying will be triggered by the buy button
-
-//            //wait for either buy button to continue onto the next shopper
-//            qDebug() << "Waiting for Signal!";
-
-//            int dont_care = recieve_buy_signal(); // slot
-//            qDebug() << dont_care;
-//        }
-//    //wait for next round button to continue onto next round
-
-//    }
-//}
-
 
 ////////////////////////////////////////////////// BOARD //////////////////////////////////////////////////
 // Use QGridLayout
@@ -779,10 +515,10 @@ void MainBoard::on_board_shopButton_clicked()
 void MainBoard::on_column_1_clicked()
 {
     qDebug() << "column 1 clicked";
-        ui->column_7->setStyleSheet("background-color: transparent");
+        ui->column_1->setStyleSheet("background-color: transparent");
         //drop chip on this column
-        this->board_->drop_chip(0);
-        ui->column_7->update();
+        //this->board_->drop_chip(0);
+        ui->column_1->update();
 
         //emit signal that chip is dropped
 //        Player* curr_p = board_->get_curr_player();
@@ -793,10 +529,10 @@ void MainBoard::on_column_1_clicked()
 void MainBoard::on_column_2_clicked()
 {
     qDebug() << "column 2 clicked";
-    ui->column_7->setStyleSheet("background-color: transparent");
+    ui->column_2->setStyleSheet("background-color: transparent");
     //drop chip on this column
-    this->board_->drop_chip(1);
-    ui->column_7->update();
+    //this->board_->drop_chip(1);
+    ui->column_2->update();
 
     //emit signal that chip is dropped
 //    Player* curr_p = board_->get_curr_player();
@@ -807,10 +543,10 @@ void MainBoard::on_column_2_clicked()
 void MainBoard::on_column_3_clicked()
 {
     qDebug() << "column 3 clicked";
-    ui->column_7->setStyleSheet("background-color: transparent");
+    ui->column_3->setStyleSheet("background-color: transparent");
     //drop chip on this column
-    this->board_->drop_chip(2);
-    ui->column_7->update();
+    //this->board_->drop_chip(2);
+    ui->column_3->update();
 
     //emit signal that chip is dropped
 //    Player* curr_p = board_->get_curr_player();
@@ -821,10 +557,10 @@ void MainBoard::on_column_3_clicked()
 void MainBoard::on_column_4_clicked()
 {
     qDebug() << "column 4 clicked";
-    ui->column_7->setStyleSheet("background-color: transparent");
+    ui->column_4->setStyleSheet("background-color: transparent");
     //drop chip on this column
-    this->board_->drop_chip(3);
-    ui->column_7->update();
+    //this->board_->drop_chip(3);
+    ui->column_4->update();
 
     //emit signal that chip is dropped
 //    Player* curr_p = board_->get_curr_player();
@@ -835,10 +571,10 @@ void MainBoard::on_column_4_clicked()
 void MainBoard::on_column_5_clicked()
 {
     qDebug() << "column 5 clicked";
-    ui->column_7->setStyleSheet("background-color: transparent");
+    ui->column_5->setStyleSheet("background-color: transparent");
     //drop chip on this column
-    this->board_->drop_chip(4);
-    ui->column_7->update();
+    //this->board_->drop_chip(4);
+    ui->column_5->update();
 
     //emit signal that chip is dropped
 //    Player* curr_p = board_->get_curr_player();
@@ -849,10 +585,10 @@ void MainBoard::on_column_5_clicked()
 void MainBoard::on_column_6_clicked()
 {
     qDebug() << "column 6 clicked";
-    ui->column_7->setStyleSheet("background-color: transparent");
+    ui->column_6->setStyleSheet("background-color: transparent");
     //drop chip on this column
-    this->board_->drop_chip(5);
-    ui->column_7->update();
+    //this->board_->drop_chip(5);
+    ui->column_6->update();
 
     //emit signal that chip is dropped
 //    Player* curr_p = board_->get_curr_player();
@@ -865,7 +601,7 @@ void MainBoard::on_column_7_clicked()
     qDebug() << "column 7 clicked";
     ui->column_7->setStyleSheet("background-color: transparent");
     //drop chip on this column
-    this->board_->drop_chip(6);
+    //this->board_->drop_chip(6);
     ui->column_7->update();
 
     //emit signal that chip is dropped
@@ -887,6 +623,10 @@ void MainBoard::on_store_nextRoundButton_clicked()
     ui->menuEnd_Game->setTitle("End Game");
     ui->menuEnd_Game->setDisabled(false);
     qDebug() << "Shopping finished... Starting next round...";
+
+    round_trakcer_++; //increment round - start at 0
+    qDebug() << "Round # " << round_trakcer_ + 1;
+    next_turn();//go on to next turn
 }
 
 void MainBoard::on_buy_upgrade_clicked()

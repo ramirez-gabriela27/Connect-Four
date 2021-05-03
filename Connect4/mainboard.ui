@@ -36,7 +36,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="mainmenu">
      <widget class="QLabel" name="MainMenu_label">
@@ -49,7 +49,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Main Menu (Insert Image Here)</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;CONNECT 4&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QPushButton" name="doneButton">
@@ -405,11 +405,24 @@ rgb(85, 0, 255)
        <string/>
       </property>
      </widget>
+     <widget class="QLabel" name="tracker">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>10</y>
+        <width>67</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Round #1</string>
+      </property>
+     </widget>
+     <zorder>board_shopButton</zorder>
      <zorder>grid_view</zorder>
      <zorder>board_label</zorder>
      <zorder>playerTurnLabel</zorder>
      <zorder>show_player_color</zorder>
-     <zorder>board_shopButton</zorder>
      <zorder>column_1</zorder>
      <zorder>column_2</zorder>
      <zorder>column_3</zorder>
@@ -417,6 +430,7 @@ rgb(85, 0, 255)
      <zorder>column_5</zorder>
      <zorder>column_6</zorder>
      <zorder>column_7</zorder>
+     <zorder>tracker</zorder>
     </widget>
     <widget class="QWidget" name="store">
      <widget class="QPushButton" name="store_nextRoundButton">
@@ -545,7 +559,7 @@ rgb(85, 0, 255)
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuLeaderboard">
