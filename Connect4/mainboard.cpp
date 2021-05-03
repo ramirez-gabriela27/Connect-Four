@@ -484,6 +484,7 @@ int MainBoard::recieve_dropped(int col) {
         c->set_y(row);
         qDebug() << "Column is" << col;
         qDebug() << "Row is " << row;
+
         board_->updateChipColor(col, row, board_->getPlayer(turn_number_)->getColor());
         //update(); ->gotta ge the grid to display and update still
         Chip* temp = new Chip(board_->getPlayer(turn_number_)->getColor());
