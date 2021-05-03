@@ -497,6 +497,7 @@ int MainBoard::recieve_dropped(int col) {
         if (board_->checkWinner(c)){
             qDebug() << "Winner detected!!";
             board_->resetBoard();
+            populateBoard();
 
             for(unsigned int i = 0; i < board_->get_player_vec().size(); i++){
                 board_->get_player_vec()[i]->addPoints(5); //every player gets 5 pts
@@ -515,6 +516,7 @@ int MainBoard::recieve_dropped(int col) {
         }else if(board_->isFull()){
             qDebug() << "Board full returned true";
             board_->resetBoard();
+            populateBoard();
 
             for(unsigned int i = 0; i < board_->get_player_vec().size(); i++){
                 board_->get_player_vec()[i]->addPoints(5); //every player gets 5 pts
@@ -769,3 +771,42 @@ void MainBoard::on_actionEnd_Game_triggered()
 }
 
 
+
+void MainBoard::on_radioButton_3_clicked()
+{
+    //upgrade 1;
+    ui->buy_upgrade->setDisabled(true);
+    QMessageBox msgBox;
+    msgBox.setText("You bought upgrade 1!");
+    msgBox.exec();
+
+    ui->p1_pts->setText("P1");
+    ui->p2_pts->setText("P2[Shopping]");
+    ui->p3_pts->setText("P3");
+}
+
+void MainBoard::on_radioButton_2_clicked()
+{
+    //upgrade 2;
+    ui->buy_upgrade->setDisabled(true);
+    QMessageBox msgBox;
+    msgBox.setText("You bought upgrade 2!");
+    msgBox.exec();
+
+    ui->p1_pts->setText("P1");
+    ui->p2_pts->setText("P2");
+    ui->p3_pts->setText("P3");
+}
+
+void MainBoard::on_radioButton_clicked()
+{
+    //upgrade 2;
+    ui->buy_upgrade->setDisabled(true);
+    QMessageBox msgBox;
+    msgBox.setText("You bought upgrade 3!");
+    msgBox.exec();
+
+    ui->p1_pts->setText("P1");
+    ui->p2_pts->setText("P2");
+    ui->p3_pts->setText("P3");
+}
