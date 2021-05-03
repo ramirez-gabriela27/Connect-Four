@@ -1,5 +1,7 @@
 #include "game.h"
 #include <QMessageBox>
+#define BLOCK_WIDTH 97.285
+#define BLOCK_HEIGHT 73.5
 Board::Board() {
     qDebug() << "Initializing board with chips of white color...";
     for (int h = 0; h < BOARD_WIDTH; h++) {
@@ -172,7 +174,7 @@ bool Board::columnIsFull(int col) {
 
 }
 
-void Board::updateChipDisplay(int w, int h, QColor c){
+void Board::updateChipColor(int w, int h, QColor c){
     qDebug() << "Changing color of chip at (" << w <<","<< h << ")";
     chips_[w][h]->set_color(c);
 }
@@ -184,4 +186,22 @@ void Board::resetBoard(){
         }
     }
     qDebug() << "\n BOARD RESET \n";
+}
+
+void Chip::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+{
+    Q_UNUSED(widget);
+    QBrush b = painter->brush();
+
+    painter->setBrush(QBrush(color_));
+
+    painter->drawRect(x_coord_*BLOCK_WIDTH, y_coord_*BLOCK_HEIGHT ,BLOCK_WIDTH, BLOCK_HEIGHT);
+    painter->setBrush(b);
+    // update the line for setBrush to be this
+
+}
+
+QRectF Chip::boundingRect() const
+{
+    return QRectF(this->get_x(),this->get_y(), 20, 20);
 }

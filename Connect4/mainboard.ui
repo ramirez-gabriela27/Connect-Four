@@ -36,7 +36,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="mainmenu">
      <widget class="QLabel" name="MainMenu_label">
@@ -271,6 +271,9 @@ rgb(85, 0, 255)
       </property>
      </widget>
      <widget class="QLabel" name="board_label">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -299,9 +302,9 @@ rgb(85, 0, 255)
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>110</y>
+        <y>100</y>
         <width>681</width>
-        <height>421</height>
+        <height>441</height>
        </rect>
       </property>
       <property name="backgroundBrush">
@@ -312,6 +315,9 @@ rgb(85, 0, 255)
          <blue>0</blue>
         </color>
        </brush>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
       </property>
      </widget>
      <widget class="QPushButton" name="column_1">
@@ -559,7 +565,7 @@ rgb(85, 0, 255)
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuLeaderboard">
