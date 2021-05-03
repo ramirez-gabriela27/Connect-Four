@@ -101,6 +101,12 @@ private slots:
 
     void on_column_7_clicked();
 
+    void on_radioButton_3_clicked();
+
+    void on_radioButton_2_clicked();
+
+    void on_radioButton_clicked();
+
 public slots:
     void recieve_clear_signal();
 
