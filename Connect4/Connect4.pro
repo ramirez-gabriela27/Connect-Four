@@ -30,6 +30,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 DISTFILES += \
     c4-1.png
-
+    Connect4png.png
 RESOURCES += \
     c4.qrc
