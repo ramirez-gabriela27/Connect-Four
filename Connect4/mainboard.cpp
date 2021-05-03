@@ -11,7 +11,7 @@ MainBoard::MainBoard(QWidget *parent)
 {
     ui->setupUi(this);
     this->setWindowTitle("Connect Four");
-    QGraphicsView * view = ui->grid_view;
+//    QGraphicsView * view = ui->grid_view;
     scene = new QGraphicsScene;
 //    view->setScene(scene);
 //    ui->grid_view->setBackgroundBrush(QBrush(Qt::red, Qt::SolidPattern));
@@ -66,6 +66,8 @@ MainBoard::MainBoard(QWidget *parent)
     ui->column_7->setMask(region);
 
     turn_number_ = 0;
+
+    populateBoard();
 }
 
 MainBoard::~MainBoard()
@@ -222,6 +224,7 @@ void MainBoard::on_doneButton_clicked()
         round_trakcer_ = 0;
         rounds_ = 2*board_->getNumPlayers();
         emit send_rounds(2*board_->getNumPlayers());
+        populateBoard();
 
     }
 }
@@ -475,13 +478,11 @@ int MainBoard::recieve_dropped(int col) {
         int row = board_->getTopChip(col);
         qDebug() << "Top available chip at (" << row << "," << col << ")";
         // update color of chip in board_->chips_ to curr_player_color
-        // updateChipDisplay(x,y,color);
 
         Chip c(board_->getPlayer(turn_number_)->getColor());
         c.set_x(col);
         c.set_y(row);
-        board_->updateChipDisplay(col, row, board_->getPlayer(turn_number_)->getColor());
-
+        board_->updateChipColor(col, row, board_->getPlayer(turn_number_)->getColor());
         //update(); ->gotta ge the grid to display and update still
         if (board_->checkWinner(&c)){
             qDebug() << "Winner detected!!";
@@ -533,7 +534,24 @@ int MainBoard::recieve_dropped(int col) {
 }
 
 ////////////////////////////////////////////////// BOARD //////////////////////////////////////////////////
-// Use QGridLayout
+// Populates the GUI with colored grid
+void MainBoard::populateBoard() {
+    // coords for upper left corner of game board
+//    board_->paintBoard(painter, opti
+//    int x_origin = 40;
+//    int y_origin = 100;
+    QColor c = CHIP_DEFAULT_COLOR;
+
+    for (int h = 0; h < BOARD_HEIGHT; h++) {
+        for (int w = 0; w < BOARD_WIDTH; w++) {
+            Chip* chip = new Chip(c); // override color for testing
+            chip->set_x(w);
+            chip->set_y(h);
+            scene->addItem(chip);
+        }
+    }
+
+}
 
 void MainBoard::on_board_shopButton_clicked()
 {

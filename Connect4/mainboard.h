@@ -29,7 +29,10 @@ public:
     bool getStatsDisplayShow() {return show_;};
 
     void update_curr_player_color();
+    void updateChipDisplay(Chip* c);
+
     void next_turn();
+    void populateBoard();
 
 signals:
 
