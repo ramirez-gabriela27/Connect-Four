@@ -80,34 +80,6 @@ private slots:
 
     void on_actionEnd_Game_triggered();
 
-//    void on_column_1_pressed();
-
-//    void on_column_1_released();
-
-//    void on_column_2_pressed();
-
-//    void on_column_2_released();
-
-//    void on_column_3_pressed();
-
-//    void on_column_4_pressed();
-
-//    void on_column_4_released();
-
-//    void on_column_5_pressed();
-
-//    void on_column_5_released();
-
-//    void on_column_6_released();
-
-//    void on_column_6_pressed();
-
-//    void on_column_7_pressed();
-
-//    void on_column_7_released();
-
-//    void on_column_3_released();
-
     int recieve_buy_signal();
 
     int recieve_dropped(int col);
@@ -135,6 +107,7 @@ public slots:
 
 private:
     int rounds_;
+    int round_trakcer_;
     Ui::MainBoard *ui;
     Board* board_ = nullptr;
     statsDisplay* sd_ = nullptr;

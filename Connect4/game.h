@@ -24,6 +24,7 @@ public:
     int get_y(){return y_coord_;};
 
     QColor get_color(){return color_;};
+    void set_color(QColor c){color_ = c;};
 
 private:
     QColor color_;
@@ -73,7 +74,7 @@ public:
     Player* getPlayer(int i){return players_[i];};
     int getNumPlayers(){return players_.size();};
     void addPlayer(Player* player) {players_.push_back(player);};
-    void drop_chip(int column); //update the bord as well
+//    void drop_chip(int column); //update the bord as well
     bool checkWinner(Chip *c);
     void payoutPlayers();
     bool isFull();
@@ -84,6 +85,10 @@ public:
     Player* get_curr_player(){return curr_player_;};
     std::vector<Player*> get_player_vec() {return players_;};
     bool columnIsFull(int col);
+    int getTopChip(int col);
+    void updateChipDisplay(int x, int y, QColor c);
+
+    void resetBoard();
 
 private:
     QColor curr_color_;

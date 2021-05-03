@@ -18,29 +18,22 @@ Board::Board() {
 }
 
 bool Board::isFull(){
-    for (int h = 0; h < BOARD_HEIGHT; h++) {
-        for (int w = 0; w < BOARD_WIDTH; w++) {
+    for (int h = 0; h < BOARD_WIDTH; h++) {
+        for (int w = 0; w < BOARD_HEIGHT; w++) {
             if(chips_[h][w]->get_color() == CHIP_DEFAULT_COLOR) {
+                qDebug() << "THERE'S STILL SPACE";
                 return false;
-                qDebug() << "hello?";
             }
         }
     }
-    qDebug() << "oopsie";
+    qDebug() << "BOARD IS FULL";
     return true;
-}
-
-void Board::drop_chip(int column){ //update the bord as well
-    qDebug() << "Dropping chip on column "  << column++ << " for player " << get_curr_player()->getName();
-    //drop the chip with whatever current color is
-    //update current player stats
-
 }
 
 //check Horizontal win
 bool check_horizontal_combo(int x, int y, QColor c, std::vector<std::vector<Chip*>> board){
-   int score = 1;
-   int count = 1;
+   int score = 0;
+   int count = 0;
 
    while((x+count >= 0) && (x+count < BOARD_WIDTH)){
       if (board[y][x+count]->get_color() == c){//check left
@@ -62,8 +55,8 @@ bool check_horizontal_combo(int x, int y, QColor c, std::vector<std::vector<Chip
 }
 //check Vertical win
 bool check_vertical_combo(int x, int y, QColor c, std::vector<std::vector<Chip*>> board){
-   int score = 1;
-   int count = 1;
+   int score = 0;
+   int count = 0;
 
    while(y+count >= 0 && y+count < BOARD_HEIGHT){
       if (board[y+count][x]->get_color() == c){//Check Down
@@ -77,8 +70,8 @@ bool check_vertical_combo(int x, int y, QColor c, std::vector<std::vector<Chip*>
 }
 //check horizontal win (SW -> NE diagonal)
 bool check_diagonal_combo_SW_NE(int x, int y, QColor c, std::vector<std::vector<Chip*>> board){
-   int score = 1;
-   int count = 1;
+   int score = 0;
+   int count = 0;
 
    while((y-count >= 0) && (x+count < BOARD_WIDTH)){
       if (board[y-count][x+count]->get_color() == c){//Check SW to NE
@@ -100,8 +93,8 @@ bool check_diagonal_combo_SW_NE(int x, int y, QColor c, std::vector<std::vector<
 }
 //check horizontal win (NW -> SE diagonal)
 bool check_diagonal_combo_NW_SE(int x, int y, QColor c, std::vector<std::vector<Chip*>> board){
-   int score = 1;
-   int count = 1;
+   int score = 0;
+   int count = 0;
 
    while((y+count < BOARD_HEIGHT) && (x+count < BOARD_WIDTH)){
 
@@ -158,6 +151,16 @@ void Board::payoutPlayers(){
 
 }
 
+int Board::getTopChip(int col){
+    auto column = chips_[col];
+    for(unsigned int i = 0; i < column.size(); i++){
+        if(column[i]->get_color() == CHIP_DEFAULT_COLOR){
+            return i;
+        }
+    }
+    return -1;
+}
+
 // checks if the topmost chip is white
 bool Board::columnIsFull(int col) {
     auto column = chips_[col]; // chips_ is 2d chip pointer vector
@@ -167,4 +170,18 @@ bool Board::columnIsFull(int col) {
     else
         return false;
 
+}
+
+void Board::updateChipDisplay(int w, int h, QColor c){
+    qDebug() << "Changing color of chip at (" << w <<","<< h << ")";
+    chips_[w][h]->set_color(c);
+}
+
+void Board::resetBoard(){
+    for (int w = 0; w < BOARD_WIDTH; w++) {
+        for (int h = 0; h < BOARD_HEIGHT; h++) {
+            chips_[w][h]->set_color(CHIP_DEFAULT_COLOR);
+        }
+    }
+    qDebug() << "\n BOARD RESET \n";
 }
