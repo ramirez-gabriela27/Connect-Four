@@ -471,7 +471,6 @@ void MainBoard::next_turn() {
 
 // tests if is valid drop and if winner/draw
 int MainBoard::recieve_dropped(int col) {
-
     if (!board_->columnIsFull(col)) {
         qDebug() << "Dropping chip on column "  << col + 1 << " for player " << board_->get_curr_player()->getName() << "....";
         /// TODO
@@ -491,12 +490,12 @@ int MainBoard::recieve_dropped(int col) {
         temp->set_x(col);
         temp->set_y(BOARD_HEIGHT-row-1);
         scene->addItem(temp);
-
-//        update();
+        scene->update();
+        update();
         if (board_->checkWinner(c)){
             qDebug() << "Winner detected!!";
             board_->resetBoard();
-
+            populateBoard();
             for(unsigned int i = 0; i < board_->get_player_vec().size(); i++){
                 board_->get_player_vec()[i]->addPoints(5); //every player gets 5 pts
             }
@@ -514,6 +513,7 @@ int MainBoard::recieve_dropped(int col) {
         }else if(board_->isFull()){
             qDebug() << "Board full returned true";
             board_->resetBoard();
+            populateBoard();
 
             for(unsigned int i = 0; i < board_->get_player_vec().size(); i++){
                 board_->get_player_vec()[i]->addPoints(5); //every player gets 5 pts
