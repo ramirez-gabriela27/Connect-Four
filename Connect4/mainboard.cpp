@@ -500,9 +500,9 @@ int MainBoard::recieve_dropped(int col) {
 void MainBoard::populateBoard() {
     // coords for upper left corner of game board
 //    board_->paintBoard(painter, opti
-    int x_origin = 40;
-    int y_origin = 100;
-    QColor c(0, 0, 155);
+//    int x_origin = 40;
+//    int y_origin = 100;
+    QColor c = CHIP_DEFAULT_COLOR;
 
     for (int h = 0; h < BOARD_HEIGHT; h++) {
         for (int w = 0; w < BOARD_WIDTH; w++) {
