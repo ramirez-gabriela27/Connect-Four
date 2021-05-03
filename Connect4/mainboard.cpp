@@ -495,7 +495,6 @@ int MainBoard::recieve_dropped(int col) {
         if (board_->checkWinner(c)){
             qDebug() << "Winner detected!!";
             board_->resetBoard();
-            populateBoard();
             for(unsigned int i = 0; i < board_->get_player_vec().size(); i++){
                 board_->get_player_vec()[i]->addPoints(5); //every player gets 5 pts
             }
@@ -505,14 +504,13 @@ int MainBoard::recieve_dropped(int col) {
             QMessageBox msgBox;
             msgBox.setText(board_->get_curr_player()->getName() + " has won this round!");
             msgBox.exec();
-
+            populateBoard();
             on_board_shopButton_clicked();
             //round incremented by shop (next round button clicked)
             //proceed to next round
 
         }else if(board_->isFull()){
             qDebug() << "Board full returned true";
-            board_->resetBoard();
             populateBoard();
 
             for(unsigned int i = 0; i < board_->get_player_vec().size(); i++){
@@ -522,6 +520,7 @@ int MainBoard::recieve_dropped(int col) {
             QMessageBox msgBox;
             msgBox.setText("This round ends in a draw");
             msgBox.exec();
+            board_->resetBoard();
 
             on_board_shopButton_clicked();
             //round incremented by shop (next round button clicked)
