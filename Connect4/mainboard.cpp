@@ -222,6 +222,7 @@ void MainBoard::on_doneButton_clicked()
 
         update_curr_player_color();
         round_trakcer_ = 0;
+        rounds_ = 2*board_->getNumPlayers();
         emit send_rounds(2*board_->getNumPlayers());
         populateBoard();
 
@@ -403,7 +404,35 @@ void MainBoard::update_curr_player_color() {
 
 void MainBoard::next_turn() {
 
-    ui->tracker->setText("Round#" + QString::number(round_trakcer_ + 1));
+    if(round_trakcer_ == rounds_){
+        int min_rounds_won = 0;
+        QString winner_name = "no one!";
+        //find the game winner
+        for(int p = 0; p < board_->getNumPlayers(); p++){
+            if(min_rounds_won < board_->getPlayer(p)->getRoundsWon()){
+                min_rounds_won = board_->getPlayer(p)->getRoundsWon();
+                winner_name = board_->getPlayer(p)->getName();
+            }
+        }
+        QString msg = "All rounds completed. The winner is: " + winner_name;
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Game Over");
+        msgBox.setText(msg);
+        if(msgBox.exec())
+        {
+            qDebug() << "Ending current game session...";
+            //go back to home screen
+            ui->stackedWidget->setCurrentIndex(0);
+            // set menu items invisible
+            ui->menuLeaderboard->setTitle("");
+            ui->menuLeaderboard->setDisabled(true);
+            ui->menuEnd_Game->setTitle("");
+            ui->menuEnd_Game->setDisabled(true);
+            delete this->getBoardRef();
+        }
+    }
+
+    ui->tracker->setText("Round #" + QString::number(round_trakcer_ + 1));
 
     int turn_ahead = turn_number_ + 1;
     if (turn_ahead >= board_->getNumPlayers()) {
@@ -455,7 +484,8 @@ int MainBoard::recieve_dropped(int col) {
         c.set_y(row);
         board_->updateChipColor(col, row, board_->getPlayer(turn_number_)->getColor());
         //update(); ->gotta ge the grid to display and update still
-/*        if (board_->checkWinner(&c)){
+        if (board_->checkWinner(&c)){
+            qDebug() << "Winner detected!!";
             board_->resetBoard();
 
             for(unsigned int i = 0; i < board_->get_player_vec().size(); i++){
@@ -464,17 +494,25 @@ int MainBoard::recieve_dropped(int col) {
             board_->get_curr_player()->addPoints(5); //winner (current player) gets 5 more, 10 total
             board_->get_curr_player()->roundWon();
 
+            QMessageBox msgBox;
+            msgBox.setText(board_->get_curr_player()->getName() + " has won this round!");
+            msgBox.exec();
+
             on_board_shopButton_clicked();
             //round incremented by shop (next round button clicked)
             //proceed to next round
 
-        }else */if(board_->isFull()){
+        }else if(board_->isFull()){
             qDebug() << "Board full returned true";
             board_->resetBoard();
 
             for(unsigned int i = 0; i < board_->get_player_vec().size(); i++){
                 board_->get_player_vec()[i]->addPoints(5); //every player gets 5 pts
             }
+
+            QMessageBox msgBox;
+            msgBox.setText("This round ends in a draw");
+            msgBox.exec();
 
             on_board_shopButton_clicked();
             //round incremented by shop (next round button clicked)
@@ -644,6 +682,7 @@ void MainBoard::on_store_nextRoundButton_clicked()
 
     round_trakcer_++; //increment round - start at 0
     qDebug() << "Round # " << round_trakcer_ + 1;
+
     next_turn();//go on to next turn
 }
 

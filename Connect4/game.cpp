@@ -34,11 +34,11 @@ bool Board::isFull(){
 
 //check Horizontal win
 bool check_horizontal_combo(int x, int y, QColor c, std::vector<std::vector<Chip*>> board){
-   int score = 0;
-   int count = 0;
-
+   int score = 1;
+   int count = 1;
+    qDebug() << "Checking horizontal winner....";
    while((x+count >= 0) && (x+count < BOARD_WIDTH)){
-      if (board[y][x+count]->get_color() == c){//check left
+      if (board[x+count][y]->get_color() == c){//check left
          score++;
          count++;
       }else break;  //If no combo is detected break from the loop
@@ -46,37 +46,49 @@ bool check_horizontal_combo(int x, int y, QColor c, std::vector<std::vector<Chip
 
    count = 1;
    while((x-count < BOARD_WIDTH) && (x-count >=0)){
-      if (board[y][x-count]->get_color() == c){//Check Right
+      if (board[x-count][y]->get_color() == c){//Check Right
          score++;
          count++;
       }else break;  //If no combo is detected break from the loop
    }
 
-   if (score == 4) return true;
-   else return false;
+   if (score == 4){
+       qDebug() << "Horizontal winner found";
+       return true;
+   }else{
+        qDebug() << "No horizontal win";
+        return false;
+   }
 }
+
 //check Vertical win
 bool check_vertical_combo(int x, int y, QColor c, std::vector<std::vector<Chip*>> board){
-   int score = 0;
-   int count = 0;
-
-   while(y+count >= 0 && y+count < BOARD_HEIGHT){
-      if (board[y+count][x]->get_color() == c){//Check Down
+   int score = 1;
+   int count = 1;
+    qDebug() << "Checking vertical winner....";
+   while(y-count >=0){
+      if (board[x][y-count]->get_color() == c){//Check down
          score++;
          count++;
       }else break;  //If no combo is detected break from the loop
    }
 
-   if (score == 4) return true;
-   else return false;
+   if (score == 4){
+       qDebug() << "Vertical winner found";
+       return true;
+   }else{
+        qDebug() << "No vertical win";
+        return false;
+   }
 }
+
 //check horizontal win (SW -> NE diagonal)
 bool check_diagonal_combo_SW_NE(int x, int y, QColor c, std::vector<std::vector<Chip*>> board){
-   int score = 0;
-   int count = 0;
-
+   int score = 1;
+   int count = 1;
+    qDebug() << "Checking diag SW_NE winner....";
    while((y-count >= 0) && (x+count < BOARD_WIDTH)){
-      if (board[y-count][x+count]->get_color() == c){//Check SW to NE
+      if (board[x+count][y-count]->get_color() == c){//Check SW to NE
          score++;
          count++;
       }else break;  //If no combo is detected break from the loop
@@ -84,24 +96,29 @@ bool check_diagonal_combo_SW_NE(int x, int y, QColor c, std::vector<std::vector<
 
    count = 1;
    while((y+count < BOARD_HEIGHT) && (x-count >=0)){
-      if (board[y+count][x-count]->get_color() == c){//Check NE to SW
+      if (board[x-count][y+count]->get_color() == c){//Check NE to SW
          score++;
          count++;
       }else break;  //If no combo is detected break from the loop
    }
 
-   if (score == 4) return true;
-   else return false;
+   if (score == 4){
+       qDebug() << "diagonal SW_NE winner found";
+       return true;
+   }else{
+        qDebug() << "No diagonal SW_NE win";
+        return false;
+   }
 }
 //check horizontal win (NW -> SE diagonal)
 bool check_diagonal_combo_NW_SE(int x, int y, QColor c, std::vector<std::vector<Chip*>> board){
-   int score = 0;
-   int count = 0;
-
+   int score = 1;
+   int count = 1;
+    qDebug() << "Checking diag NW_SE winner....";
    while((y+count < BOARD_HEIGHT) && (x+count < BOARD_WIDTH)){
 
 
-      if (board[y+count][x+count]->get_color() == c){//Check NW to SE
+      if (board[x+count][y+count]->get_color() == c){//Check NW to SE
          score++;
          count++;
       }else break;  //If no combo is detected break from the loop
@@ -109,17 +126,21 @@ bool check_diagonal_combo_NW_SE(int x, int y, QColor c, std::vector<std::vector<
 
    count = 1;
    while((y-count >= 0) && (x-count >=0)){
-//       qDebug() << "y-count"<< y-count;
-//       qDebug() << "x-count"<< x-count;
-      if (board[y-count][x-count]->get_color() == c){//Check SE to NW
+      if (board[x-count][y-count]->get_color() == c){//Check SE to NW
          score++;
          count++;
       }else break;  //If no combo is detected break from the loop
    }
 
-   if (score == 4) return true;
-   else return false;
+   if (score == 4){
+       qDebug() << "diagonal NW_SE winner found";
+       return true;
+   }else{
+        qDebug() << "No diagonal NW_SE win";
+        return false;
+   }
 }
+
 //resources for checking for winner: https://gummianime.tripod.com/tutorials/connect4.txt
 bool Board::checkWinner(Chip *c){
     QColor color = c->get_color();

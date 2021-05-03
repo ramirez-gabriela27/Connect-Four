@@ -56,6 +56,7 @@ public:
     QString getName() {return name_;};
     std::vector<stock> getInventory() {return player_inventory_;};
     int getChipCount() {return chip_count_;};
+    int getRoundsWon() {return rounds_won_;};
 
     //functions
     void useItem(stock item);
