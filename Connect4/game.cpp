@@ -58,13 +58,14 @@ bool check_horizontal_combo(int x, int y, QColor c, std::vector<std::vector<Chip
         return false;
    }
 }
+
 //check Vertical win
 bool check_vertical_combo(int x, int y, QColor c, std::vector<std::vector<Chip*>> board){
    int score = 1;
    int count = 1;
     qDebug() << "Checking vertical winner....";
-   while(y+count >= 0 && y+count < BOARD_HEIGHT){
-      if (board[x][y+count]->get_color() == c){//Check Down
+   while(y-count >=0){
+      if (board[x][y-count]->get_color() == c){//Check down
          score++;
          count++;
       }else break;  //If no combo is detected break from the loop
@@ -78,6 +79,7 @@ bool check_vertical_combo(int x, int y, QColor c, std::vector<std::vector<Chip*>
         return false;
    }
 }
+
 //check horizontal win (SW -> NE diagonal)
 bool check_diagonal_combo_SW_NE(int x, int y, QColor c, std::vector<std::vector<Chip*>> board){
    int score = 1;
