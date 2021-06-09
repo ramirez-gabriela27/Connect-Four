@@ -49,6 +49,7 @@ public:
     void addPoints(int points) {points_ += points;};
     void setName(QString name) {name_ = name;};
     void addItem(stock item) {player_inventory_.push_back(item);};
+    void setID(int id) {player_id_ = id;};
 
     // getters
     QColor getColor() {return color_;};
@@ -57,6 +58,7 @@ public:
     std::vector<stock> getInventory() {return player_inventory_;};
     int getChipCount() {return chip_count_;};
     int getRoundsWon() {return rounds_won_;};
+    int getID() {return player_id_;};
 
     //functions
     void useItem(stock item);
@@ -64,6 +66,7 @@ public:
     void roundWon(){rounds_won_++;};
 
 private:
+    int player_id_;
     int points_;
     QString name_;
     QColor color_;

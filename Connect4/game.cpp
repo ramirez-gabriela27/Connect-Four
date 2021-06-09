@@ -1,7 +1,7 @@
 #include "game.h"
 #include <QMessageBox>
-#define BLOCK_WIDTH 97.285
-#define BLOCK_HEIGHT 73.5
+#define BLOCK_WIDTH 97
+#define BLOCK_HEIGHT 73
 Board::Board() {
     qDebug() << "Initializing board with chips of white color...";
     for (int h = 0; h < BOARD_WIDTH; h++) {

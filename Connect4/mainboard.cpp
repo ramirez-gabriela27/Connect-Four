@@ -4,6 +4,7 @@
 #include <QColorDialog>
 #include <QMessageBox>
 #include <QRegion>
+#include <stdexcept>
 
 MainBoard::MainBoard(QWidget *parent)
     : QMainWindow(parent)
@@ -113,18 +114,18 @@ void MainBoard::on_doneButton_clicked()
         switch (i) {
         // case player 1 enabled
         case 0:
-            name_sentry += int(emit on_p1_name_editingFinished());
-            color_sentry += int(emit on_p1_color_editingFinished());
+            name_sentry += int(on_p1_name_editingFinished());
+            color_sentry += int(on_p1_color_editingFinished());
             break;
         // case player 2 enabled
         case 1:
-            name_sentry += int(emit on_p2_name_editingFinished());
-            color_sentry += int(emit on_p2_color_editingFinished());
+            name_sentry += int(on_p2_name_editingFinished());
+            color_sentry += int(on_p2_color_editingFinished());
             break;
         // case player 3 enabled
         case 2:
-            name_sentry += int(emit on_p3_name_editingFinished());
-            color_sentry += int(emit on_p3_color_editingFinished());
+            name_sentry += int(on_p3_name_editingFinished());
+            color_sentry += int(on_p3_color_editingFinished());
             break;
         }
     }
@@ -180,6 +181,7 @@ void MainBoard::on_doneButton_clicked()
 //            p1->addPoints(19);
             // set player 1 name from ui->p1_name
             p1->setName(ui->p1_name->text());
+            p1->setID(1); // player 1
             board->addPlayer(p1);
             emit update_p1_name(ui->p1_name->text());
             emit update_p1_points(p1->getPoints());
@@ -192,7 +194,7 @@ void MainBoard::on_doneButton_clicked()
 
             // set player 2 name from ui->p2_name
             p2->setName(ui->p2_name->text());
-
+            p2->setID(2); // player 2
             board->addPlayer(p2);
             emit update_p2_name(ui->p2_name->text());
             emit update_p2_points(p2->getPoints());
@@ -205,7 +207,7 @@ void MainBoard::on_doneButton_clicked()
 
             // set player 3 name from ui->p3_name
             p3->setName(ui->p3_name->text());
-
+            p3->setID(3); // player 3
             board->addPlayer(p3);
             emit update_p3_name(ui->p3_name->text());
             qDebug() << "Player 3 points: " << p3->getPoints();
@@ -358,7 +360,7 @@ void MainBoard::on_p1_comboBox_currentIndexChanged(int index)
     if (index == 1)
     {
         ui->p1_name->setEnabled(true);
-        emit on_p1_name_editingFinished();
+        on_p1_name_editingFinished();
     }
     else if (index == 0)
     {
@@ -372,7 +374,7 @@ void MainBoard::on_p2_comboBox_currentIndexChanged(int index)
     if (index == 1)
     {
         ui->p2_name->setEnabled(true);
-        emit on_p2_name_editingFinished();
+        on_p2_name_editingFinished();
     }
     else if (index == 0)
     {
@@ -386,7 +388,7 @@ void MainBoard::on_p3_comboBox_currentIndexChanged(int index)
     if (index == 1)
     {
         ui->p3_name->setEnabled(true);
-        emit on_p3_name_editingFinished();
+        on_p3_name_editingFinished();
     }
     else if (index == 0)
     {
@@ -504,11 +506,25 @@ int MainBoard::recieve_dropped(int col) {
         if (board_->checkWinner(c)){
             qDebug() << "Winner detected!!";
             board_->resetBoard();
-            for(unsigned int i = 0; i < board_->get_player_vec().size(); i++){
-                board_->get_player_vec()[i]->addPoints(5); //every player gets 5 pts
-
-            }
             board_->get_curr_player()->addPoints(5); //winner (current player) gets 5 more, 10 total
+
+            for(unsigned int i = 0; i < board_->get_player_vec().size(); i++){
+                Player* p = board_->get_player_vec()[i];
+                p->addPoints(5); //every player gets 5 pts
+                switch(p->getID()) {
+                case 1:
+                    emit update_p1_points(p->getPoints());
+                    break;
+                case 2:
+                    emit update_p2_points(p->getPoints());
+                    break;
+                case 3:
+                    emit update_p3_points(p->getPoints());
+                    break;
+                default: throw std::range_error("player ID does not exist");
+
+                }
+            }
             board_->get_curr_player()->roundWon();
 
             QMessageBox msgBox;
@@ -516,6 +532,11 @@ int MainBoard::recieve_dropped(int col) {
             msgBox.exec();
             populateBoard();
             on_board_shopButton_clicked();
+
+            //update leaderboard
+
+
+
             //round incremented by shop (next round button clicked)
             //proceed to next round
 

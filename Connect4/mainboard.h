@@ -34,6 +34,18 @@ public:
     void next_turn();
     void populateBoard();
 
+    bool on_p1_name_editingFinished();
+
+    bool on_p2_name_editingFinished();
+
+    bool on_p3_name_editingFinished();
+
+    bool on_p1_color_editingFinished();
+
+    bool on_p2_color_editingFinished();
+
+    bool on_p3_color_editingFinished();
+
 signals:
 
     void send_rounds(int rounds_);
@@ -67,18 +79,6 @@ private slots:
     void on_p2_comboBox_currentIndexChanged(int index);
 
     void on_p3_comboBox_currentIndexChanged(int index);
-
-    bool on_p1_name_editingFinished();
-
-    bool on_p2_name_editingFinished();
-
-    bool on_p3_name_editingFinished();
-
-    bool on_p1_color_editingFinished();
-
-    bool on_p2_color_editingFinished();
-
-    bool on_p3_color_editingFinished();
 
     void on_board_shopButton_clicked();
 
