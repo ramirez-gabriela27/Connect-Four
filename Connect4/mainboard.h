@@ -121,7 +121,7 @@ public slots:
 
 private:
     int rounds_;
-    int round_trakcer_;
+    int round_tracker_;
     Ui::MainBoard *ui;
     Board* board_ = nullptr;
     statsDisplay* sd_ = nullptr;

@@ -11,8 +11,9 @@
 #define BOARD_WIDTH 7
 #define BOARD_HEIGHT 6
 #define CHIP_DEFAULT_COLOR QColor(255, 255, 255)
-
-enum class stock{ RemoveOpponentPiece, ExtraTurn, SwitchPiece, ExtraFivePts, DoublePts, TriplePts };
+// extra 10 points for end of next round. costs 5
+// double points
+enum class stock{ RemoveOpponentPiece, ExtraTurn, SwitchPiece, ExtraTenPts, DoublePts, TriplePts };
 
 class Chip : public QGraphicsItem{
 

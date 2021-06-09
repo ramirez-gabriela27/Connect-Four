@@ -81,7 +81,7 @@ MainBoard::~MainBoard()
 }
 
 
-////////////////////////////////////////////////// MAIN MENU //////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////// MAIN MENU /////////////////////////////////////////////////////////////////////
 
 
 void MainBoard::on_doneButton_clicked()
@@ -229,7 +229,7 @@ void MainBoard::on_doneButton_clicked()
         board_ = board;
 
         update_curr_player_color();
-        round_trakcer_ = 0;
+        round_tracker_ = 0;
         rounds_ = 2*board_->getNumPlayers();
         emit send_rounds(2*board_->getNumPlayers());
         populateBoard();
@@ -397,7 +397,7 @@ void MainBoard::on_p3_comboBox_currentIndexChanged(int index)
     }
 }
 
-////////////////////////////////////////////////// GAMEPLAY //////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////// GAMEPLAY /////////////////////////////////////////////////////////////////////
 void MainBoard::update_curr_player_color() {
     QString qss = QString("background-color: %1").arg(board_->get_curr_color().name());
     ui->column_1->setStyleSheet(qss);
@@ -412,7 +412,7 @@ void MainBoard::update_curr_player_color() {
 
 void MainBoard::next_turn() {
 
-    if(round_trakcer_ == rounds_){
+    if(round_tracker_ == rounds_){
         int min_rounds_won = 0;
         QString winner_name = "no one!";
         //find the game winner
@@ -437,10 +437,15 @@ void MainBoard::next_turn() {
             ui->menuEnd_Game->setTitle("");
             ui->menuEnd_Game->setDisabled(true);
             delete this->getBoardRef();
+            round_tracker_ = 0;
+            return;
         }
     }
 
-    ui->tracker->setText("Round #" + QString::number(round_trakcer_ + 1));
+    if (round_tracker_ + 1 == 4)
+        ui->tracker->setText("Final Round!");
+    else
+        ui->tracker->setText("Round #" + QString::number(round_tracker_ + 1));
 
     int turn_ahead = turn_number_ + 1;
     if (turn_ahead >= board_->getNumPlayers()) {
@@ -533,7 +538,7 @@ int MainBoard::recieve_dropped(int col) {
             populateBoard();
             on_board_shopButton_clicked();
 
-            //update leaderboard
+            //show leaderboard
 
 
 
@@ -572,7 +577,7 @@ int MainBoard::recieve_dropped(int col) {
     }
 }
 
-////////////////////////////////////////////////// BOARD //////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////// BOARD /////////////////////////////////////////////////////////////////////
 // Populates the GUI with colored grid
 void MainBoard::populateBoard() {
     // coords for upper left corner of game board
@@ -705,7 +710,7 @@ void MainBoard::on_column_7_clicked()
     emit chip_dropped(6);
 }
 
-////////////////////////////////////////////////// STORE //////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////// STORE /////////////////////////////////////////////////////////////////////
 
 
 void MainBoard::on_store_nextRoundButton_clicked()
@@ -719,8 +724,8 @@ void MainBoard::on_store_nextRoundButton_clicked()
     ui->menuEnd_Game->setDisabled(false);
     qDebug() << "Shopping finished... Starting next round...";
 
-    round_trakcer_++; //increment round - start at 0
-    qDebug() << "Round # " << round_trakcer_ + 1;
+    round_tracker_++; //increment round - start at 0
+    qDebug() << "Round # " << round_tracker_ + 1;
 
     next_turn();//go on to next turn
 }
@@ -756,7 +761,7 @@ int MainBoard::recieve_buy_signal() {
     return 1;
 }
 
-////////////////////////////////////////////////// LEADERBOARD //////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////// LEADERBOARD /////////////////////////////////////////////////////////////////////
 
 void MainBoard::recieve_clear_signal() {
     this->setStatsDisplayShow(false);
