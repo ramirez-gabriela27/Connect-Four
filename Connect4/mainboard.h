@@ -38,9 +38,14 @@ signals:
 
     void send_rounds(int rounds_);
 
-    void send_p1_name(QString name);
-    void send_p2_name(QString name);
-    void send_p3_name(QString name);
+    void update_p1_name(QString name);
+    void update_p2_name(QString name);
+    void update_p3_name(QString name);
+
+    void update_p1_points(int pts);
+    void update_p2_points(int pts);
+    void update_p3_points(int pts);
+
 
     void clear_leaderboard();
     void buy_signal();

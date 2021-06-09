@@ -42,14 +42,23 @@ void statsDisplay::recieve_p1_name(QString name) {
 
 void statsDisplay::recieve_p2_name(QString name) {
     ui->name_p2->setText("P2: "+name);
-
 }
 
 void statsDisplay::recieve_p3_name(QString name) {
     ui->name_p3->setText("P3: "+name);
-
 }
 
+void statsDisplay::recieve_p1_points(int pts) {
+    ui->pts_p1->setText("Points: " + QString::number(pts));
+}
+
+void statsDisplay::recieve_p2_points(int pts) {
+    ui->pts_p2->setText("Points: " + QString::number(pts));
+}
+
+void statsDisplay::recieve_p3_points(int pts) {
+    ui->pts_p3->setText("Points: " + QString::number(pts));
+}
 
 void statsDisplay::clear_leaderboard() {
     ui->name_p1->setText("P1: N/A");

@@ -45,9 +45,13 @@ MainBoard::MainBoard(QWidget *parent)
     this->setStatsDisplayPtr(sd);
     connect(sd, &statsDisplay::clear_show_signal, this, &MainBoard::recieve_clear_signal);
     connect(this, &MainBoard::send_rounds, sd, &statsDisplay::get_rounds);
-    connect(this, &MainBoard::send_p1_name, sd, &statsDisplay::recieve_p1_name);
-    connect(this, &MainBoard::send_p2_name, sd, &statsDisplay::recieve_p2_name);
-    connect(this, &MainBoard::send_p3_name, sd, &statsDisplay::recieve_p3_name);
+    connect(this, &MainBoard::update_p1_name, sd, &statsDisplay::recieve_p1_name);
+    connect(this, &MainBoard::update_p2_name, sd, &statsDisplay::recieve_p2_name);
+    connect(this, &MainBoard::update_p3_name, sd, &statsDisplay::recieve_p3_name);
+
+    connect(this, &MainBoard::update_p1_points, sd, &statsDisplay::recieve_p1_points);
+    connect(this, &MainBoard::update_p2_points, sd, &statsDisplay::recieve_p2_points);
+    connect(this, &MainBoard::update_p3_points, sd, &statsDisplay::recieve_p3_points);
 
     connect(this, &MainBoard::clear_leaderboard, sd, &statsDisplay::clear_leaderboard);
 
@@ -173,11 +177,12 @@ void MainBoard::on_doneButton_clicked()
         if (ui->p1_comboBox->currentIndex() == 1) {
             Player* p1 = new Player(ui->p1_color->palette().color(QPalette::Button));
             qDebug() << "Adding Player 1...";
-            p1->addPoints(19);
+//            p1->addPoints(19);
             // set player 1 name from ui->p1_name
             p1->setName(ui->p1_name->text());
             board->addPlayer(p1);
-            emit send_p1_name(ui->p1_name->text());
+            emit update_p1_name(ui->p1_name->text());
+            emit update_p1_points(p1->getPoints());
         }
 
         // create Player 2 object here
@@ -189,8 +194,8 @@ void MainBoard::on_doneButton_clicked()
             p2->setName(ui->p2_name->text());
 
             board->addPlayer(p2);
-            emit send_p2_name(ui->p2_name->text());
-
+            emit update_p2_name(ui->p2_name->text());
+            emit update_p2_points(p2->getPoints());
         }
 
         // create player 3 object here
@@ -202,8 +207,9 @@ void MainBoard::on_doneButton_clicked()
             p3->setName(ui->p3_name->text());
 
             board->addPlayer(p3);
-            emit send_p3_name(ui->p3_name->text());
-
+            emit update_p3_name(ui->p3_name->text());
+            qDebug() << "Player 3 points: " << p3->getPoints();
+            emit update_p3_points(p3->getPoints());
         }
         // set created board object pointer to be referenced by mainboard
         this->setBoard(board);
@@ -473,7 +479,6 @@ void MainBoard::next_turn() {
 int MainBoard::recieve_dropped(int col) {
     if (!board_->columnIsFull(col)) {
         qDebug() << "Dropping chip on column "  << col + 1 << " for player " << board_->get_curr_player()->getName() << "....";
-        /// TODO
         int row = board_->getTopChip(col);
 
         qDebug() << "Top available chip at (" << row << "," << col << ")";
@@ -490,13 +495,18 @@ int MainBoard::recieve_dropped(int col) {
         temp->set_x(col);
         temp->set_y(BOARD_HEIGHT-row-1);
         scene->addItem(temp);
+
+        // update board display
         scene->update();
         update();
+
+        // if winner is detected
         if (board_->checkWinner(c)){
             qDebug() << "Winner detected!!";
             board_->resetBoard();
             for(unsigned int i = 0; i < board_->get_player_vec().size(); i++){
                 board_->get_player_vec()[i]->addPoints(5); //every player gets 5 pts
+
             }
             board_->get_curr_player()->addPoints(5); //winner (current player) gets 5 more, 10 total
             board_->get_curr_player()->roundWon();
