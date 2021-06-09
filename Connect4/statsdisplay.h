@@ -28,6 +28,12 @@ public slots:
 
     void recieve_p3_name(QString name);
 
+    void recieve_p1_points(int pts);
+
+    void recieve_p2_points(int pts);
+
+    void recieve_p3_points(int pts);
+
     void get_rounds(int rounds);
 
     void clear_leaderboard();
